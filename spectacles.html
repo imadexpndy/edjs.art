@@ -2397,13 +2397,10 @@
         const spectaclesGrid = document.querySelector('.spectacles-grid');
 
         if (professionalBtn) {
-            professionalBtn.addEventListener('click', () => {
-                // Trigger login modal for professionals
-                if (typeof authManager !== 'undefined' && authManager.showAuthModal) {
-                    authManager.showAuthModal('login');
-                } else {
-                    console.error('Auth manager not available');
-                }
+            professionalBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Redirect to Hello Planet app
+                window.location.href = 'https://app.edjs.art/';
             });
         }
 
