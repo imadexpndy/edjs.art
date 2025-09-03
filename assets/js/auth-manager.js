@@ -265,7 +265,7 @@ class AuthManager {
           window.open(`${this.helloPlanetUrl}/reservation/${spectacleId}`, '_blank');
         };
       } else {
-        button.textContent = 'Se connecter pour réserver';
+        button.textContent = 'Réserver';
         button.onclick = () => {
           // Add return URL to redirect back after login
           const returnUrl = encodeURIComponent(window.location.href);
