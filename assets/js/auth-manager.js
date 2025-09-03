@@ -256,7 +256,8 @@ class AuthManager {
           const authUrl = `${this.helloPlanetUrl}/auth?return_url=${returnUrl}`;
           console.log('EDJS - Redirecting to:', authUrl);
           console.log('EDJS - Return URL:', window.location.href);
-          window.open(authUrl, '_blank');
+          console.log('EDJS - Encoded return URL:', returnUrl);
+          window.location.href = authUrl; // Use same tab instead of new tab
         };
       }
     });
