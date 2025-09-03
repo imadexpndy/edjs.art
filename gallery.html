@@ -59,10 +59,24 @@
 
     /* Gallery Hero Section */
     .gallery-hero {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      background-image: url('assets/img/Dans_la_peau_de_Cyrano_Web_027.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       padding: 120px 0 80px;
       position: relative;
       overflow: hidden;
+    }
+
+    .gallery-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
 
     .gallery-hero::before {
@@ -80,7 +94,7 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      color: white;
+      color: white !important;
     }
 
     .hero-title {
@@ -89,6 +103,7 @@
       font-weight: 700;
       margin-bottom: 1rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      color: white !important;
     }
 
     .hero-subtitle {
@@ -98,6 +113,7 @@
       opacity: 0.9;
       max-width: 600px;
       margin: 0 auto;
+      color: white !important;
     }
 
     /* Gallery Section */
