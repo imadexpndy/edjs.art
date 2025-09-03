@@ -9,17 +9,31 @@ class AuthManager {
       : 'https://app.edjs.art';
   }
 
-  init() {
+  async init() {
     console.log('EDJS - AuthManager init() called');
-    // Check for URL parameter first
-    this.checkUrlParameter();
-    this.checkAuthStatus();
-    // Check auth status every 30 seconds
-    this.checkInterval = setInterval(() => {
-      this.checkAuthStatus();
-    }, 30000);
     
-    // Initialize reservation buttons
+    // Try simple auth check first
+    if (window.SimpleAuth) {
+      const simpleAuth = new window.SimpleAuth();
+      const authStatus = await simpleAuth.init();
+      
+      if (authStatus.isAuthenticated) {
+        console.log('EDJS - User authenticated via SimpleAuth');
+        this.handleAuthResponse({
+          isAuthenticated: true,
+          user: authStatus.user
+        });
+      } else {
+        console.log('EDJS - User not authenticated, checking URL parameters');
+        this.checkUrlParameter();
+      }
+    } else {
+      console.log('EDJS - SimpleAuth not available, checking URL parameters');
+      this.checkUrlParameter();
+    }
+    
+    // Update UI
+    this.updateHeaderUI();
     this.updateReservationButtons();
     console.log('EDJS - AuthManager initialization complete');
   }
