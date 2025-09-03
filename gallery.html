@@ -102,73 +102,77 @@
 
     /* Gallery Section */
     .gallery-section {
-      padding: 80px 0;
-      background: var(--bg-light);
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      min-height: 100vh;
     }
 
     .spectacle-gallery-card {
       background: var(--white);
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: all 0.3s ease;
+      padding: 2rem;
       margin-bottom: 3rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .spectacle-gallery-card:hover {
       transform: translateY(-5px);
-      box-shadow: var(--shadow-hover);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
     .gallery-card-header {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      padding: 2rem;
       text-align: center;
-      position: relative;
+      margin-bottom: 2rem;
     }
 
     .gallery-card-title {
       font-family: 'Amatic SC', cursive;
       font-size: 2.5rem;
       font-weight: 700;
-      color: white;
-      margin: 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
     }
 
     .gallery-card-subtitle {
       font-family: 'Raleway', sans-serif;
-      color: rgba(255,255,255,0.9);
-      font-size: 1rem;
-      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      font-style: italic;
     }
 
-    /* Gallery Slider */
-    .gallery-slider-container {
-      position: relative;
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
       padding: 2rem;
-    }
-
-    .gallery-slider {
+      background: #f8f9fa;
       border-radius: 15px;
-      overflow: hidden;
     }
 
-    .gallery-slide {
+    .gallery-item {
       position: relative;
-      aspect-ratio: 16/10;
+      aspect-ratio: 1;
       overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    .gallery-slide img {
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
 
-    .gallery-slide:hover img {
-      transform: scale(1.05);
+    .gallery-item:hover img {
+      transform: scale(1.1);
     }
 
     .gallery-overlay {
@@ -177,7 +181,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, rgba(189, 207, 0, 0.8) 0%, rgba(139, 154, 0, 0.8) 100%);
+      background: rgba(0,0,0,0.5);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -185,14 +189,28 @@
       transition: opacity 0.3s ease;
     }
 
-    .gallery-slide:hover .gallery-overlay {
+    .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
 
     .gallery-overlay i {
-      font-size: 3rem;
       color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-size: 2rem;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Navigation Arrows */
@@ -338,60 +356,61 @@
           <h2 class="gallery-card-title">Le Petit Prince</h2>
           <p class="gallery-card-subtitle">Un voyage poétique à travers les étoiles</p>
         </div>
-        <div class="gallery-slider-container">
-          <div class="gallery-slider swiper" id="petit-prince-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_007.jpg" alt="Le Petit Prince - Photo 1">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_032.jpg" alt="Le Petit Prince - Photo 2">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_035.jpg" alt="Le Petit Prince - Photo 3">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_074.jpg" alt="Le Petit Prince - Photo 4">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_015.jpg" alt="Le Petit Prince - Photo 5">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_025.jpg" alt="Le Petit Prince - Photo 6">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_040.jpg" alt="Le Petit Prince - Photo 7">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_030.jpg" alt="Le Petit Prince - Photo 1">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
             </div>
           </div>
-          <button class="gallery-nav gallery-nav-prev" id="petit-prince-prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="gallery-nav gallery-nav-next" id="petit-prince-next">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="gallery-counter" id="petit-prince-counter">1 / 7</div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_032.jpg" alt="Le Petit Prince - Photo 2">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_034.jpg" alt="Le Petit Prince - Photo 3">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_039.jpg" alt="Le Petit Prince - Photo 4">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_041.jpg" alt="Le Petit Prince - Photo 5">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_043.jpg" alt="Le Petit Prince - Photo 6">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_050.jpg" alt="Le Petit Prince - Photo 7">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_052.jpg" alt="Le Petit Prince - Photo 8">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Le_Petit_Prince_Web_060.jpg" alt="Le Petit Prince - Photo 9">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -401,60 +420,61 @@
           <h2 class="gallery-card-title">Casse-Noisette</h2>
           <p class="gallery-card-subtitle">Un conte de Noël magique et enchanteur</p>
         </div>
-        <div class="gallery-slider-container">
-          <div class="gallery-slider swiper" id="casse-noisette-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_007.webp" alt="Casse-Noisette - Photo 1">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_013-1024x683.webp" alt="Casse-Noisette - Photo 2">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_017-1024x683.webp" alt="Casse-Noisette - Photo 3">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_020-1024x683.webp" alt="Casse-Noisette - Photo 4">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_025-1024x683.webp" alt="Casse-Noisette - Photo 5">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_028-1024x683.webp" alt="Casse-Noisette - Photo 6">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/edjs img/Casse-Noisette_Web_031-1024x683.webp" alt="Casse-Noisette - Photo 7">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_004.jpg" alt="Casse-Noisette - Photo 1">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
             </div>
           </div>
-          <button class="gallery-nav gallery-nav-prev" id="casse-noisette-prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="gallery-nav gallery-nav-next" id="casse-noisette-next">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="gallery-counter" id="casse-noisette-counter">1 / 7</div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_007.jpg" alt="Casse-Noisette - Photo 2">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_011.jpg" alt="Casse-Noisette - Photo 3">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_013.jpg" alt="Casse-Noisette - Photo 4">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_017.jpg" alt="Casse-Noisette - Photo 5">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_018.jpg" alt="Casse-Noisette - Photo 6">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_027.jpg" alt="Casse-Noisette - Photo 7">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_028.jpg" alt="Casse-Noisette - Photo 8">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Casse-Noisette_Web_035.jpg" alt="Casse-Noisette - Photo 9">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -464,54 +484,55 @@
           <h2 class="gallery-card-title">Tara sur la Lune</h2>
           <p class="gallery-card-subtitle">Une aventure spatiale extraordinaire</p>
         </div>
-        <div class="gallery-slider-container">
-          <div class="gallery-slider swiper" id="tara-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_001.jpg" alt="Tara sur la Lune - Photo 1">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_005.jpg" alt="Tara sur la Lune - Photo 2">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_010.jpg" alt="Tara sur la Lune - Photo 3">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_015.jpg" alt="Tara sur la Lune - Photo 4">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_020.jpg" alt="Tara sur la Lune - Photo 5">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_025.jpg" alt="Tara sur la Lune - Photo 6">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_012.jpg" alt="Tara sur la Lune - Photo 1">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
             </div>
           </div>
-          <button class="gallery-nav gallery-nav-prev" id="tara-prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="gallery-nav gallery-nav-next" id="tara-next">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="gallery-counter" id="tara-counter">1 / 6</div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_020.jpg" alt="Tara sur la Lune - Photo 2">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_024.jpg" alt="Tara sur la Lune - Photo 3">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_025.jpg" alt="Tara sur la Lune - Photo 4">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_032.jpg" alt="Tara sur la Lune - Photo 5">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_041.jpg" alt="Tara sur la Lune - Photo 6">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_044.jpg" alt="Tara sur la Lune - Photo 7">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Tara_Sur_La_Lune_Web_045.jpg" alt="Tara sur la Lune - Photo 8">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -521,113 +542,50 @@
           <h2 class="gallery-card-title">Charlotte</h2>
           <p class="gallery-card-subtitle">Une histoire touchante et pleine d'émotion</p>
         </div>
-        <div class="gallery-slider-container">
-          <div class="gallery-slider swiper" id="charlotte-slider">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Charlotte/Charlotte_Web_001.jpg" alt="Charlotte - Photo 1">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Charlotte/Charlotte_Web_005.jpg" alt="Charlotte - Photo 2">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Charlotte/Charlotte_Web_010.jpg" alt="Charlotte - Photo 3">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Charlotte/Charlotte_Web_015.jpg" alt="Charlotte - Photo 4">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
-              <div class="swiper-slide gallery-slide">
-                <img src="assets/img/gallery/Charlotte/Charlotte_Web_020.jpg" alt="Charlotte - Photo 5">
-                <div class="gallery-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
-              </div>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="assets/img/Les_Trois_Brigands_Web_026.jpg" alt="Charlotte - Photo 1">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
             </div>
           </div>
-          <button class="gallery-nav gallery-nav-prev" id="charlotte-prev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="gallery-nav gallery-nav-next" id="charlotte-next">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-          <div class="gallery-counter" id="charlotte-counter">1 / 5</div>
+          <div class="gallery-item">
+            <img src="assets/img/Les_Trois_Brigands_Web_044.jpg" alt="Charlotte - Photo 2">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Les_Trois_Brigands_Web_061.jpg" alt="Charlotte - Photo 3">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Gretel_Hansel_Web_023.jpg" alt="Charlotte - Photo 4">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Gretel_Hansel_Web_029.jpg" alt="Charlotte - Photo 5">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/img/Gretel_Hansel_Web_033.jpg" alt="Charlotte - Photo 6">
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Footer will be loaded here -->
-  <div id="footer-placeholder"></div>
-
-  <!-- JS Files -->
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js/magnific-popup.min.js"></script>
-  <script src="assets/js/main.js"></script>
-
   <script>
-    // Gallery Sliders Initialization
-    document.addEventListener('DOMContentLoaded', function() {
-      
-      // Initialize each gallery slider
-      const galleries = [
-        { id: 'petit-prince', totalSlides: 7 },
-        { id: 'casse-noisette', totalSlides: 7 },
-        { id: 'tara', totalSlides: 6 },
-        { id: 'charlotte', totalSlides: 5 }
-      ];
-
-      galleries.forEach(gallery => {
-        const swiper = new Swiper(`#${gallery.id}-slider`, {
-          slidesPerView: 1,
-          spaceBetween: 0,
-          loop: true,
-          autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-          },
-          navigation: {
-            nextEl: `#${gallery.id}-next`,
-            prevEl: `#${gallery.id}-prev`,
-          },
-          on: {
-            slideChange: function() {
-              const counter = document.getElementById(`${gallery.id}-counter`);
-              const realIndex = this.realIndex + 1;
-              counter.textContent = `${realIndex} / ${gallery.totalSlides}`;
-            }
-          }
-        });
-      });
-
-      // Magnific Popup for gallery images
-      $('.gallery-slide img').magnificPopup({
-        type: 'image',
-        gallery: {
-          enabled: true
-        },
-        zoom: {
-          enabled: true,
-          duration: 300
-        }
-      });
-
-    });
-
     // VS Balls Implementation
     function buildBallStrip(strip) {
       const STEP = 13.9;
@@ -669,8 +627,161 @@
     window.addEventListener('resize', renderAllStrips);
   </script>
 
+  <!-- Footer -->
+  <div class="vs-footer bg-title">
+    <div class="vs-footer__top z-index-common space-extra-top space-extra-bottom">
+      <div class="container">
+        <div class="row gy-4 gx-xxl-5">
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.25s">
+            <div class="vs-footer__widget">
+              <div class="vs-footer__logo text-center text-md-start mb-25">
+                <a href="/" class="vs-logo">
+                  <img src="assets/img/Asset 2@4x.png" alt="L'École des jeunes spectateurs" style="height: 120px; width: auto; max-width: none !important;">
+                </a>
+              </div>
+              <p class="vs-footer__desc text-center text-md-start" style="color: white;">
+                Chaque élève a l'opportunité de découvrir et d'explorer la richesse des arts de la scène à travers la danse, le théâtre et la musique, qui sont au cœur de notre programme.
+              </p>
+              <div class="icon-call justify-content-center justify-content-md-start pt-10 mb-10">
+                <span class="icon-call__icon"><i class="fa-solid fa-phone-rotary"></i></span>
+                <div class="icon-call__content">
+                  <span class="icon-call__title">support téléphonique</span>
+                  <a href="tel:+212522981085" class="icon-call__number">+212 5 22 98 10 85</a>
+                </div>
+              </div>
+              <div class="social-style social-style--version2 w-100 justify-content-center justify-content-md-start pt-25">
+                <span class="social-style__label">suivez-nous :</span>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.35s">
+            <div class="vs-footer__widget">
+              <h3 class="vs-footer__title" style="color: #cccccc;">Navigation</h3>
+              <div class="vs-footer__menu">
+                <ul class="vs-footer__menu--list">
+                  <li><a href="/">Accueil</a></li>
+                  <li><a href="spectacles.html">Spectacles</a></li>
+                  <li><a href="gallery.html">Galerie</a></li>
+                  <li><a href="partners.html">Partenaires</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.45s">
+            <div class="vs-footer__widget">
+              <h3 class="vs-footer__title" style="color: #cccccc;">GALERIE</h3>
+              <div class="sidebar-gallery" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Les_Trois_Brigands_Web_026.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Les_Trois_Brigands_Web_026.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Casse-Noisette_Web_007.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Casse-Noisette_Web_007.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Le_Petit_Prince_Web_032.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Le_Petit_Prince_Web_032.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Gretel_Hansel_Web_023.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Gretel_Hansel_Web_023.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Dans_la_peau_de_Cyrano_Web_016.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Dans_la_peau_de_Cyrano_Web_016.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Tara_Sur_La_Lune_Web_012.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Tara_Sur_La_Lune_Web_012.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vs-footer__bottom bg-theme-color-1">
+      <div class="container">
+        <div class="row gy-3 gx-5 align-items-center justify-content-center justify-content-lg-between flex-column-reverse flex-lg-row">
+          <div class="col-md-auto">
+            <p class="vs-footer__copyright mb-0" style="color: white;">
+              Copyright © <span id="currentYear"></span>
+              <a href="/">L'École des jeunes spectateurs</a>. Tous droits réservés.
+            </p>
+          </div>
+          <div class="col-md-auto">
+            <ul class="vs-footer__bottom--menu">
+              <li><a href="contact.html">Conditions Générales</a></li>
+              <li><a href="contact.html">Politique de Confidentialité</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--********************************
+			Back To Top  
+	******************************** -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <span class="progress-circle">
+      <svg viewBox="0 0 100 100">
+        <circle class="bg" cx="50" cy="50" r="40"></circle>
+        <circle class="progress" cx="50" cy="50" r="40"></circle>
+      </svg>
+      <span class="progress-percentage" id="progressPercentage">0%</span>
+    </span>
+  </button>
+  
+  <!--==============================
+        All Js File
+    ==============================-->
+  <!-- Jquery -->
+  <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- WOW.js Animation -->
+  <script src="assets/js/wow.min.js"></script>
+  <!-- Magnific Popup -->
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <!-- GSAP -->
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/ScrollTrigger.min.js"></script>
+  <script src="assets/js/gsap-scroll-to-plugin.js"></script>
+  <script src="assets/js/SplitText.js"></script>
+  <script src="assets/js/lenis.min.js"></script>
+  <!-- Swiper Slider -->
+  <script src="assets/js/swiper-bundle.js"></script>
+  <!-- Main Js File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/hero-slider.js"></script>
+
   <!-- Authentication Scripts -->
   <script src="assets/js/supabase-config.js"></script>
   <script src="assets/js/spectacles-auth.js"></script>
+  
+  <script>
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Initialize magnific popup for gallery images
+    $(document).ready(function() {
+      $('.gallery-item img').magnificPopup({
+        type: 'image',
+        gallery: {
+          enabled: true
+        },
+        zoom: {
+          enabled: true,
+          duration: 300
+        }
+      });
+    });
+  </script>
 </body>
 </html>

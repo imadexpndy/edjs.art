@@ -163,18 +163,15 @@ class AuthManager {
         authButtons.style.gap = '15px';
         authButtons.style.alignItems = 'center';
         authButtons.innerHTML = `
-            <a href="http://localhost:8080/auth?mode=register" class="vs-btn" id="registerBtn" style="background: #BDCF00; color: white; border: 2px solid #BDCF00; padding: 10px 20px; border-radius: 25px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-size: 14px; display: inline-block;">
+            <a href="https://app.edjs.art/auth?mode=register" class="vs-btn" id="registerBtn" style="background: #BDCF00; color: white; border: 2px solid #BDCF00; padding: 10px 20px; border-radius: 25px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-size: 14px; display: inline-block;">
                 S'inscrire
             </a>
-            <button class="vs-btn-login" id="loginBtn" style="background: transparent; color: #BDCF00; border: 2px solid #BDCF00; padding: 10px 20px; border-radius: 25px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-size: 14px;">
+            <a href="https://app.edjs.art/" class="vs-btn-login" id="loginBtn" style="background: transparent; color: #BDCF00; border: 2px solid #BDCF00; padding: 10px 20px; border-radius: 25px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; font-size: 14px; display: inline-block;">
                 Se connecter
-            </button>
+            </a>
         `;
 
-        // Add event listener only for login button
-        authButtons.querySelector('#loginBtn').addEventListener('click', () => {
-            this.showLoginModal();
-        });
+        // No event listeners needed - both are now direct links
 
         return authButtons;
     }
