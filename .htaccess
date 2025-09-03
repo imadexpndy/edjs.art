@@ -1,0 +1,41 @@
+RewriteEngine On
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect .html URLs to clean URLs (except for direct file access)
+RewriteCond %{THE_REQUEST} \s/+([^.]+)\.html[\s?] [NC]
+RewriteRule ^ /%1? [NC,L,R=301]
+
+# Handle specific pages
+RewriteRule ^partners/?$ partners.html [NC,L]
+RewriteRule ^spectacles/?$ spectacles.html [NC,L]
+RewriteRule ^spectacle-alice-chez-les-merveilles/?$ spectacle-alice-chez-les-merveilles.html [NC,L]
+RewriteRule ^spectacle-antigone/?$ spectacle-antigone.html [NC,L]
+RewriteRule ^spectacle-casse-noisette/?$ spectacle-casse-noisette.html [NC,L]
+RewriteRule ^spectacle-charlotte/?$ spectacle-charlotte.html [NC,L]
+RewriteRule ^spectacle-estevanico/?$ spectacle-estevanico.html [NC,L]
+RewriteRule ^spectacle-le-petit-prince/?$ spectacle-le-petit-prince.html [NC,L]
+RewriteRule ^spectacle-leau-la/?$ spectacle-leau-la.html [NC,L]
+RewriteRule ^spectacle-lenfant-de-larbre/?$ spectacle-lenfant-de-larbre.html [NC,L]
+RewriteRule ^spectacle-simple-comme-bonjour/?$ spectacle-simple-comme-bonjour.html [NC,L]
+RewriteRule ^spectacle-tara-sur-la-lune/?$ spectacle-tara-sur-la-lune.html [NC,L]
+
+# Force HTTPS (optional, for production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Cache static files
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+</IfModule>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>L'école du jeune spectateur</title>
+  <meta name="author" content="École des Jeunes Spectateurs">
+  <meta name="description" content="Découvrez nos partenaires qui nous accompagnent dans notre mission d'éducation artistique et culturelle pour les enfants.">
+  <meta name="keywords" content="partenaires, École des Jeunes Spectateurs, L'École des jeunes spectateurs, théâtre, éducation, culture, enfants, collaboration">
+  <meta name="robots" content="INDEX,FOLLOW">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png">
+  <link rel="shortcut icon" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png" type="image/png">
+  <link rel="icon" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png" type="image/png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Partners Page Specific Styles */
+    .partners-hero {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partners-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/edjs img/bg-header-home-v2.webp') center/cover;
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .partners-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.2rem;
+      color: #6c757d;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      background: #BDCF00;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-btn:hover {
+      background: #a8b800;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(189, 207, 0, 0.3);
+      color: white;
+      text-decoration: none;
+    }
+
+    .hero-btn.secondary {
+      background: transparent;
+      color: #2c3e50;
+      border: 2px solid #2c3e50;
+    }
+
+    .hero-btn.secondary:hover {
+      background: #2c3e50;
+      color: white;
+    }
+
+    /* Partners Section */
+    .partners-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .section-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.1rem;
+      color: #6c757d;
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .partner-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      border-color: #BDCF00;
+    }
+
+    .partner-logo {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .partner-card:hover .partner-logo img {
+      transform: scale(1.05);
+    }
+
+    .partner-name {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .partner-description {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.9rem;
+      color: #6c757d;
+      line-height: 1.6;
+    }
+
+    /* School Partners Section */
+    .school-partners-section {
+      padding: 80px 0;
+      background: #f8f9fa;
+    }
+
+    .school-partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .school-partner-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+    }
+
+    .school-partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      border-color: #BDCF00;
+    }
+
+    .school-logo {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .school-logo img {
+      max-width: 100%;
+      max-height: 120px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .school-partner-card:hover .school-logo img {
+      transform: scale(1.05);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .partners-grid,
+      .school-partners-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partners-hero {
+        padding: 60px 0;
+      }
+
+      .partners-section,
+      .school-partners-section {
+        padding: 60px 0;
+      }
+    }
+
+    /* Animation classes */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <!-- Authentication Styles -->
+  <link rel="stylesheet" href="assets/css/auth-styles.css">
+</head>
+
+<body>
+  <!--==============================
+    Header Area
+  ==============================-->
+  <header class="vs-header">
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-wrapper z-index-common overflow-hidden" style="position: relative;">
+    <div class="vs-balls vs-balls--screen" data-balls-top="-6px" data-balls-color="#ffffff" style="position: absolute; top: -6px; left: 0; width: 100vw; height: 14px; z-index: 10;"></div>
+    <div class="breadcrumb-wrapper__bg wow animate__fadeInUp" data-wow-delay="0.15s" data-vs-gsap-parallax-speed="2" data-vs-gsap-parallax-zoom>
+      <img src="assets/edjs img/bg-header-home-v2.webp" alt="L'École des jeunes spectateurs Background">
+    </div>
+    <div class="container">
+      <div class="breadcrumb-wrapper__content wow animate__fadeInUp" data-wow-delay="0.45s">
+        <h1 class="breadcrumb-wrapper__title">Nos Partenaires</h1>
+      </div>
+    </div>
+    <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff" style="position: absolute; bottom: -6px; left: 0; width: 100vw; height: 14px; z-index: 10;"></div>
+  </div>
+
+
+  <!-- Main Partners Section -->
+  <section class="partners-section" id="partners">
+    <div class="container">
+      <div class="fade-in-up">
+        <h2 class="section-title">Nos Partenaires Institutionnels</h2>
+        <p class="section-subtitle">
+          Des collaborations solides qui enrichissent notre programmation culturelle et éducative.
+        </p>
+      </div>
+
+      <div class="partners-grid fade-in-up">
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/fondation-mohammed-6-logo-png_seeklogo-315870.png" alt="Fondation Mohammed VI">
+          </div>
+          <h3 class="partner-name">Fondation Mohammed VI</h3>
+          <p class="partner-description">Collaborer avec les sites de la fondation Mohamed VI de promotion des œuvres sociales de l'éducation-formation, et faire bénéficier les enfants des adhérents.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/OCP_Group.svg.png" alt="OCP Group">
+          </div>
+          <h3 class="partner-name">OCP Group</h3>
+          <p class="partner-description">Expansion nationale au niveau des différents sites de l'OCP, notamment dans les villes de Benguerir, Safi, Khouribga, Youssoufia, Laayoune et Ljarf lasfar.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/credit agricole du maroc .png" alt="Crédit Agricole du Maroc">
+          </div>
+          <h3 class="partner-name">Crédit Agricole du Maroc</h3>
+          <p class="partner-description">Soutien financier pour nos programmes d'accessibilité culturelle et nos tournées dans les zones rurales, permettant d'atteindre les communautés agricoles du royaume.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/A4P07-02-2025_15-36-26avision-removebg-preview.png" alt="Fondation DGSN">
+          </div>
+          <h3 class="partner-name">Fondation DGSN</h3>
+          <p class="partner-description">Collaborer à échelle nationale avec la fondation de la DGSN, et faire bénéficier la communauté de la direction générale de la sûreté de notre programmation.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/Men_2021-removebg-preview.png" alt="Ministère de l'Éducation Nationale">
+          </div>
+          <h3 class="partner-name">Ministère de l'Éducation Nationale</h3>
+          <p class="partner-description">Partenariat officiel avec le Ministère de l'Éducation Nationale pour intégrer nos programmes culturels dans le curriculum scolaire national.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/MARSA_MAROC_LOGO_C_ENG-1-removebg-preview.png" alt="Marsa Maroc">
+          </div>
+          <h3 class="partner-name">Marsa Maroc</h3>
+          <p class="partner-description">Collaboration avec l'autorité portuaire nationale pour organiser des spectacles dans les villes portuaires et sensibiliser les communautés maritimes aux arts vivants.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/logo vivo maroc.png" alt="Vivo Maroc">
+          </div>
+          <h3 class="partner-name">Vivo Maroc</h3>
+          <p class="partner-description">Support technologique et digital pour nos plateformes de streaming et nos contenus pédagogiques en ligne, facilitant l'accès aux spectacles à distance.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/logo EDGS-02.png" alt="EDGS">
+          </div>
+          <h3 class="partner-name">École Privée EDGS</h3>
+          <p class="partner-description">Partenariat privilégié avec l'École de la Gestion et du Sport pour intégrer nos spectacles dans leur programme pédagogique et développer l'éveil artistique des élèves.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/logo annexe hay hassani-01.png" alt="Annexe Hay Hassani">
+          </div>
+          <h3 class="partner-name">Annexe Hay Hassani</h3>
+          <p class="partner-description">Collaboration avec ce centre éducatif de quartier pour démocratiser l'accès aux arts vivants et proposer des ateliers créatifs aux enfants du quartier populaire.</p>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo">
+            <img src="assets/img/partners/achraf hakimi vertical logo noir fr.png" alt="Fondation Achraf Hakimi">
+          </div>
+          <h3 class="partner-name">Fondation Achraf Hakimi</h3>
+          <p class="partner-description">Partenariat avec la fondation du footballeur international pour promouvoir l'éducation artistique auprès des jeunes sportifs et créer des ponts entre sport et culture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- School Partners Section -->
+  <section class="school-partners-section">
+    <div class="container">
+      <div class="fade-in-up">
+        <h2 class="section-title">Nos Partenaires Éducatifs</h2>
+        <p class="section-subtitle">
+          Les établissements scolaires qui font confiance à notre programmation pédagogique.
+        </p>
+      </div>
+
+      <div class="school-partners-grid fade-in-up">
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/ALPHONSE-DAUDET-COULEUR-verticale-png.webp" alt="Alphonse Daudet">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/EFI logo .jpeg" alt="EFI">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/EXE-LOGO-RENAN-FINAL logo png.png" alt="Renan">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/al fath logo.webp" alt="Al Fath">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/aljabr logo png.png" alt="Al Jabr">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/camus logo .jpeg" alt="Camus">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/claude bernard logo png.png" alt="Claude Bernard">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/cropped-Official-Logo_RAS png logo .png" alt="RAS">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/descartes logo .png" alt="Descartes">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/ebm logo .png" alt="EBM">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/el farabi logo.jpeg" alt="El Farabi">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/heure joyeuse logo VIVO.png" alt="Heure Joyeuse">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/images greenwood .jpeg" alt="Greenwood">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/la residence logo.png" alt="La Résidence">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/logo theophile gautier.png" alt="Théophile Gautier">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/logo-Malraux-V2 png.png" alt="Malraux">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/logo-la-fourmiliere logo png.webp" alt="La Fourmilière">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/logo-petit maintenon logo.webp" alt="Petit Maintenon">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/loogojacques chirac logo png.png" alt="Jacques Chirac">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/massignon logo png.png" alt="Massignon">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/mohmd zerktouni .jpeg" alt="Mohammed Zerktouni">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/omar ibnou khattab .jpeg" alt="Omar Ibn Khattab">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/paul cezanne logo .jpeg" alt="Paul Cézanne">
+          </div>
+        </div>
+
+        <div class="school-partner-card">
+          <div class="school-logo">
+            <img src="assets/img/pschools/st exupery logo png.webp" alt="Saint-Exupéry">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--==============================
+        Footer Area
+    ==============================-->
+  <div class="vs-footer bg-title">
+    <div class="vs-footer__top z-index-common space-extra-top space-extra-bottom">
+      <div class="container">
+        <div class="row gy-4 gx-xxl-5">
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.25s">
+            <div class="vs-footer__widget">
+              <div class="vs-footer__logo text-center text-md-start mb-25">
+                <a href="/" class="vs-footer__logo-link">
+                  <img src="assets/img/Asset 2@4x.png" alt="L'École des jeunes spectateurs" style="height: 120px; width: auto; max-width: none !important;">
+                </a>
+              </div>
+              <p class="vs-footer__desc text-center text-md-start" style="color: white;">
+                Chaque élève a l'opportunité de découvrir et d'explorer la richesse des arts de la scène à travers la danse, le théâtre et la musique, qui sont au cœur de notre programme.
+              </p>
+              <div class="icon-call justify-content-center justify-content-md-start pt-10 mb-10">
+                <span class="icon-call__icon"><i class="fa-solid fa-phone-rotary"></i></span>
+                <div class="icon-call__content">
+                  <span class="icon-call__title">support téléphonique</span>
+                  <a href="tel:+212522981085" class="icon-call__number">+212 5 22 98 10 85</a>
+                </div>
+              </div>
+              <div class="social-style social-style--version2 w-100 justify-content-center justify-content-md-start pt-25">
+                <span class="social-style__label">suivez-nous :</span>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.35s">
+            <div class="vs-footer__widget">
+              <h3 class="vs-footer__title" style="color: #cccccc;">Navigation</h3>
+              <div class="vs-footer__menu">
+                <ul class="vs-footer__menu--list">
+                  <li><a href="/">Accueil</a></li>
+                  <li><a href="spectacles.html">Spectacles</a></li>
+                  <li><a href="gallery.html">Galerie</a></li>
+                  <li><a href="partners.html">Partenaires</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.45s">
+            <div class="vs-footer__widget">
+              <h3 class="vs-footer__title" style="color: #cccccc;">Gallery</h3>
+              <div class="sidebar-gallery" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Les_Trois_Brigands_Web_026.jpg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: contain;">
+                  <a href="assets/img/Les_Trois_Brigands_Web_026.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Casse-Noisette_Web_007.jpg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: contain;">
+                  <a href="assets/img/Casse-Noisette_Web_007.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Le_Petit_Prince_Web_032.jpg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: contain;">
+                  <a href="assets/img/Le_Petit_Prince_Web_032.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Gretel_Hansel_Web_023.jpg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: contain;">
+                  <a href="assets/img/Gretel_Hansel_Web_023.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Dans_la_peau_de_Cyrano_Web_016.jpg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: contain;">
+                  <a href="assets/img/Dans_la_peau_de_Cyrano_Web_016.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Tara_Sur_La_Lune_Web_012.jpg" alt="Gallery Image" style="width: 100%; height: 100%; object-fit: contain;">
+                  <a href="assets/img/Tara_Sur_La_Lune_Web_012.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vs-footer__bottom bg-theme-color-1">
+      <div class="container">
+        <div class="row gy-3 gx-5 align-items-center justify-content-center justify-content-lg-between flex-column-reverse flex-lg-row">
+          <div class="col-md-auto">
+            <p class="vs-footer__copyright mb-0" style="color: white;">
+              Copyright &copy; <span id="currentYear">2024</span>
+              <a href="/">L'École des jeunes spectateurs</a>. Tous droits réservés.
+            </p>
+          </div>
+          <div class="col-md-auto">
+            <ul class="vs-footer__bottom--menu">
+              <li><a href="contact.html">Conditions Générales</a></li>
+              <li><a href="contact.html">Politique de Confidentialité</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+  // Force vs-balls rendering
+  (function() {
+    function createBalls() {
+      const strips = document.querySelectorAll('.vs-balls');
+      strips.forEach(function(strip) {
+        const topAttr = strip.getAttribute('data-balls-top');
+        const bottomAttr = strip.getAttribute('data-balls-bottom');
+        const colorAttr = strip.getAttribute('data-balls-color') || '#ffffff';
+        
+        strip.innerHTML = '';
+        
+        const ballSize = 14;
+        const step = 13.9;
+        const screenWidth = window.innerWidth;
+        const needed = Math.ceil(screenWidth / step) + 5;
+        
+        for (let i = 0; i < needed; i++) {
+          const ball = document.createElement('div');
+          ball.className = 'vs-balls__ball';
+          ball.style.cssText = `
+            position: absolute;
+            left: ${i * step}px;
+            top: 0;
+            width: ${ballSize}px;
+            height: ${ballSize}px;
+            background-color: ${colorAttr};
+            border-radius: 50%;
+            display: block;
+          `;
+          strip.appendChild(ball);
+        }
+      });
+    }
+    
+    createBalls();
+    document.addEventListener('DOMContentLoaded', createBalls);
+    window.addEventListener('load', createBalls);
+    setTimeout(createBalls, 100);
+    setTimeout(createBalls, 500);
+  })();
+
+  // Animations
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+  </script>
+
+  <!-- Load header -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch('standard-header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.querySelector('.vs-header').innerHTML = data;
+        
+        // Initialize header functionality
+        if (typeof initializeHeader === 'function') {
+          initializeHeader();
+        }
+      })
+      .catch(error => console.error('Error loading header:', error));
+  });
+  </script>
+
+  <!-- Authentication Scripts -->
+  <script src="assets/js/supabase-config.js"></script>
+</body>
+
+</html>

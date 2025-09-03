@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>L'école du jeune spectateur</title>
+  <meta name="author" content="L'École des jeunes spectateurs">
+  <meta name="description" content="Découvrez notre galerie photos des spectacles de l'École du Jeune Spectateur. Revivez les moments magiques de nos représentations théâtrales.">
+  <meta name="keywords" content="galerie photos, spectacles, théâtre enfants, École du Jeune Spectateur, photos spectacles">
+  <meta name="robots" content="INDEX,FOLLOW">
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- L'École des jeunes spectateurs Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/4x/edjs favicon_1@4x.png">
+  <link rel="shortcut icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  <link rel="icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/4x/edjs favicon_1@4x.png">
+  <meta name="msapplication-TileColor" content="#BDCF00">
+  <meta name="msapplication-TileImage" content="assets/img/4x/edjs favicon_1@4x.png">
+  <meta name="theme-color" content="#BDCF00">
+  <!-- Social Media Featured Image -->
+  <meta property="og:image" content="assets/img/4x/Asset 11@4x.png">
+  <meta property="twitter:image" content="assets/img/4x/Asset 11@4x.png">
+  <!--==============================
+	  Google Fonts
+	============================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--==============================
+	    All CSS File
+	============================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Fontawesome Icon -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <!-- Slick Slider -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root {
+      --primary-color: #BDCF00;
+      --secondary-color: #8B9A00;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Gallery Hero Section */
+    .gallery-hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="30" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+
+    .spectacle-gallery-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      margin-bottom: 3rem;
+    }
+
+    .spectacle-gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .gallery-card-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-card-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .gallery-card-subtitle {
+      font-family: 'Raleway', sans-serif;
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Gallery Slider */
+    .gallery-slider-container {
+      position: relative;
+      padding: 2rem;
+    }
+
+    .gallery-slider {
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .gallery-slide {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .gallery-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-slide:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(189, 207, 0, 0.8) 0%, rgba(139, 154, 0, 0.8) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-slide:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay i {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Navigation Arrows */
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--white);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .gallery-nav:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .gallery-nav-prev {
+      left: 1rem;
+    }
+
+    .gallery-nav-next {
+      right: 1rem;
+    }
+
+    .gallery-nav i {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      transition: color 0.3s ease;
+    }
+
+    .gallery-nav:hover i {
+      color: white;
+    }
+
+    /* Gallery Counter */
+    .gallery-counter {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .gallery-card-title {
+        font-size: 2rem;
+      }
+
+      .gallery-slider-container {
+        padding: 1rem;
+      }
+
+      .gallery-nav {
+        width: 40px;
+        height: 40px;
+      }
+
+      .gallery-nav i {
+        font-size: 1rem;
+      }
+    }
+
+    /* VS Balls */
+    .vs-balls {
+      position: absolute;
+      width: 100vw;
+      height: 14px;
+      display: flex;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .vs-balls__ball {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: #ffffff;
+    }
+  </style>
+
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <!-- Authentication Styles -->
+  <link rel="stylesheet" href="assets/css/auth-styles.css">
+  <link rel="stylesheet" href="assets/css/enhanced-auth-buttons.css">
+  <!-- Template Header System -->
+  <script src="assets/js/header-loader.js"></script>
+</head>
+
+<body>
+  <!-- Header will be loaded here -->
+  <div id="header-placeholder"></div>
+
+  <!-- Gallery Hero Section -->
+  <section class="gallery-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Galerie Photos</h1>
+        <p class="hero-subtitle">Découvrez les moments magiques de nos spectacles à travers notre galerie photo. Revivez l'émotion et la beauté de chaque représentation.</p>
+      </div>
+    </div>
+    
+    <!-- Top VS Balls -->
+    <div class="vs-balls vs-balls--screen" data-balls-top="-6px" data-balls-color="#ffffff" style="top: -6px;"></div>
+    
+    <!-- Bottom VS Balls -->
+    <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff" style="bottom: -6px;"></div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      
+      <!-- Le Petit Prince Gallery -->
+      <div class="spectacle-gallery-card">
+        <div class="gallery-card-header">
+          <h2 class="gallery-card-title">Le Petit Prince</h2>
+          <p class="gallery-card-subtitle">Un voyage poétique à travers les étoiles</p>
+        </div>
+        <div class="gallery-slider-container">
+          <div class="gallery-slider swiper" id="petit-prince-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_007.jpg" alt="Le Petit Prince - Photo 1">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_032.jpg" alt="Le Petit Prince - Photo 2">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_035.jpg" alt="Le Petit Prince - Photo 3">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_074.jpg" alt="Le Petit Prince - Photo 4">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_015.jpg" alt="Le Petit Prince - Photo 5">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_025.jpg" alt="Le Petit Prince - Photo 6">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_040.jpg" alt="Le Petit Prince - Photo 7">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="gallery-nav gallery-nav-prev" id="petit-prince-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-nav gallery-nav-next" id="petit-prince-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="gallery-counter" id="petit-prince-counter">1 / 7</div>
+        </div>
+      </div>
+
+      <!-- Casse-Noisette Gallery -->
+      <div class="spectacle-gallery-card">
+        <div class="gallery-card-header">
+          <h2 class="gallery-card-title">Casse-Noisette</h2>
+          <p class="gallery-card-subtitle">Un conte de Noël magique et enchanteur</p>
+        </div>
+        <div class="gallery-slider-container">
+          <div class="gallery-slider swiper" id="casse-noisette-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_007.webp" alt="Casse-Noisette - Photo 1">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_013-1024x683.webp" alt="Casse-Noisette - Photo 2">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_017-1024x683.webp" alt="Casse-Noisette - Photo 3">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_020-1024x683.webp" alt="Casse-Noisette - Photo 4">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_025-1024x683.webp" alt="Casse-Noisette - Photo 5">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_028-1024x683.webp" alt="Casse-Noisette - Photo 6">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/edjs img/Casse-Noisette_Web_031-1024x683.webp" alt="Casse-Noisette - Photo 7">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="gallery-nav gallery-nav-prev" id="casse-noisette-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-nav gallery-nav-next" id="casse-noisette-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="gallery-counter" id="casse-noisette-counter">1 / 7</div>
+        </div>
+      </div>
+
+      <!-- Tara sur la Lune Gallery -->
+      <div class="spectacle-gallery-card">
+        <div class="gallery-card-header">
+          <h2 class="gallery-card-title">Tara sur la Lune</h2>
+          <p class="gallery-card-subtitle">Une aventure spatiale extraordinaire</p>
+        </div>
+        <div class="gallery-slider-container">
+          <div class="gallery-slider swiper" id="tara-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_001.jpg" alt="Tara sur la Lune - Photo 1">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_005.jpg" alt="Tara sur la Lune - Photo 2">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_010.jpg" alt="Tara sur la Lune - Photo 3">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_015.jpg" alt="Tara sur la Lune - Photo 4">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_020.jpg" alt="Tara sur la Lune - Photo 5">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Tara sur la lune/Tara_sur_la_lune_Web_025.jpg" alt="Tara sur la Lune - Photo 6">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="gallery-nav gallery-nav-prev" id="tara-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-nav gallery-nav-next" id="tara-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="gallery-counter" id="tara-counter">1 / 6</div>
+        </div>
+      </div>
+
+      <!-- Charlotte Gallery -->
+      <div class="spectacle-gallery-card">
+        <div class="gallery-card-header">
+          <h2 class="gallery-card-title">Charlotte</h2>
+          <p class="gallery-card-subtitle">Une histoire touchante et pleine d'émotion</p>
+        </div>
+        <div class="gallery-slider-container">
+          <div class="gallery-slider swiper" id="charlotte-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Charlotte/Charlotte_Web_001.jpg" alt="Charlotte - Photo 1">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Charlotte/Charlotte_Web_005.jpg" alt="Charlotte - Photo 2">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Charlotte/Charlotte_Web_010.jpg" alt="Charlotte - Photo 3">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Charlotte/Charlotte_Web_015.jpg" alt="Charlotte - Photo 4">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="swiper-slide gallery-slide">
+                <img src="assets/img/gallery/Charlotte/Charlotte_Web_020.jpg" alt="Charlotte - Photo 5">
+                <div class="gallery-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="gallery-nav gallery-nav-prev" id="charlotte-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="gallery-nav gallery-nav-next" id="charlotte-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="gallery-counter" id="charlotte-counter">1 / 5</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer will be loaded here -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JS Files -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/magnific-popup.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Gallery Sliders Initialization
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // Initialize each gallery slider
+      const galleries = [
+        { id: 'petit-prince', totalSlides: 7 },
+        { id: 'casse-noisette', totalSlides: 7 },
+        { id: 'tara', totalSlides: 6 },
+        { id: 'charlotte', totalSlides: 5 }
+      ];
+
+      galleries.forEach(gallery => {
+        const swiper = new Swiper(`#${gallery.id}-slider`, {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          loop: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+          },
+          navigation: {
+            nextEl: `#${gallery.id}-next`,
+            prevEl: `#${gallery.id}-prev`,
+          },
+          on: {
+            slideChange: function() {
+              const counter = document.getElementById(`${gallery.id}-counter`);
+              const realIndex = this.realIndex + 1;
+              counter.textContent = `${realIndex} / ${gallery.totalSlides}`;
+            }
+          }
+        });
+      });
+
+      // Magnific Popup for gallery images
+      $('.gallery-slide img').magnificPopup({
+        type: 'image',
+        gallery: {
+          enabled: true
+        },
+        zoom: {
+          enabled: true,
+          duration: 300
+        }
+      });
+
+    });
+
+    // VS Balls Implementation
+    function buildBallStrip(strip) {
+      const STEP = 13.9;
+      const topAttr = strip.getAttribute('data-balls-top');
+      const bottomAttr = strip.getAttribute('data-balls-bottom');
+      const colorAttr = strip.getAttribute('data-balls-color');
+
+      strip.style.position = 'absolute';
+      strip.style.width = '100vw';
+      strip.style.height = '14px';
+      strip.style.display = 'flex';
+      strip.style.top = topAttr || '';
+      strip.style.bottom = topAttr ? '' : (bottomAttr || '-6px');
+      strip.style.left = '0';
+      strip.style.zIndex = '2';
+      strip.style.pointerEvents = 'none';
+
+      const ballColor = colorAttr || '#ffffff';
+      strip.innerHTML = '';
+
+      const containerWidth = window.innerWidth;
+      const needed = Math.ceil(containerWidth / STEP) + 5;
+
+      for (let i = 0; i < needed; i++) {
+        const ball = document.createElement('div');
+        ball.className = 'vs-balls__ball';
+        ball.style.left = `${i * STEP}px`;
+        ball.style.backgroundColor = ballColor;
+        strip.appendChild(ball);
+      }
+    }
+
+    function renderAllStrips() {
+      document.querySelectorAll('.vs-balls').forEach(buildBallStrip);
+    }
+
+    // Initialize on DOM load and resize
+    document.addEventListener('DOMContentLoaded', renderAllStrips);
+    window.addEventListener('resize', renderAllStrips);
+  </script>
+
+  <!-- Authentication Scripts -->
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/spectacles-auth.js"></script>
+</body>
+</html>

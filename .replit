@@ -1,0 +1,24 @@
+modules = ["web", "nodejs-20", "php-8.2"]
+run = "let's get started"
+
+[nix]
+channel = "stable-25_05"
+
+[deployment]
+run = ["sh", "-c", "let's get started"]
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 46938740
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "pkill -f \"http-server\" || true && sleep 2 && npx -y http-server -p 5000 -a 0.0.0.0 -c-1 --cors"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

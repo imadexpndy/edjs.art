@@ -1,0 +1,2962 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    L'École des jeunes spectateurs - Plateforme Culturelle pour Écoles et Familles au Maroc
+  </title>
+  <meta name="author" content="L'École des jeunes spectateurs">
+  <meta name="description" content="L'École des jeunes spectateurs connecte les spectacles théâtraux et culturels avec les écoles, associations et familles au Maroc. Accès gratuit pour écoles publiques, tarifs préférentiels pour écoles privées.">
+  <meta name="keywords" content="théâtre enfants Maroc, spectacles culturels, écoles, associations, billets gratuits, culture accessible">
+  <meta name="robots" content="INDEX,FOLLOW">
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- L'École des jeunes spectateurs Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/4x/edjs favicon_1@4x.png">
+  <link rel="shortcut icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  <link rel="icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/4x/edjs favicon_1@4x.png">
+  <meta name="msapplication-TileColor" content="#BDCF00">
+  <meta name="msapplication-TileImage" content="assets/img/4x/edjs favicon_1@4x.png">
+  <meta name="theme-color" content="#BDCF00">
+  <!-- Social Media Featured Image -->
+  <meta property="og:image" content="assets/img/4x/Asset 11@4x.png">
+  <meta property="twitter:image" content="assets/img/4x/Asset 11@4x.png">
+  <!--==============================
+	  Google Fonts
+	============================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--==============================
+	    All CSS File
+	============================== -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Fontawesome Icon -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <!-- Slick Slider -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Header Menu Hover Color Fix */
+    .vs-header .main-menu ul li a svg path {
+      fill: #BDCF00 !important;
+    }
+    
+    /* Ultra Modern Hero Slider Enhancements */
+    .vs-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 85vh;
+      background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+    }
+
+    /* HARD CSS OVERRIDES - Maximum Specificity */
+    body .vs-hero .swiper-wrapper,
+    html body .vs-hero .swiper-wrapper,
+    .vs-hero .swiper.vs-hero__active--zoom .swiper-wrapper {
+      position: relative !important;
+      width: 100% !important;
+      height: 70% !important;
+      max-height: 70% !important;
+      min-height: 70% !important;
+      z-index: 1 !important;
+      display: flex !important;
+      transition-property: transform !important;
+      transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial) !important;
+      box-sizing: content-box !important;
+    }
+
+    /* Force Hero Section Height */
+    body .vs-hero,
+    html body .vs-hero,
+    section.vs-hero {
+      min-height: 80vh !important;
+      max-height: 80vh !important;
+      height: 80vh !important;
+      overflow: hidden !important;
+    }
+
+    /* Force Hero Content Height */
+    body .vs-hero .vs-hero__content,
+    html body .vs-hero .vs-hero__content,
+    .vs-hero .container .vs-hero__content {
+      min-height: 80vh !important;
+      max-height: 80vh !important;
+      height: 80vh !important;
+    }
+
+    /* Force Swiper Slide Height */
+    body .vs-hero .swiper-slide,
+    html body .vs-hero .swiper-slide,
+    .vs-hero .swiper .swiper-slide {
+      height: 85vh !important;
+      max-height: 85vh !important;
+      min-height: 85vh !important;
+    }
+
+    /* Static Background for Hero Section */
+    .vs-hero__bg {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      50% { opacity: 0.8; transform: scale(1.05) rotate(2deg); }
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.7; }
+    }
+
+    /* Rocket Floating Animation */
+    @keyframes rocketFloat {
+      0%, 100% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-60px) rotate(2deg);
+      }
+      50% {
+        transform: translateY(-80px) rotate(0deg);
+      }
+      75% {
+        transform: translateY(-60px) rotate(-2deg);
+      }
+    }
+
+
+
+    /* Partners Slider Styles */
+    .partners-section {
+      background: #f8f9fa;
+      padding: 60px 0;
+    }
+
+    .partners-slider {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      margin-top: 30px;
+      mask: linear-gradient(90deg, transparent, white 20px, white calc(100% - 20px), transparent);
+      -webkit-mask: linear-gradient(90deg, transparent, white 20px, white calc(100% - 20px), transparent);
+    }
+
+    .partners-track {
+      display: flex;
+      animation: infiniteScroll 40s linear infinite;
+      width: max-content;
+    }
+
+    .partners-logos-set {
+      display: flex;
+      align-items: center;
+    }
+
+    .partner-logo {
+      flex: 0 0 auto;
+      margin-right: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      min-width: 120px;
+    }
+
+    .partner-logo img {
+      max-height: 65px;
+      max-width: 130px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: none;
+      transition: all 0.3s ease;
+    }
+
+    .partner-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    @keyframes infiniteScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Achievements Section Styles */
+    .achievements-section {
+      background: #FFDBD2;
+      padding: 80px 0;
+      color: #2c3e50;
+    }
+
+    /* Session Cards Hover Effects */
+    .vs-session {
+      transition: all 0.3s ease;
+    }
+
+    .vs-session:hover .vs-session__bg {
+      filter: hue-rotate(60deg) brightness(0.8) saturate(1.2);
+    }
+
+    .achievements-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievements-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/><circle cx="20" cy="60" r="0.5" fill="rgba(255,255,255,0.03)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      z-index: 1;
+    }
+
+    .achievement-item {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .achievement-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+      display: block;
+      margin-bottom: 10px;
+      text-shadow: none;
+      letter-spacing: -0.02em;
+    }
+
+    .achievement-label {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .achievement-item:hover .achievement-number {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+      background: linear-gradient(45deg, #BDCF00, #D4E157);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      top: 15%;
+      left: 8%;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      top: 55%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(225deg, #D4E157, #C8E6C9);
+      border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+      top: 75%;
+      left: 15%;
+      animation-delay: 4s;
+    }
+
+    .shape-4 {
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(315deg, #D4E157, #BDCF00);
+      border-radius: 70% 30% 30% 70% / 30% 70% 70% 30%;
+      top: 25%;
+      right: 25%;
+      animation-delay: 1s;
+    }
+
+    .shape-5 {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(45deg, #BDCF00, #A5D6A7);
+      border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+      top: 40%;
+      left: 50%;
+      animation-delay: 3s;
+    }
+
+    @keyframes advancedFloat {
+      0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      }
+      25% { 
+        transform: translateY(-30px) rotate(90deg) scale(1.1);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+      50% { 
+        transform: translateY(-15px) rotate(180deg) scale(0.9);
+        border-radius: 40% 60% 60% 40% / 60% 40% 40% 60%;
+      }
+      75% { 
+        transform: translateY(-25px) rotate(270deg) scale(1.05);
+        border-radius: 70% 30% 30% 70% / 30% 70% 70% 30%;
+      }
+    }
+
+    .vs-hero__content {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Hero Title Styles */
+    .vs-hero__title--main {
+      color: white !important;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .vs-hero__title--main span {
+      color: white !important;
+    }
+
+    /* About Section Bottom Logo */
+    .about-bottom-logo {
+      position: absolute;
+      bottom: 0;
+      right: -20px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .bottom-logo {
+      width: 200px;
+      height: auto;
+      transform: translateY(0%);
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Theatre Curtain Scene - DISABLED */
+    #theatre-scene {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgb(0,0,0);
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    #theatre-curtain {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    /* Red Curtain Panels */
+    #theatre-curtain .left,
+    #theatre-curtain .right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, 
+        #DC143C 0%, 
+        #B22222 25%, 
+        #8B0000 50%, 
+        #B22222 75%, 
+        #DC143C 100%);
+      filter: brightness(120%);
+      transition: all 4s ease-in-out;
+    }
+
+    /* Simple vertical wave lines curtain pattern */
+    #theatre-curtain .left::before,
+    #theatre-curtain .right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          rgba(0,0,0,0.1) 1px,
+          transparent 2px,
+          rgba(255,255,255,0.05) 3px,
+          transparent 4px,
+          rgba(0,0,0,0.08) 5px,
+          transparent 8px
+        );
+      box-shadow: 
+        inset 0 0 80px rgba(0,0,0,0.3),
+        inset 10px 0 30px rgba(0,0,0,0.2),
+        inset -10px 0 30px rgba(0,0,0,0.2);
+    }
+
+    /* Curtain tie band like in the image */
+    #theatre-curtain .left::after,
+    #theatre-curtain .right::after {
+      content: '';
+      position: absolute;
+      top: 35%;
+      width: 25%;
+      height: 30%;
+      background: linear-gradient(135deg, 
+        #FFD700 0%, 
+        #FFA500 25%, 
+        #FF8C00 50%, 
+        #FFA500 75%, 
+        #FFD700 100%);
+      border-radius: 50px;
+      box-shadow: 
+        0 6px 15px rgba(0,0,0,0.4),
+        inset 0 3px 6px rgba(255,255,255,0.4),
+        inset 0 -3px 6px rgba(0,0,0,0.2);
+      transition: all 4s ease-in-out;
+      transform: rotate(-10deg);
+    }
+
+    /* Tie band texture and gathered effect */
+    #theatre-curtain .left::after {
+      background: 
+        radial-gradient(ellipse at center, rgba(255,255,255,0.2) 20%, transparent 50%),
+        linear-gradient(135deg, 
+          #FFD700 0%, 
+          #FFA500 25%, 
+          #FF8C00 50%, 
+          #FFA500 75%, 
+          #FFD700 100%);
+    }
+
+    #theatre-curtain .right::after {
+      background: 
+        radial-gradient(ellipse at center, rgba(255,255,255,0.2) 20%, transparent 50%),
+        linear-gradient(135deg, 
+          #FFD700 0%, 
+          #FFA500 25%, 
+          #FF8C00 50%, 
+          #FFA500 75%, 
+          #FFD700 100%);
+      transform: rotate(10deg);
+    }
+
+    #theatre-curtain .left {
+      left: 0;
+      transform-origin: top right;
+    }
+
+    #theatre-curtain .right {
+      left: 50%;
+      transform-origin: top left;
+    }
+
+    /* Position tie bands to gather curtain fabric */
+    #theatre-curtain .left::after {
+      right: 15%;
+    }
+
+    #theatre-curtain .right::after {
+      left: 15%;
+    }
+
+    /* Curtain gathering effect around the tie */
+    #theatre-curtain .left {
+      background: 
+        radial-gradient(ellipse 100px 200px at 85% 50%, rgba(0,0,0,0.15) 0%, transparent 70%),
+        linear-gradient(135deg, 
+          #DC143C 0%, 
+          #B22222 25%, 
+          #8B0000 50%, 
+          #B22222 75%, 
+          #DC143C 100%);
+    }
+
+    #theatre-curtain .right {
+      background: 
+        radial-gradient(ellipse 100px 200px at 15% 50%, rgba(0,0,0,0.15) 0%, transparent 70%),
+        linear-gradient(135deg, 
+          #DC143C 0%, 
+          #B22222 25%, 
+          #8B0000 50%, 
+          #B22222 75%, 
+          #DC143C 100%);
+    }
+
+    /* Opening Animation */
+    #theatre-curtain.open .left,
+    #theatre-curtain.open .right {
+      filter: brightness(100%);
+    }
+
+    #theatre-curtain.open .left {
+      animation: left-curtain-opening 4s ease-in-out forwards;
+    }
+
+    #theatre-curtain.open .right {
+      animation: right-curtain-opening 4s ease-in-out forwards;
+    }
+
+    /* Fade out scene after opening */
+    #theatre-scene.fade-out {
+      animation: scene-fade-out 1s ease-in forwards;
+      animation-delay: 3.5s;
+    }
+
+    @keyframes left-curtain-opening {
+      from { transform: translate(0) rotate(0) scale(1,1); }
+      to { transform: translate(-100%) rotate(20deg) scale(0,2); }
+    }
+
+    @keyframes right-curtain-opening {
+      from { transform: translate(0) rotate(0) scale(1,1); }
+      to { transform: translate(100%) rotate(-20deg) scale(0,2); }
+    }
+
+    @keyframes scene-fade-out {
+      from { opacity: 1; }
+      to { opacity: 0; visibility: hidden; }
+    }
+
+
+    @keyframes gradientText {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes advancedShimmer {
+      0% { left: -100%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
+    }
+
+    /* Subtitle Enhancement - Force Override */
+    .vs-hero__title--sub,
+    span.vs-hero__title--sub {
+      position: relative !important;
+      display: inline-block !important;
+    }
+    
+    .vs-hero__title--sub::before,
+    span.vs-hero__title--sub::before {
+      content: '' !important;
+      position: absolute !important;
+      bottom: -8px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 80px !important;
+      height: 4px !important;
+      background: linear-gradient(90deg, transparent, #BDCF00, transparent) !important;
+      border-radius: 2px !important;
+      z-index: 10 !important;
+    }
+    
+    .vs-hero__title--sub::after,
+    span.vs-hero__title--sub::after {
+      content: '✦' !important;
+      position: absolute !important;
+      top: -12px !important;
+      left: -20px !important;
+      color: rgba(189, 207, 0, 0.8) !important;
+      font-size: 14px !important;
+      animation: sparkle 2s ease-in-out infinite !important;
+      z-index: 10 !important;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* Interactive Light Beams */
+    .light-beams {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .beam {
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.4), transparent);
+      animation: beamMove 6s linear infinite;
+    }
+
+    .beam-1 {
+      left: 20%;
+      animation-delay: 0s;
+    }
+
+    .beam-2 {
+      left: 50%;
+      animation-delay: 2s;
+    }
+
+    .beam-3 {
+      left: 80%;
+      animation-delay: 4s;
+    }
+
+    @keyframes beamMove {
+      0% {
+        transform: translateY(-100%) scaleY(0);
+        opacity: 0;
+      }
+      20% {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+      }
+      80% {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100%) scaleY(0);
+        opacity: 0;
+      }
+    }
+
+    /* Headlines bottom margin adjustments */
+    h1, .h1,
+    h2, .h2,
+    h3, .h3,
+    h4, .h4,
+    h5, .h5,
+    h6, .h6,
+    .vs-title__main,
+    .vs-hero__title--main,
+    .feedback-block__title,
+    .vs-blog__heading,
+    .vs-service__heading,
+    .vs-class__heading,
+    .vs-session__title,
+    .vs-gallery__heading,
+    .achievement-number {
+      margin-bottom: 1.5rem !important;
+    }
+
+    .vs-title__sub,
+    .vs-hero__title--sub {
+      margin-bottom: 1rem !important;
+    }
+
+    .vs-title {
+      margin-bottom: 3rem !important;
+    }
+
+    /* Hero Feature Cards */
+    .hero-features {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .feature-card:hover::before {
+      left: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 215, 0, 0.5);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #D4E157, #BDCF00);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: white;
+      animation: iconPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .feature-content h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-content p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Enhanced Button Styles */
+    .hero-btn-primary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(45deg, #BDCF00, #D4E157);
+      border: none;
+      transition: all 0.4s ease;
+    }
+
+    .hero-btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .hero-btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+    }
+
+    .hero-btn-secondary {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+    }
+
+    .hero-btn-secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 215, 0, 0.6);
+      box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Particle Effects */
+    .hero-particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: float-particle 8s infinite linear;
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+    .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+    .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+    .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+    .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+    .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+    .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+    .particle:nth-child(9) { left: 90%; animation-delay: 8s; }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(90vh) scale(1);
+      }
+      90% {
+        opacity: 1;
+        transform: translateY(10vh) scale(1);
+      }
+      100% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+      }
+    }
+
+    .vs-hero__bg {
+      transition: transform 0.8s ease;
+    }
+
+    .vs-hero__bg:hover {
+      transform: scale(1.05);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat-item {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem 1.5rem;
+      border-radius: 25px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      min-width: 140px;
+      cursor: pointer;
+    }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .stat-item:hover::before {
+      left: 100%;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 215, 0, 0.6);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #D4E157, #BDCF00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      animation: numberGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes numberGlow {
+      0% { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
+      100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)); }
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: white;
+    }
+
+    .vs-hero__direction {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      transform: translateY(-50%);
+    }
+
+    .vs-swiper-button-next,
+    .vs-swiper-button-prev {
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(15px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vs-swiper-button-next::before,
+    .vs-swiper-button-prev::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transition: all 0.4s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    .vs-swiper-button-next:hover::before,
+    .vs-swiper-button-prev:hover::before {
+      width: 100%;
+      height: 100%;
+    }
+
+    .vs-swiper-button-next:hover,
+    .vs-swiper-button-prev:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.15);
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .vs-swiper-button-next i,
+    .vs-swiper-button-prev i {
+      position: relative;
+      z-index: 2;
+      font-size: 18px;
+    }
+
+    .hero-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 10;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #D4E157, #BDCF00);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      color: white;
+      text-align: center;
+      z-index: 10;
+      animation: pulse 2s infinite;
+      cursor: pointer;
+    }
+
+    .scroll-text {
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .scroll-arrow {
+      font-size: 1.2rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    /* Advanced Hero Background Slider */
+    .hero-background-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+    
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transform: scale(1.1);
+      transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hero-slide:first-child {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .hero-slide.next {
+      opacity: 0;
+      transform: scale(1.05) translateX(50px);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(112,22,126,0.4) 50%, rgba(0,0,0,0.7) 100%);
+      z-index: -1;
+    }
+    
+    /* Enhanced Mobile Responsive Design */
+    @media (max-width: 768px) {
+      body .vs-hero,
+      html body .vs-hero,
+      section.vs-hero {
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+      }
+      
+      body .vs-hero .vs-hero__content,
+      html body .vs-hero .vs-hero__content,
+      .vs-hero .container .vs-hero__content {
+        padding: 20px 0 !important;
+        min-height: 100vh !important;
+        max-height: 100vh !important;
+        height: 100vh !important;
+      }
+      
+      body .vs-hero .swiper-wrapper,
+      html body .vs-hero .swiper-wrapper,
+      .vs-hero .swiper.vs-hero__active--zoom .swiper-wrapper {
+        height: 100% !important;
+        max-height: 100% !important;
+        min-height: 100% !important;
+      }
+      
+      .hero-slide {
+        transform: scale(1.05);
+      }
+      
+      .hero-slide.active {
+        transform: scale(1);
+      }
+      
+      .hero-content-container {
+        padding: 60px 20px !important;
+        max-width: 100% !important;
+      }
+      
+      .vs-hero__title--main {
+        font-size: 42px !important;
+        line-height: 1.1 !important;
+        margin-bottom: 20px !important;
+      }
+      
+      .vs-hero__title--sub {
+        font-size: 16px !important;
+        margin-bottom: 15px !important;
+      }
+      
+      .vs-hero__desc {
+        font-size: 18px !important;
+        margin-bottom: 30px !important;
+        line-height: 1.5 !important;
+        padding: 0 10px !important;
+      }
+      
+      .hero-buttons {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: center !important;
+      }
+      
+      .hero-buttons .vs-btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: center !important;
+        padding: 15px 25px !important;
+        font-size: 16px !important;
+      }
+      
+      .hero-stats {
+        flex-direction: row !important;
+        gap: 1rem !important;
+        margin-top: 2rem !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+      }
+      
+      .stat-item {
+        min-width: 100px !important;
+        padding: 1.5rem 1rem !important;
+      }
+      
+      .stat-number {
+        font-size: 2rem !important;
+      }
+      
+      .stat-label {
+        font-size: 0.75rem !important;
+      }
+
+      .vs-hero__direction {
+        padding: 0 1rem;
+      }
+      
+      .vs-swiper-button-next,
+      .vs-swiper-button-prev {
+        width: 50px;
+        height: 50px;
+      }
+      
+      /* Mobile Header Logo */
+      .vs-header__logo .logo {
+        height: 70px !important;
+      }
+      
+      /* Mobile Navigation */
+      .vs-menu-wrapper {
+        z-index: 9999 !important;
+      }
+      
+      /* About Section Mobile */
+      .vs-about--image {
+        margin-bottom: 40px !important;
+      }
+      
+      .vs-about--image__figure1,
+      .vs-about--image__figure2 {
+        position: relative !important;
+        margin: 0 auto 20px !important;
+        max-width: 100% !important;
+      }
+      
+      .vs-about--image__figure1 {
+        width: 150px !important;
+        height: 160px !important;
+      }
+      
+      .vs-about--image__figure2 {
+        width: 280px !important;
+        height: 320px !important;
+      }
+      
+      .rocket-floating {
+        width: 90px !important;
+        height: 90px !important;
+        right: 4% !important;
+      }
+      
+      /* Notre Mission Section Mobile Fixes */
+      .vs-about--image {
+        text-align: center !important;
+        position: relative !important;
+      }
+      
+      .vs-about--image__figure1 {
+        position: relative !important;
+        display: inline-block !important;
+        margin: 0 auto 20px !important;
+        width: 180px !important;
+        height: 200px !important;
+        border-radius: 15px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+      }
+      
+      .vs-about--image__figure2 {
+        position: relative !important;
+        display: inline-block !important;
+        margin: 0 auto !important;
+        width: 300px !important;
+        height: 350px !important;
+        border-radius: 15px !important;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+      }
+      
+      .vs-about--image__ele3 {
+        display: none !important;
+      }
+      
+      .vs-about--yoe {
+        position: relative !important;
+        margin: 20px auto 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        background: #BDCF00 !important;
+        padding: 20px !important;
+        border-radius: 15px !important;
+        width: 200px !important;
+        box-shadow: 0 10px 25px rgba(189, 207, 0, 0.3) !important;
+      }
+      
+      /* Footer Mobile Enhancements */
+      .vs-footer__top {
+        padding: 30px 0 !important;
+      }
+      
+      .vs-footer__widget {
+        text-align: center !important;
+        margin-bottom: 25px !important;
+      }
+      
+      .vs-footer__logo img {
+        height: 70px !important;
+      }
+      
+      .vs-footer__desc {
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+      }
+      
+      .icon-call {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+      
+      .icon-call__content {
+        margin-left: 0 !important;
+        margin-top: 8px !important;
+      }
+      
+      .social-style__label {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 8px !important;
+      }
+      
+      /* Hide GALERIE Section on Mobile */
+      .vs-footer__widget:has(.sidebar-gallery) {
+        display: none !important;
+      }
+    }
+  </style>
+  <style>
+    /* Menu hover colors - target purple vertical elements */
+    .vs-svg-assets svg path {
+      fill: #7e8a01 !important;
+    }
+    
+    /* Button gradients */
+    .vs-btn,
+    .vs-btn-primary,
+    button[type="submit"] {
+      background: linear-gradient(135deg, #BDCF00 0%, #7e8a01 100%) !important;
+      border: none !important;
+      color: white !important;
+    }
+    
+    .vs-btn:hover,
+    .vs-btn-primary:hover,
+    button[type="submit"]:hover {
+      background: linear-gradient(135deg, #7e8a01 0%, #BDCF00 100%) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(126, 138, 1, 0.3);
+    }
+    
+    /* Bigger logos */
+    .vs-header__logo .logo,
+    .header-logo .logo {
+      height: 55px !important;
+    }
+    
+    .mobile-logo .logo {
+      height: 65px !important;
+    }
+    
+    .preloader-inner img {
+      height: 80px !important;
+    }
+    
+    .vs-footer__logo img {
+      height: 60px !important;
+    }
+    
+    /* Hero Shape Container Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-shape-container {
+    width: 350px !important;
+    height: 350px !important;
+  }
+  
+  .hero-shape-container h1 {
+    font-size: 32px !important;
+  }
+  
+  .hero-shape-container p {
+    font-size: 16px !important;
+    margin-bottom: 25px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .hero-shape-container .hero-buttons {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  .hero-shape-container .vs-hero__image {
+    width: 80px !important;
+    height: 80px !important;
+    bottom: -15px !important;
+    right: -15px !important;
+  }
+  
+  /* Service Cards Mobile */
+  .vs-service {
+    margin-bottom: 30px !important;
+  }
+  
+  .vs-service__content {
+    padding: 25px 20px !important;
+  }
+  
+  .vs-service__heading {
+    font-size: 20px !important;
+  }
+  
+  .vs-service__text {
+    font-size: 15px !important;
+  }
+  
+  /* Values Section Mobile */
+  .value-card {
+    margin-bottom: 25px !important;
+    padding: 30px 20px !important;
+  }
+  
+  .value-icon i {
+    font-size: 45px !important;
+  }
+  
+  /* About Section Mobile */
+  .vs-about__text {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+  
+  .vs-list li {
+    font-size: 15px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  /* Container Padding Mobile */
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* Section Spacing Mobile */
+  .space {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+  
+  .space-extra-bottom {
+    padding-bottom: 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-shape-container {
+    width: 280px !important;
+    height: 280px !important;
+  }
+  
+  .hero-shape-container h1 {
+    font-size: 24px !important;
+  }
+  
+  .hero-shape-container .vs-hero__title--sub {
+    font-size: 14px !important;
+  }
+  
+  body .vs-hero,
+  html body .vs-hero,
+  section.vs-hero {
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+  }
+  
+  body .vs-hero .vs-hero__content,
+  html body .vs-hero .vs-hero__content,
+  .vs-hero .container .vs-hero__content {
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    padding: 20px 0 !important;
+  }
+  
+  body .vs-hero .swiper-wrapper,
+  html body .vs-hero .swiper-wrapper,
+  .vs-hero .swiper.vs-hero__active--zoom .swiper-wrapper {
+    height: 100% !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
+  }
+  
+  .vs-hero__title--main {
+    font-size: 36px !important;
+    line-height: 1.1 !important;
+  }
+  
+  .vs-hero__title--sub {
+    font-size: 15px !important;
+  }
+  
+  .vs-hero__desc {
+    font-size: 16px !important;
+    padding: 0 15px !important;
+  }
+  
+  .hero-content-container {
+    padding: 40px 15px !important;
+  }
+  
+  .hero-buttons .vs-btn {
+    padding: 14px 25px !important;
+    font-size: 15px !important;
+  }
+  
+  .stat-item {
+    min-width: 90px !important;
+    padding: 1.2rem 0.8rem !important;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem !important;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem !important;
+  }
+  
+  .rocket-floating {
+    width: 70px !important;
+    height: 70px !important;
+    right: 3% !important;
+  }
+  
+  /* Notre Mission Section Extra Small Mobile */
+  .vs-about--image__figure1 {
+    width: 150px !important;
+    height: 170px !important;
+  }
+  
+  .vs-about--image__figure2 {
+    width: 250px !important;
+    height: 290px !important;
+  }
+  
+  .vs-about--yoe {
+    width: 180px !important;
+    padding: 15px !important;
+  }
+  
+  .vs-about--yoe__number {
+    font-size: 2.5rem !important;
+  }
+  
+  .vs-about--yoe__text {
+    font-size: 0.9rem !important;
+  }
+  
+  .vs-header__logo .logo {
+    height: 60px !important;
+  }
+  
+  /* Footer Extra Small Mobile */
+  .vs-footer__logo img {
+    height: 60px !important;
+  }
+  
+  .vs-footer__desc {
+    font-size: 0.8rem !important;
+  }
+  
+  .vs-footer__title {
+    font-size: 1.1rem !important;
+  }
+  
+  .vs-footer__menu--list a {
+    font-size: 0.85rem !important;
+  }
+  
+  .icon-call__title {
+    font-size: 0.8rem !important;
+  }
+  
+  .icon-call__number {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Footer Mobile Enhancements for Tablet */
+@media (max-width: 768px) {
+  .vs-footer__top {
+    padding: 40px 0 !important;
+  }
+  
+  .vs-footer__widget {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .vs-footer__logo {
+    margin-bottom: 20px !important;
+  }
+  
+  .vs-footer__logo img {
+    height: 80px !important;
+  }
+  
+  .vs-footer__desc {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .vs-footer__title {
+    font-size: 1.2rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .vs-footer__menu--list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  
+  .vs-footer__menu--list li {
+    margin: 0 !important;
+  }
+  
+  .vs-footer__menu--list a {
+    font-size: 0.9rem !important;
+    padding: 5px 0 !important;
+  }
+  
+  .icon-call {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .icon-call__content {
+    margin-left: 0 !important;
+    margin-top: 10px !important;
+  }
+  
+  .social-style {
+    justify-content: center !important;
+  }
+  
+  .social-style__label {
+    font-size: 0.9rem !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  /* Hide GALERIE Section on Mobile */
+  .vs-footer__widget:has(.sidebar-gallery) {
+    display: none !important;
+  }
+  
+  .vs-footer__bottom {
+    padding: 20px 0 !important;
+  }
+  
+  .vs-footer__copyright {
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .vs-footer__bottom--menu {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+  }
+  
+  .vs-footer__bottom--menu li {
+    margin: 0 !important;
+  }
+  
+  .vs-footer__bottom--menu a {
+    font-size: 0.8rem !important;
+  }
+}
+    
+    /* Rocket Animation */
+    .rocket-animation {
+      position: fixed;
+      top: 50%;
+      right: 5%;
+      z-index: 999;
+      width: 100px;
+      height: auto;
+      animation: rocketFly 3s ease-in-out infinite alternate;
+      transition: transform 0.3s ease-out;
+      transform: translateY(-50%);
+    }
+    
+    /* Mobile Rocket Adjustments */
+    @media (max-width: 768px) {
+      .rocket-animation {
+        width: 80px !important;
+        right: 3% !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .rocket-animation {
+        width: 60px !important;
+        right: 2% !important;
+      }
+    }
+    
+    @keyframes rocketFly {
+      0% {
+        transform: translateX(0px) translateY(0px) rotate(-5deg);
+      }
+      50% {
+        transform: translateX(-50px) translateY(-10px) rotate(0deg);
+      }
+      100% {
+        transform: translateX(-100px) translateY(-20px) rotate(5deg);
+      }
+    }
+    
+    /* Cloud effect behind rocket */
+    .vs-about--section::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 20px;
+      width: 200px;
+      height: 80px;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 40%, transparent 70%);
+      border-radius: 50px;
+      animation: cloudFloat 4s ease-in-out infinite;
+      z-index: 5;
+    }
+    
+    @keyframes cloudFloat {
+      0%, 100% {
+        transform: translateX(0px) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateX(-80px) scale(1.1);
+        opacity: 0.6;
+      }
+    }
+    
+    /* Scroll-based rocket movement */
+    .rocket-scroll-left {
+      transform: translateX(-150px) !important;
+    }
+    
+    .rocket-scroll-right {
+      transform: translateX(0px) !important;
+    }
+  </style>
+  <script>
+    // Rocket scroll animation
+    let lastScrollTop = 0;
+    const rocket = document.querySelector('.rocket-animation');
+    
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down - move rocket left
+        if (rocket) {
+          rocket.classList.add('rocket-scroll-left');
+          rocket.classList.remove('rocket-scroll-right');
+        }
+      } else {
+        // Scrolling up - move rocket right
+        if (rocket) {
+          rocket.classList.add('rocket-scroll-right');
+          rocket.classList.remove('rocket-scroll-left');
+        }
+      }
+      
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
+
+  <script>
+    // Theatre curtain opening animation - DISABLED
+    /*
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var curtain = document.getElementById('theatre-curtain');
+        var scene = document.getElementById('theatre-scene');
+        
+        if (curtain && scene) {
+          curtain.classList.add('open');
+          scene.classList.add('fade-out');
+        }
+      }, 500);
+    });
+    */
+  </script>
+
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <!-- Authentication Styles -->
+  <link rel="stylesheet" href="assets/css/auth-styles.css">
+  <link rel="stylesheet" href="assets/css/enhanced-auth-buttons.css">
+  <!-- Template Header System -->
+  <script src="assets/js/header-loader.js"></script>
+</head>
+
+<body>
+  <!--********************************
+   		Code Start From Here 
+	******************************** -->
+  <!--==============================
+		Mobile Menu
+	============================== -->
+    
+
+
+  <!--==============================
+        Header layout 2
+    ==============================-->
+  <!-- Theatre Curtains -->
+  <div id="theatre-scene">
+    <div id="theatre-curtain">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </div>
+
+  <main class="vs-main">
+    <!-- Enhanced Hero Slider -->
+    <section class="vs-hero overflow-hidden z-index-common parallax-wrap">
+      <!-- Advanced Hero Background Slider -->
+      <div class="hero-background-slider">
+        <!-- First 2 Tara Sur La Lune Images (as requested) -->
+        <div class="hero-slide" style="background-image: url('assets/img/Tara_Sur_La_Lune_Web_024.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/Tara_Sur_La_Lune_Web_032.jpg');"></div>
+        <!-- 2 Le Petit Prince Images -->
+        <div class="hero-slide" style="background-image: url('assets/img/Le_Petit_Prince_Web_050.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/Le_Petit_Prince_Web_066.jpg');"></div>
+        <!-- 3 Additional Tara Sur La Lune Images -->
+        <div class="hero-slide" style="background-image: url('assets/img/Tara_Sur_La_Lune_Web_041.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/Tara_Sur_La_Lune_Web_044.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/Tara_Sur_La_Lune_Web_025.jpg');"></div>
+        <!-- 2 Additional Specified Images -->
+        <div class="hero-slide" style="background-image: url('assets/img/Les_Fourberies_De_Scapin_Web_005.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('assets/img/Tara_Sur_La_Lune_Web_020.jpg');"></div>
+      </div>
+      <!-- Top Wave Design -->
+      <div class="vs-balls vs-balls--screen" data-balls-top="-6px" data-balls-color="#ffffff" style="top: -6px;"><div class="vs-balls__ball" style="left: 0px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 13.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 27.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 41.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 55.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 69.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 83.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 97.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 111.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 125.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 139px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 152.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 166.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 180.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 194.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 208.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 222.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 236.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 250.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 264.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 278px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 291.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 305.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 319.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 333.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 347.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 361.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 375.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 389.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 403.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 417px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 430.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 444.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 458.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 472.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 486.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 500.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 514.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 528.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 542.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 556px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 569.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 583.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 597.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 611.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 625.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 639.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 653.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 667.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 681.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 695px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 708.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 722.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 736.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 750.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 764.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 778.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 792.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 806.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 820.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 834px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 847.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 861.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 875.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 889.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 903.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 917.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 931.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 945.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 959.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 973px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 986.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1000.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1014.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1028.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1042.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1056.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1070.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1084.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1098.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1112px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1125.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1139.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1153.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1167.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1181.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1195.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1209.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1223.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1237.1px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1251px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1264.9px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1278.8px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1292.7px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1306.6px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1320.5px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1334.4px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1348.3px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1362.2px; background-color: rgb(255, 255, 255);"></div><div class="vs-balls__ball" style="left: 1376.1px; background-color: rgb(255, 255, 255);"></div></div>
+      
+      <!-- Enhanced Overlay with Gradient -->
+      <div class="hero-overlay"></div>
+      
+      <div class="swiper vs-hero__active--zoom">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="container container--custom">
+              <div class="vs-hero__content" style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; min-height: 85vh;">
+                <!-- Hero Content -->
+                <div class="hero-content-container" style="
+                  position: relative;
+                  max-width: 800px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  padding: 10px 40px;
+                ">
+                  <span class="vs-hero__title--sub" style="color: rgba(255,255,255,0.9); font-size: 18px; margin-bottom: 15px; font-weight: 400; text-transform: uppercase; letter-spacing: 2px; font-family: 'Inter', sans-serif; position: relative; display: inline-block;">
+                    L'École du Jeune Spectateur
+                  </span>
+                  <h1 class="vs-hero__title--main" style="color: white; font-size: 72px; font-weight: bold; margin: 0; padding: 0; line-height: 0.8; display: block;">
+                    Le théâtre pour tous !
+                  </h1>
+                  <p class="vs-hero__desc" style="color: white; font-size: 20px; margin: 0; margin-top: 35px; padding: 0; line-height: 1.6; opacity: 0.9; transform: translateY(-30px); display: block;" data-aos="fade-up" data-aos-delay="600">
+                    Rejoignez-nous dans cette <span style="color: #BDCF00; font-weight: bold;">aventure inspirante</span> où chaque moment contribue au <span style="color: #BDCF00; font-weight: bold;">développement</span> et à l'<span style="color: #BDCF00; font-weight: bold;">épanouissement</span> des spectateurs de demain.
+                  </p>
+                  <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                    <a href="contact.html" class="vs-btn hero-btn-primary" style="background: #BDCF00; color: #000; border: none; padding: 15px 30px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(189,207,0,0.3);">Découvrir Plus</a>
+                    <a href="spectacles.html" class="vs-btn hero-btn-secondary" style="background: transparent; color: white; border: 2px solid white; padding: 15px 30px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">Commencer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Additional slides removed as we now use background slider -->
+            <div class="container container--custom">
+              <div class="vs-hero__content">
+                <div class="vs-hero__shape">
+                  <div class="vs-hero__shape--bg vs-hero__anim" data-bg-src="assets/img/hero/hero-shape-1-no-grass.svg"></div>
+                  <span class="vs-hero__title--sub vs-hero__anim" data-aos="fade-up" data-aos-delay="200">
+                    Théâtre pour tous !
+                  </span>
+                  <h1 class="vs-hero__title--main">
+                    Spectacles <span>Culturels</span>
+                  </h1>
+                  <p class="vs-hero__desc vs-hero__anim" data-aos="fade-up" data-aos-delay="600">
+                    Des expériences théâtrales enrichissantes pour éveiller la créativité des enfants
+                  </p>
+                  <div class="hero-buttons" data-aos="fade-up" data-aos-delay="800">
+                    <a href="schools" class="vs-btn vs-hero__btn vs-hero__anim"><span class="vs-btn__border"></span>Pour Écoles</a>
+                    <a href="families" class="vs-btn style2 ms-3"><span class="vs-btn__border"></span>Pour Familles</a>
+                  </div>
+                  
+                  <!-- Enhanced Stats Section -->
+                  <div class="hero-stats" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="stat-item">
+                      <span class="stat-number" data-count="10000">10K+</span>
+                      <span class="stat-label">Enfants</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-number" data-count="25">25+</span>
+                      <span class="stat-label">Villes</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-number" data-count="5">5+</span>
+                      <span class="stat-label">Années</span>
+                    </div>
+                  </div>
+                  
+                  <img class="vs-hero__character vs-hero__anim" src="assets/img/Casse-Noisette_Web_013-1024x683.webp" alt="Hero Character" style="max-height: 200px; width: auto; object-fit: contain;" data-aos="fade-left" data-aos-delay="600">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- Progress Bar -->
+        <div class="hero-progress">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="scroll-text">Scroll</div>
+        <div class="scroll-arrow"><i class="fa-solid fa-chevron-down"></i></div>
+      </div>
+      
+      <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff"></div>
+    </section>
+    <!-- Hero End -->
+    
+    <!-- Values Section -->
+    <section class="py-5" style="background-image: url('assets/img/Asset 9@4x.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+          <div class="col-lg-8">
+            <div class="vs-title title-anime animation-style2">
+              <div class="title-anime__wrap">
+                <h2 class="vs-title__main">L'art au service de l'éducation</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="value-card text-center wow animate__fadeInUp" data-wow-delay="0.1s" style="background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: 100%; border-top: 4px solid #BDCF00;">
+              <div class="value-icon mb-4">
+                <i class="fas fa-theater-masks" style="font-size: 60px; color: #BDCF00;"></i>
+              </div>
+              <h4 style="color: #333; margin-bottom: 15px;">Excellence Artistique</h4>
+              <p style="color: #666; line-height: 1.6; margin: 0;">
+                Nous concoctons minutieusement chaque spectacle pour vous garantir une expérience culturelle et artistique régulière, enrichissante et de qualité.
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="value-card text-center wow animate__fadeInUp" data-wow-delay="0.2s" style="background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: 100%; border-top: 4px solid #BDCF00;">
+              <div class="value-icon mb-4">
+                <i class="fas fa-heart" style="font-size: 60px; color: #BDCF00;"></i>
+              </div>
+              <h4 style="color: #333; margin-bottom: 15px;">Inclusion Sociale</h4>
+              <p style="color: #666; line-height: 1.6; margin: 0;">
+                Nous veillons à assurer un large accès aux arts vivants et à la culture pour tous les enfants quel que soit leurs milieux
+              </p>
+            </div>
+          </div>
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="value-card text-center wow animate__fadeInUp" data-wow-delay="0.3s" style="background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: 100%; border-top: 4px solid #BDCF00;">
+              <div class="value-icon mb-4">
+                <i class="fas fa-lightbulb" style="font-size: 60px; color: #BDCF00;"></i>
+              </div>
+              <h4 style="color: #333; margin-bottom: 15px;">Innovation Pédagogique</h4>
+              <p style="color: #666; line-height: 1.6; margin: 0;">
+                Nous créons des ponts entre art et éducation, développant l'esprit critique et la sensibilité artistique des enfants.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Values Section End -->
+    
+    <!-- About Section -->
+    <section class="vs-about--section space space-extra-bottom z-index-common parallax-wrap overflow-hidden" style="background-color: #ffffff !important; background-image: none !important;">
+      <img src="assets/img/icon edjs-36.png" alt="L'École des jeunes spectateurs Rocket" class="rocket-floating" data-wow-delay="0.35s" style="width: 120px !important; height: 120px !important; max-width: 120px !important; max-height: 120px !important; z-index: 9999 !important; position: fixed !important; right: 8% !important; top: 50% !important; animation: rocketFloat 3s ease-in-out infinite !important; transform: translateY(-50%) !important;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.25s">
+            <div class="vs-about--image">
+              <div class="vs-about--image__figure2 wow animate__fadeInUp wow-animated" data-wow-delay="0.35s" style="width: 70%; max-width: 665px; height: auto; border-radius: 15px; overflow: hidden; margin-left: 0px; visibility: visible; animation-delay: 0.35s; animation-name: fadeInUp;">
+                <img src="assets/img/Gretel_Hansel_Web_023.jpg" alt="Spectacle Tara sur la Lune" style="width: 100%; height: auto; object-fit: cover; border-radius: 15px;">
+              </div>
+              <div class="vs-about--image__ele3 wow animate__zoomIn" data-wow-delay="0.55s" style="background-color: #BDCF00;"></div>
+              <div class="vs-about--yoe">
+                <span class="vs-about--yoe__number">
+                10
+              </span>
+                <span class="vs-about--yoe__text">années d'expérience</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.45s">
+            <div class="vs-about--right">
+              <div class="vs-title title-anime animation-style2">
+                <div class="title-anime__wrap">
+                  <span class="vs-title__sub">Notre Mission</span>
+                  <h2 class="vs-title__main">
+                    Former un public éclairé et passionné par les arts vivants.
+                  </h2>
+                </div>
+              </div>
+              <div class="vs-about--story">
+                <p class="vs-about__text vs-text">Depuis plus de 10 ans, nous croyons fermement que <span style="color: #BDCF00; font-weight: bold;">l'art façonne</span> les <span style="color: #BDCF00; font-weight: bold;">esprits de demain</span> et contribue au <span style="color: #BDCF00; font-weight: bold;">développement personnel</span> de chaque enfant.</p>
+                <div class="pt-15 mb-35">
+                  <a href="registration.html" class="vs-btn vs-btn--style2" style="background: #BDCF00; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; display: inline-block; font-weight: bold; transition: all 0.3s ease;">
+                    <i class="fas fa-calendar-check" style="margin-right: 8px;"></i>
+                    Réserver Maintenant
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Large Logo at Bottom -->
+      <div class="about-bottom-logo">
+        <img src="assets/img/Asset 3@4x.png" alt="L'École des jeunes spectateurs Logo" class="bottom-logo" style="z-index: 5; position: relative;">
+      </div>
+    </section>
+    <!-- About Section End -->
+    
+    <!-- NOS ENGAGEMENTS Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%); position: relative; overflow: hidden;">
+      <!-- Background Overlay -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/img/Asset 9@4x.png'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.1; z-index: 1;"></div>
+      <!-- Decorative Elements -->
+      <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: linear-gradient(135deg, rgba(189, 207, 0, 0.08), rgba(155, 184, 0, 0.03)); border-radius: 50%; z-index: 1;"></div>
+      
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <div class="vs-title title-anime animation-style2 mb-4">
+              <div class="title-anime__wrap">
+                <span class="vs-title__sub" style="color: #BDCF00; font-weight: 600; font-size: 16px; letter-spacing: 2px;">NOS ENGAGEMENTS</span>
+                <h2 class="vs-title__main" style="font-size: 42px; font-weight: 800; color: #333; margin-top: 10px;">L'art au service de l'éducation</h2>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="col-12">
+            <div class="mission-blocks" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;">
+                <!-- Block 1 -->
+                <div class="mission-block" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid rgba(189, 207, 0, 0.2); transition: all 0.3s ease; cursor: default; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.08)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
+                    <i class="fas fa-users" style="color: white; font-size: 20px;"></i>
+                  </div>
+                  <h6 style="color: #333; font-weight: 700; margin-bottom: 8px; font-size: 15px; line-height: 1.3;">Sensibiliser les enfants au rôle et aux droits d'un spectateur</h6>
+                </div>
+                
+                <!-- Block 2 - Interactive -->
+                <div class="mission-block interactive-block" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid rgba(189, 207, 0, 0.2); transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden;" onclick="window.location.href='spectacles.html'" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
+                    <i class="fas fa-theater-masks" style="color: white; font-size: 20px;"></i>
+                  </div>
+                  <h6 style="color: #333; font-weight: 700; margin-bottom: 8px; font-size: 15px; line-height: 1.3;">Créer, produire et diffuser des pièces de théâtre originales</h6>
+                  <div class="hover-button" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: #BDCF00; color: #333; padding: 12px 20px; border-radius: 25px; font-size: 13px; font-weight: 700; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; box-shadow: 0 8px 25px rgba(189, 207, 0, 0.4); border: none; cursor: pointer;">
+                    DÉCOUVREZ NOS CRÉATIONS
+                  </div>
+                </div>
+                
+                <!-- Block 3 -->
+                <div class="mission-block" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid rgba(189, 207, 0, 0.2); transition: all 0.3s ease; cursor: default; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.08)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
+                    <i class="fas fa-star" style="color: white; font-size: 20px;"></i>
+                  </div>
+                  <h6 style="color: #333; font-weight: 700; margin-bottom: 8px; font-size: 15px; line-height: 1.3;">Offrir une qualité artistique exigeante et adaptée aux jeunes publics</h6>
+                </div>
+                
+                <!-- Block 4 -->
+                <div class="mission-block" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid rgba(189, 207, 0, 0.2); transition: all 0.3s ease; cursor: default; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.08)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
+                    <i class="fas fa-cogs" style="color: white; font-size: 20px;"></i>
+                  </div>
+                  <h6 style="color: #333; font-weight: 700; margin-bottom: 8px; font-size: 15px; line-height: 1.3;">Garantir un déploiement fluide et accessible du programme</h6>
+                </div>
+                
+                <!-- Block 5 -->
+                <div class="mission-block" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid rgba(189, 207, 0, 0.2); transition: all 0.3s ease; cursor: default; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.08)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
+                    <i class="fas fa-heart" style="color: white; font-size: 20px;"></i>
+                  </div>
+                  <h6 style="color: #333; font-weight: 700; margin-bottom: 8px; font-size: 15px; line-height: 1.3;">Transmettre des valeurs éducatives, citoyennes et artistiques</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <style>
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        .main-image:hover img {
+          transform: scale(1.05);
+        }
+        
+        .mission-block:hover .block-icon {
+          transform: scale(1.1) rotate(5deg);
+        }
+      </style>
+      
+      <script>
+        function showTooltip(element) {
+          const hoverButton = element.querySelector('.hover-button');
+          if (hoverButton) {
+            hoverButton.style.opacity = '1';
+            hoverButton.style.visibility = 'visible';
+            hoverButton.style.transform = 'translateX(-50%) translateY(-5px)';
+          }
+          element.style.transform = 'translateY(-12px)';
+          element.style.boxShadow = '0 20px 50px rgba(0,0,0,0.2)';
+          element.style.borderColor = 'rgba(189, 207, 0, 0.5)';
+        }
+        
+        function hideTooltip(element) {
+          const hoverButton = element.querySelector('.hover-button');
+          if (hoverButton) {
+            hoverButton.style.opacity = '0';
+            hoverButton.style.visibility = 'hidden';
+            hoverButton.style.transform = 'translateX(-50%) translateY(0)';
+          }
+          element.style.transform = 'translateY(0)';
+          element.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
+          element.style.borderColor = 'rgba(189, 207, 0, 0.2)';
+        }
+      </script>
+    </section>
+    <!-- NOS ENGAGEMENTS Section End -->
+    
+    <!-- Vs Service Area -->
+    <section class="vs-service--area animation-active z-index-common space overflow-hidden" data-bg-src="assets/img/Asset 9@4x.png">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="vs-title text-center title-anime animation-style2">
+              <div class="title-anime__wrap">
+                <h2 class="vs-title__main">Faciliter l'accès à la culture pour tous</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="z-index-common" style="padding-bottom: 60px;">
+          <div class="row justify-content-center swiper vs-carousel vs-carousel--service z-index-common pl-0" data-xl="3" data-loop="true" data-autoplay-delay="6000" data-nav-next=".nav-next-2" data-nav-prev=".nav-prev-1">
+            <div class="swiper-wrapper">
+              <div class="col-lg-4 col-md-6 swiper-slide">
+                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.25s" style="border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow: hidden; background: white; position: relative; border: 1px solid rgba(189, 207, 0, 0.1);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="vs-service__figure" style="position: relative; overflow: hidden; border-radius: 25px 25px 0 0;">
+                    <a href="service-details" class="vs-service__image--link" style="display: block; position: relative; overflow: hidden;">
+                      <img class="vs-service__image" src="assets/edjs img/Casse-Noisette_Web_039-1024x683.webp" alt="Spectacle pour écoles publiques" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease;">
+                    </a>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(189, 207, 0, 0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);"></div>
+                  </div>
+                  <div class="vs-service__content" style="padding: 35px 30px; position: relative;">
+                    <div class="vs-service__header" style="margin-bottom: 25px;">
+                      <span class="vs-service__icon" style="display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(189, 207, 0, 0.3); transition: all 0.3s ease;">
+                        <i class="fas fa-school" style="color: white; font-size: 32px;"></i>
+                      </span>
+                    </div>
+                    <a class="vs-service__heading--link" href="service-details" style="text-decoration: none; color: inherit;">
+                      <h3 class="vs-service__heading" style="margin-bottom: 18px; font-size: 26px; font-weight: 800; color: #333;">Écoles Publiques</h3>
+                    </a>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.7; margin-bottom: 30px; font-size: 16px;"><span style="color: #BDCF00; font-weight: bold;">Accès gratuit</span> aux spectacles pour les écoles publiques. Des représentations adaptées aux <span style="color: #BDCF00; font-weight: bold;">programmes scolaires</span> avec un <span style="color: #BDCF00; font-weight: bold;">accompagnement pédagogique</span> complet.</p>
+                    <a href="service-details" class="vs-service__link" style="display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: linear-gradient(135deg, #BDCF00, #9BB800); color: white; text-decoration: none; border-radius: 18px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(189, 207, 0, 0.4); position: absolute; bottom: 25px; right: 25px;">
+                      <svg width="22" height="22" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 swiper-slide">
+                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.35s" style="border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow: hidden; background: white; position: relative; border: 1px solid rgba(189, 207, 0, 0.1);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="vs-service__figure" style="position: relative; overflow: hidden; border-radius: 25px 25px 0 0;">
+                    <a href="service-details" class="vs-service__image--link" style="display: block; position: relative; overflow: hidden;">
+                      <img class="vs-service__image" src="assets/edjs img/Casse-Noisette_Web_048-1024x683.webp" alt="Spectacle pour écoles privées" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease;">
+                    </a>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(189, 207, 0, 0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);"></div>
+                  </div>
+                  <div class="vs-service__content" style="padding: 35px 30px; position: relative;">
+                    <div class="vs-service__header" style="margin-bottom: 25px;">
+                      <span class="vs-service__icon" style="display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(189, 207, 0, 0.3); transition: all 0.3s ease;">
+                        <i class="fas fa-graduation-cap" style="color: white; font-size: 32px;"></i>
+                      </span>
+                    </div>
+                    <a class="vs-service__heading--link" href="service-details" style="text-decoration: none; color: inherit;">
+                      <h3 class="vs-service__heading" style="margin-bottom: 18px; font-size: 26px; font-weight: 800; color: #333;">Écoles Privées</h3>
+                    </a>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.7; margin-bottom: 30px; font-size: 16px;"><span style="color: #BDCF00; font-weight: bold;">Tarifs préférentiels</span> et <span style="color: #BDCF00; font-weight: bold;">programmes culturels</span> sur mesure. Un accompagnement pédagogique personnalisé pour enrichir l'<span style="color: #BDCF00; font-weight: bold;">expérience éducative</span>.</p>
+                    <a href="service-details" class="vs-service__link" style="display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: linear-gradient(135deg, #BDCF00, #9BB800); color: white; text-decoration: none; border-radius: 18px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(189, 207, 0, 0.4); position: absolute; bottom: 25px; right: 25px;">
+                      <svg width="22" height="22" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 swiper-slide">
+                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.45s" style="border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow: hidden; background: white; position: relative; border: 1px solid rgba(189, 207, 0, 0.1);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="vs-service__figure" style="position: relative; overflow: hidden; border-radius: 25px 25px 0 0;">
+                    <a href="associations" class="vs-service__image--link" style="display: block; position: relative; overflow: hidden;">
+                      <img class="vs-service__image" src="assets/edjs img/Casse-Noisette_Web_013-1024x683.webp" alt="Spectacle pour associations" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease;">
+                    </a>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(189, 207, 0, 0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);"></div>
+                  </div>
+                  <div class="vs-service__content" style="padding: 35px 30px; position: relative;">
+                    <div class="vs-service__header" style="margin-bottom: 25px;">
+                      <span class="vs-service__icon" style="display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(189, 207, 0, 0.3); transition: all 0.3s ease;">
+                        <i class="fas fa-users" style="color: white; font-size: 32px;"></i>
+                      </span>
+                    </div>
+                    <a class="vs-service__heading--link" href="associations" style="text-decoration: none; color: inherit;">
+                      <h3 class="vs-service__heading" style="margin-bottom: 18px; font-size: 26px; font-weight: 800; color: #333;">Associations</h3>
+                    </a>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.7; margin-bottom: 30px; font-size: 16px;"><span style="color: #BDCF00; font-weight: bold;">Programmes spéciaux</span> pour les associations et centres communautaires. <span style="color: #BDCF00; font-weight: bold;">Tarifs adaptés</span> pour rendre la <span style="color: #BDCF00; font-weight: bold;">culture accessible</span> à tous les publics.</p>
+                    <a href="associations" class="vs-service__link" style="display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: linear-gradient(135deg, #BDCF00, #9BB800); color: white; text-decoration: none; border-radius: 18px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(189, 207, 0, 0.4); position: absolute; bottom: 25px; right: 25px;">
+                      <svg width="22" height="22" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 swiper-slide">
+                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.55s" style="border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow: hidden; background: white; position: relative; border: 1px solid rgba(189, 207, 0, 0.1);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="vs-service__figure" style="position: relative; overflow: hidden; border-radius: 25px 25px 0 0;">
+                    <a href="families" class="vs-service__image--link" style="display: block; position: relative; overflow: hidden;">
+                      <img class="vs-service__image" src="assets/edjs img/Casse-Noisette_Web_048-1024x683.webp" alt="Spectacle pour familles" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease;">
+                    </a>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(189, 207, 0, 0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);"></div>
+                  </div>
+                  <div class="vs-service__content" style="padding: 35px 30px; position: relative;">
+                    <div class="vs-service__header" style="margin-bottom: 25px;">
+                      <span class="vs-service__icon" style="display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(189, 207, 0, 0.3); transition: all 0.3s ease;">
+                        <i class="fas fa-heart" style="color: white; font-size: 32px;"></i>
+                      </span>
+                    </div>
+                    <a class="vs-service__heading--link" href="families" style="text-decoration: none; color: inherit;">
+                      <h3 class="vs-service__heading" style="margin-bottom: 18px; font-size: 26px; font-weight: 800; color: #333;">Familles</h3>
+                    </a>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.7; margin-bottom: 30px; font-size: 16px;"><span style="color: #BDCF00; font-weight: bold;">Réservation en ligne</span> simple avec <span style="color: #BDCF00; font-weight: bold;">billets QR instantanés</span>. <span style="color: #BDCF00; font-weight: bold;">Paiement sécurisé</span> par carte CMI et possibilité de modification jusqu'à 27h avant le spectacle.</p>
+                    <a href="families" class="vs-service__link" style="display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: linear-gradient(135deg, #BDCF00, #9BB800); color: white; text-decoration: none; border-radius: 18px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(189, 207, 0, 0.4); position: absolute; bottom: 25px; right: 25px;">
+                      <svg width="22" height="22" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 swiper-slide">
+                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.65s" style="border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); overflow: hidden; background: white; position: relative; border: 1px solid rgba(189, 207, 0, 0.1);" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 25px 50px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.1)'">
+                  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
+                  <div class="vs-service__figure" style="position: relative; overflow: hidden; border-radius: 25px 25px 0 0;">
+                    <a href="partners.html" class="vs-service__image--link" style="display: block; position: relative; overflow: hidden;">
+                      <img class="vs-service__image" src="assets/edjs img/Casse-Noisette_Web_035.webp" alt="Partenaires L'École des jeunes spectateurs" style="width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease;">
+                    </a>
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(189, 207, 0, 0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);"></div>
+                  </div>
+                  <div class="vs-service__content" style="padding: 35px 30px; position: relative;">
+                    <div class="vs-service__header" style="margin-bottom: 25px;">
+                      <span class="vs-service__icon" style="display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 20px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(189, 207, 0, 0.3); transition: all 0.3s ease;">
+                        <i class="fas fa-handshake" style="color: white; font-size: 32px;"></i>
+                      </span>
+                    </div>
+                    <a class="vs-service__heading--link" href="partners.html" style="text-decoration: none; color: inherit;">
+                      <h3 class="vs-service__heading" style="margin-bottom: 18px; font-size: 26px; font-weight: 800; color: #333;">Partenaires</h3>
+                    </a>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.7; margin-bottom: 30px; font-size: 16px;">Collaboration avec les institutions culturelles et éducatives pour promouvoir l'accès à la culture.</p>
+                    <a href="partners.html" class="vs-service__link" style="display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; background: linear-gradient(135deg, #BDCF00, #9BB800); color: white; text-decoration: none; border-radius: 18px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(189, 207, 0, 0.4); position: absolute; bottom: 25px; right: 25px;">
+                      <svg width="22" height="22" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-prev-1">
+            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <mask id="mask0_318_7638" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
+                <rect width="57" height="20" transform="matrix(-1 0 0 1 57 0)" fill="url(#pattern0_318_7638)" />
+              </mask>
+              <g mask="url(#mask0_318_7638)">
+                <rect width="84" height="42" transform="matrix(-1 0 0 1 70 -14)" fill="currentColor" />
+              </g>
+              <defs>
+                <pattern id="pattern0_318_7638" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_318_7638" transform="scale(0.0175439 0.05)" />
+                </pattern>
+                <image id="image0_318_7638" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-next-2">
+            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <mask id="mask0_318_7635" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
+                <rect width="57" height="20" fill="url(#pattern0_318_7635)" />
+              </mask>
+              <g mask="url(#mask0_318_7635)">
+                <rect x="-13" y="-14" width="84" height="42" fill="currentColor" />
+              </g>
+              <defs>
+                <pattern id="pattern0_318_7635" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_318_7635" transform="scale(0.0175439 0.05)" />
+                </pattern>
+                <image id="image0_318_7635" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About End -->
+    
+    <!-- Vs Service Area -->
+    <section class="achievements-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <div class="vs-title">
+              <h2 class="vs-title__main" style="color: black; font-size: 3.5rem; font-weight: bold;">Nos Chiffres Clés</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center" style="gap: 40px;">
+          <div class="col-lg-2 col-md-4 col-6 mb-4 d-flex justify-content-center">
+            <div class="achievement-item wow animate__fadeInUp text-center" data-wow-delay="0.1s" style="min-width: 180px;">
+              <span class="achievement-number" data-count="10">10+</span>
+              <span class="achievement-label">Ans d'existence</span>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-4 d-flex justify-content-center">
+            <div class="achievement-item wow animate__fadeInUp text-center" data-wow-delay="0.2s" style="min-width: 180px;">
+              <span class="achievement-number" data-count="20000">+20K</span>
+              <span class="achievement-label">enfants bénéficiaires par an</span>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-4 d-flex justify-content-center">
+            <div class="achievement-item wow animate__fadeInUp text-center" data-wow-delay="0.3s" style="min-width: 180px;">
+              <span class="achievement-number" data-count="100">100</span>
+              <span class="achievement-label">partenaires et associations</span>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-4 d-flex justify-content-center">
+            <div class="achievement-item wow animate__fadeInUp text-center" data-wow-delay="0.4s" style="min-width: 180px;">
+              <span class="achievement-number" data-count="60">60</span>
+              <span class="achievement-label">spectacles</span>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6 mb-4 d-flex justify-content-center">
+            <div class="achievement-item wow animate__fadeInUp text-center" data-wow-delay="0.5s" style="min-width: 180px;">
+              <span class="achievement-number" data-count="300">300</span>
+              <span class="achievement-label">Représentations théâtrales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Vs Service Area End -->
+    
+    <!-- Spectacles Section -->
+    <section style="background-image: url('assets/img/Asset 9@4x.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f8f9fa; margin-top: 0px; padding: 60px 0; position: relative;">
+      <!-- Theater Curtains Overlay -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/img/suii 3@4x.png'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1; pointer-events: none;"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="vs-title text-center title-anime animation-style2">
+              <div class="title-anime__wrap">
+                <h2 class="vs-title__main">DÉCOUVREZ NOTRE PROGRAMMATION</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="z-index-common" style="position: relative; z-index: 2;">
+          <div class="vs-carousel vs-carousel--class swiper" data-xl="4" data-lg="3" data-autoplay="true" data-loop="true" data-autoplay-delay="3000" data-nav-next="#swiper-button-next" data-nav-prev="#swiper-button-prev">
+            <div class="swiper-wrapper">
+              <!-- Le Petit Prince – Octobre 2025 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.25s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-le-petit-prince.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/petite prince.png" alt="Le Petit Prince" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      OCT<br>2025
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/petit prince@4x.png" alt="Le Petit Prince Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-le-petit-prince.html">
+                      <h3 class="vs-class__heading">Le Petit Prince</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Histoire touchante du Petit Prince<br>adaptée pour tous.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-le-petit-prince.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Tara sur la Lune – Octobre 2025 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.35s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-tara-sur-la-lune.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/tara sur la lune.png" alt="Tara sur la Lune" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      OCT<br>2025
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/tara@4x.png" alt="Tara sur la Lune Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-tara-sur-la-lune.html">
+                      <h3 class="vs-class__heading">Tara sur la Lune</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Aventure spatiale captivante<br>stimulant l'imagination.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-tara-sur-la-lune.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- L'eau-là – Novembre 2025 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.45s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-leau-la.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/l'eau la.png" alt="L'eau-là" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      NOV<br>2025
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/leau@4x.png" alt="L'eau-là Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-leau-la.html">
+                      <h3 class="vs-class__heading">L'eau-là</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Aventure aquatique sensibilisant<br>à l'importance eau.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-leau-la.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Mirath Atfal – Novembre 2025 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.55s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacles.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/4x/Asset 8@4x.png" alt="Mirath Atfal" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      NOV<br>2025
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/estevanico@4x.png" alt="Mirath Atfal Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacles.html">
+                      <h3 class="vs-class__heading">Mirath Atfal</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Spectacle célébrant héritage<br>culturel marocain.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacles.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Simple comme bonjour – Décembre 2025 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.65s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-simple-comme-bonjour.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/simple.png" alt="Simple comme bonjour" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      DÉC<br>2025
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/simple comme bonjour@4x.png" alt="Simple comme bonjour Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-simple-comme-bonjour.html">
+                      <h3 class="vs-class__heading">Simple comme bonjour</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Spectacle interactif enseignant<br>politesse respect.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-simple-comme-bonjour.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Charlotte – Janvier 2026 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.75s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-charlotte.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/charlotte.png" alt="Charlotte" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      JAN<br>2026
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/charlotte@4x.png" alt="Charlotte Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-charlotte.html">
+                      <h3 class="vs-class__heading">Charlotte</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Histoire émouvante Charlotte<br>découvrant amitié.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-charlotte.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Estevanico – Février 2026 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.85s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-estevanico.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/estavine.png" alt="Estevanico" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      FÉV<br>2026
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/estevanico@4x.png" alt="Estevanico Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-estevanico.html">
+                      <h3 class="vs-class__heading">Estevanico</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Histoire fascinante épique<br>explorateur courageux intrépide.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-estevanico.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- L'enfant de l'arbre – Mars 2026 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.95s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-lenfant-de-larbre.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/enfant de l'arbre.png" alt="L'enfant de l'arbre" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      MAR<br>2026
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/larbre@4x.png" alt="L'enfant de l'arbre Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-lenfant-de-larbre.html">
+                      <h3 class="vs-class__heading">L'enfant de l'arbre</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Fable poétique touchante relation<br>enfant nature profonde.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-lenfant-de-larbre.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Antigone, Sophocle – Avril 2026 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="1.05s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-antigone.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/antigone.png" alt="Antigone, Sophocle" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      AVR<br>2026
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/antigone@4x.png" alt="Antigone Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-antigone.html">
+                      <h3 class="vs-class__heading">Antigone</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Tragédie grecque adaptée<br>sensibilisant jeunes.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-antigone.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Alice chez les merveilles – Mai 2026 -->
+              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="1.15s">
+                <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+                    <a class="vs-class__figure--link" href="spectacle-alice-chez-les-merveilles.html" style="flex: 1; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/alice chez le .png" alt="Alice chez les merveilles" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                    </a>
+                    <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
+                      MAI<br>2026
+                    </div>
+                    <div style="position: absolute; bottom: 20px; right: 20px;">
+                      <img src="assets/img/spectacles elements/alice@4x.png" alt="Alice chez les merveilles Character" style="width: 120px; height: 120px; object-fit: contain;">
+                    </div>
+                  </div>
+                  <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
+                    <a class="vs-class__heading--link" href="spectacle-alice-chez-les-merveilles.html">
+                      <h3 class="vs-class__heading">Alice chez les merveilles</h3>
+                    </a>
+                    <p class="vs-class__text">
+                      Conte merveilleux Carroll<br>enchantant jeunes.
+                    </p>
+                  </div>
+                  <div class="vs-class__bottom" style="padding: 10px 20px 20px;">
+                    <a href="spectacle-alice-chez-les-merveilles.html" class="vs-class__link">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="swiper-button-prev" class="nav-prev-1">
+            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <mask id="mask0_318_7638" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
+                <rect width="57" height="20" transform="matrix(-1 0 0 1 57 0)" fill="url(#pattern0_318_7638)"></rect>
+              </mask>
+              <g mask="url(#mask0_318_7638)">
+                <rect width="84" height="42" transform="matrix(-1 0 0 1 70 -14)" fill="currentColor"></rect>
+              </g>
+              <defs>
+                <pattern id="pattern0_318_7638" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_318_7638" transform="scale(0.0175439 0.05)"></use>
+                </pattern>
+                <image id="image0_318_7638" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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">
+                </image>
+              </defs>
+            </svg>
+          </div>
+          <div id="swiper-button-next" class="nav-next-2">
+            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <mask id="mask0_318_7635" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
+                <rect width="57" height="20" fill="url(#pattern0_318_7635)"></rect>
+              </mask>
+              <g mask="url(#mask0_318_7635)">
+                <rect x="-13" y="-14" width="84" height="42" fill="currentColor"></rect>
+              </g>
+              <defs>
+                <pattern id="pattern0_318_7635" patternContentUnits="objectBoundingBox" width="1" height="1">
+                  <use xlink:href="#image0_318_7635" transform="scale(0.0175439 0.05)"></use>
+                </pattern>
+                <image id="image0_318_7635" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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">
+                </image>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Spectacles Section End -->
+  </main>
+  
+  <!-- Partners Section -->
+  <section class="partners-section space-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <div class="vs-title">
+            <span class="vs-title__sub">Nos Partenaires</span>
+            <h2 class="vs-title__main">Ils Nous Font <span style="color: #BDCF00;">Confiance</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="partners-slider">
+        <div class="partners-track">
+          <div class="partners-logos-set">
+            <div class="partner-logo">
+              <a href="partners.html#ocp-group"><img src="assets/img/partners/OCP_Group.svg.png" alt="OCP Group"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#fondation-mohammed-vi"><img src="assets/img/partners/fondation-mohammed-6-logo-png_seeklogo-315870.png" alt="Fondation Mohammed VI"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#credit-agricole"><img src="assets/img/partners/credit agricole du maroc .png" alt="Crédit Agricole du Maroc"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#edgs"><img src="assets/img/partners/logo EDGS-02.png" alt="EDGS"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#annexe-hay-hassani"><img src="assets/img/partners/logo annexe hay hassani-01.png" alt="Annexe Hay Hassani"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#vivo-maroc"><img src="assets/img/partners/logo vivo maroc.png" alt="Vivo Maroc"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#achraf-hakimi"><img src="assets/img/partners/achraf hakimi vertical logo noir fr.png" alt="Achraf Hakimi Foundation"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#fondation-dgsn"><img src="assets/img/partners/A4P07-02-2025_15-36-26avision-removebg-preview.png" alt="Fondation DGSN"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#marsa-maroc"><img src="assets/img/partners/MARSA_MAROC_LOGO_C_ENG-1-removebg-preview.png" alt="Marsa Maroc"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#ministere-education"><img src="assets/img/partners/Men_2021-removebg-preview.png" alt="Ministère de l'Éducation Nationale"></a>
+            </div>
+          </div>
+          <!-- Duplicate set for seamless infinite loop -->
+          <div class="partners-logos-set">
+            <div class="partner-logo">
+              <a href="partners.html#ocp-group"><img src="assets/img/partners/OCP_Group.svg.png" alt="OCP Group"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#fondation-mohammed-vi"><img src="assets/img/partners/fondation-mohammed-6-logo-png_seeklogo-315870.png" alt="Fondation Mohammed VI"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#credit-agricole"><img src="assets/img/partners/credit agricole du maroc .png" alt="Crédit Agricole du Maroc"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#edgs"><img src="assets/img/partners/logo EDGS-02.png" alt="EDGS"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#annexe-hay-hassani"><img src="assets/img/partners/logo annexe hay hassani-01.png" alt="Annexe Hay Hassani"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#vivo-maroc"><img src="assets/img/partners/logo vivo maroc.png" alt="Vivo Maroc"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#achraf-hakimi"><img src="assets/img/partners/achraf hakimi vertical logo noir fr.png" alt="Achraf Hakimi Foundation"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#fondation-dgsn"><img src="assets/img/partners/A4P07-02-2025_15-36-26avision-removebg-preview.png" alt="Fondation DGSN"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#marsa-maroc"><img src="assets/img/partners/MARSA_MAROC_LOGO_C_ENG-1-removebg-preview.png" alt="Marsa Maroc"></a>
+            </div>
+            <div class="partner-logo">
+              <a href="partners.html#ministere-education"><img src="assets/img/partners/Men_2021-removebg-preview.png" alt="Ministère de l'Éducation Nationale"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Partners End -->
+  
+  <div class="vs-footer bg-title">
+    <div class="vs-footer__top z-index-common space-extra-top space-extra-bottom">
+      <div class="container">
+        <div class="row gy-4 gx-xxl-5">
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.25s">
+            <div class="vs-footer__widget">
+              <div class="vs-footer__logo text-center text-md-start mb-25">
+                <a href="/" class="vs-logo">
+                  <img src="assets/img/Asset 2@4x.png" alt="L'École des jeunes spectateurs" style="height: 120px; width: auto; max-width: none !important;">
+                </a>
+              </div>
+              <p class="vs-footer__desc text-center text-md-start" style="color: white;">
+                Chaque élève a l'opportunité de découvrir et d'explorer la richesse des arts de la scène à travers la danse, le théâtre et la musique, qui sont au cœur de notre programme.
+              </p>
+              <div class="icon-call justify-content-center justify-content-md-start pt-10 mb-10">
+                <span class="icon-call__icon"><i class="fa-solid fa-phone-rotary"></i></span>
+                <div class="icon-call__content">
+                  <span class="icon-call__title">support téléphonique</span>
+                  <a href="tel:+212522981085" class="icon-call__number">+212 5 22 98 10 85</a>
+                </div>
+              </div>
+              <div class="social-style social-style--version2 w-100 justify-content-center justify-content-md-start pt-25">
+                <span class="social-style__label">suivez-nous :</span>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.35s">
+            <div class="vs-footer__widget">
+              <h3 class="vs-footer__title" style="color: #cccccc;">Navigation</h3>
+              <div class="vs-footer__menu">
+                <ul class="vs-footer__menu--list">
+                  <li><a href="/">Accueil</a></li>
+                  <li><a href="spectacles.html">Spectacles</a></li>
+                  <li><a href="gallery.html">Galerie</a></li>
+                  <li><a href="partners.html">Partenaires</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.45s">
+            <div class="vs-footer__widget">
+              <h3 class="vs-footer__title" style="color: #cccccc;">GALERIE</h3>
+              <div class="sidebar-gallery" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Les_Trois_Brigands_Web_026.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Les_Trois_Brigands_Web_026.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Casse-Noisette_Web_007.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Casse-Noisette_Web_007.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Le_Petit_Prince_Web_032.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Le_Petit_Prince_Web_032.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Gretel_Hansel_Web_023.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Gretel_Hansel_Web_023.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Dans_la_peau_de_Cyrano_Web_016.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Dans_la_peau_de_Cyrano_Web_016.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+                <div class="gallery-thumb" style="aspect-ratio: 1; overflow: hidden;">
+                  <img src="assets/img/Tara_Sur_La_Lune_Web_012.jpg" alt="GALERIE Image" style="width: 100%; height: 100%; object-fit: cover;">
+                  <a href="assets/img/Tara_Sur_La_Lune_Web_012.jpg" class="popup-image gal-btn"><i class="fal fa-plus" style="color: white;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vs-footer__bottom bg-theme-color-1">
+      <div class="container">
+        <div class="row gy-3 gx-5 align-items-center justify-content-center justify-content-lg-between flex-column-reverse flex-lg-row">
+          <div class="col-md-auto">
+            <p class="vs-footer__copyright mb-0" style="color: white;">
+              Copyright © <span id="currentYear"></span>
+              <a href="/">L'École des jeunes spectateurs</a>. Tous droits réservés.
+            </p>
+          </div>
+          <div class="col-md-auto">
+            <ul class="vs-footer__bottom--menu">
+              <li><a href="contact.html">Conditions Générales</a></li>
+              <li><a href="contact.html">Politique de Confidentialité</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--********************************
+			Back To Top  
+	******************************** -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+    <span class="progress-circle">
+      <svg viewBox="0 0 100 100">
+        <circle class="bg" cx="50" cy="50" r="40"></circle>
+        <circle class="progress" cx="50" cy="50" r="40"></circle>
+      </svg>
+      <span class="progress-percentage" id="progressPercentage">0%</span>
+    </span>
+  </button>
+  <!--********************************
+			Code End  Here 
+	******************************** -->
+  <!--==============================
+        All Js File
+    ============================== -->
+  <!-- Jquery -->
+  <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- WOW.js Animation -->
+  <script src="assets/js/wow.min.js"></script>
+  <!-- Magnific Popup -->
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <!-- GSAP -->
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/ScrollTrigger.min.js"></script>
+  <script src="assets/js/gsap-scroll-to-plugin.js"></script>
+  <script src="assets/js/SplitText.js"></script>
+  <script src="assets/js/lenis.min.js"></script>
+  <!-- Swiper Slider -->
+  <script src="assets/js/swiper-bundle.js"></script>
+  <!-- Main Js File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/hero-slider.js"></script>
+
+  <!-- Authentication Scripts -->
+  <script src="assets/js/supabase-config.js"></script>
+  <script src="assets/js/spectacles-auth.js"></script>
+</body>
+
+</html>

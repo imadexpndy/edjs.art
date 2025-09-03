@@ -1,0 +1,172 @@
+{
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/spectacles",
+      "destination": "/spectacles.html"
+    },
+    {
+      "source": "/partners",
+      "destination": "/partners.html"
+    },
+    {
+      "source": "/registration",
+      "destination": "/registration.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/blog-details",
+      "destination": "/blog-details.html"
+    },
+    {
+      "source": "/404",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/spectacle-alice-chez-les-merveilles",
+      "destination": "/spectacle-alice-chez-les-merveilles.html"
+    },
+    {
+      "source": "/spectacle-antigone",
+      "destination": "/spectacle-antigone.html"
+    },
+    {
+      "source": "/spectacle-casse-noisette",
+      "destination": "/spectacle-casse-noisette.html"
+    },
+    {
+      "source": "/spectacle-charlotte",
+      "destination": "/spectacle-charlotte.html"
+    },
+    {
+      "source": "/spectacle-estevanico",
+      "destination": "/spectacle-estevanico.html"
+    },
+    {
+      "source": "/spectacle-le-petit-prince",
+      "destination": "/spectacle-le-petit-prince.html"
+    },
+    {
+      "source": "/spectacle-leau-la",
+      "destination": "/spectacle-leau-la.html"
+    },
+    {
+      "source": "/spectacle-lenfant-de-larbre",
+      "destination": "/spectacle-lenfant-de-larbre.html"
+    },
+    {
+      "source": "/spectacle-simple-comme-bonjour",
+      "destination": "/spectacle-simple-comme-bonjour.html"
+    },
+    {
+      "source": "/spectacle-tara-sur-la-lune",
+      "destination": "/spectacle-tara-sur-la-lune.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/spectacles.html",
+      "destination": "/spectacles",
+      "permanent": true
+    },
+    {
+      "source": "/partners.html",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/registration.html",
+      "destination": "/registration",
+      "permanent": true
+    },
+    {
+      "source": "/gallery.html",
+      "destination": "/gallery",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog-details.html",
+      "destination": "/blog-details",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-alice-chez-les-merveilles.html",
+      "destination": "/spectacle-alice-chez-les-merveilles",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-antigone.html",
+      "destination": "/spectacle-antigone",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-casse-noisette.html",
+      "destination": "/spectacle-casse-noisette",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-charlotte.html",
+      "destination": "/spectacle-charlotte",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-estevanico.html",
+      "destination": "/spectacle-estevanico",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-le-petit-prince.html",
+      "destination": "/spectacle-le-petit-prince",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-leau-la.html",
+      "destination": "/spectacle-leau-la",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-lenfant-de-larbre.html",
+      "destination": "/spectacle-lenfant-de-larbre",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-simple-comme-bonjour.html",
+      "destination": "/spectacle-simple-comme-bonjour",
+      "permanent": true
+    },
+    {
+      "source": "/spectacle-tara-sur-la-lune.html",
+      "destination": "/spectacle-tara-sur-la-lune",
+      "permanent": true
+    }
+  ]
+}
