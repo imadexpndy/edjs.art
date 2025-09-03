@@ -3,16 +3,70 @@ class AuthManager {
     this.isAuthenticated = false;
     this.user = null;
     this.checkInterval = null;
-    this.helloPlanetUrl = 'https://app.edjs.art';
-    this.init();
+    // Detect environment and set Hello Planet URL
+    this.helloPlanetUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+      ? 'http://localhost:5173' 
+      : 'https://app.edjs.art';
   }
 
   init() {
+    // Check for URL parameter first
+    this.checkUrlParameter();
     this.checkAuthStatus();
     // Check auth status every 30 seconds
     this.checkInterval = setInterval(() => {
       this.checkAuthStatus();
     }, 30000);
+  }
+
+  checkUrlParameter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const loggedIn = urlParams.get('logged_in');
+    const userEmail = urlParams.get('user_email');
+    const userName = urlParams.get('user_name');
+    
+    if (loggedIn === 'true') {
+      // User just logged in via Hello Planet
+      const userData = {
+        isAuthenticated: true,
+        user: {
+          email: userEmail || 'user@example.com',
+          full_name: userName || userEmail || 'User',
+          role: 'user'
+        },
+        timestamp: new Date().toISOString()
+      };
+      
+      this.handleAuthResponse(userData);
+      
+      // Clean up URL parameters
+      const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.replaceState({}, document.title, newUrl);
+      
+      // Store login state in sessionStorage for persistence
+      sessionStorage.setItem('edjs_auth_status', JSON.stringify(userData));
+    } else {
+      // Check sessionStorage for existing login state
+      const storedAuth = sessionStorage.getItem('edjs_auth_status');
+      if (storedAuth) {
+        try {
+          const authData = JSON.parse(storedAuth);
+          // Check if stored auth is recent (within 24 hours)
+          const authTime = new Date(authData.timestamp);
+          const now = new Date();
+          const hoursDiff = (now - authTime) / (1000 * 60 * 60);
+          
+          if (hoursDiff < 24) {
+            this.handleAuthResponse(authData);
+          } else {
+            // Clear expired auth
+            sessionStorage.removeItem('edjs_auth_status');
+          }
+        } catch (e) {
+          sessionStorage.removeItem('edjs_auth_status');
+        }
+      }
+    }
   }
 
   async checkAuthStatus() {
@@ -153,44 +207,36 @@ class AuthManager {
     }
   }
 
-  async logout() {
-    try {
-      // Redirect to Hello Planet logout
-      window.open(`${this.helloPlanetUrl}/auth?mode=logout`, '_blank');
-      
-      // Update local state
-      setTimeout(() => {
-        this.checkAuthStatus();
-      }, 1000);
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
+  logout() {
+    // Clear local auth state
+    this.isAuthenticated = false;
+    this.user = null;
+    sessionStorage.removeItem('edjs_auth_status');
+    
+    // Update UI
+    this.updateHeaderUI();
+    this.updateReservationButtons();
+    
+    // Redirect to Hello Planet logout
+    window.open(`${this.helloPlanetUrl}/auth?mode=logout`, '_blank');
   }
 
   updateReservationButtons() {
-    const reserveButtons = document.querySelectorAll('.reserve-btn, .reservation-btn');
-    
-    reserveButtons.forEach(btn => {
+    const reserveButtons = document.querySelectorAll('.reserve-btn');
+    reserveButtons.forEach(button => {
+      const spectacleId = button.getAttribute('data-spectacle-id');
+      
       if (this.isAuthenticated) {
-        btn.textContent = 'Réserver maintenant';
-        btn.classList.remove('auth-required');
-        btn.classList.add('reservation-enabled');
-        
-        // Update click handler for authenticated users
-        btn.onclick = (e) => {
-          e.preventDefault();
-          const spectacleId = btn.dataset.spectacleId || this.getSpectacleIdFromPage();
-          this.redirectToReservation(spectacleId);
+        button.textContent = 'Réserver maintenant';
+        button.onclick = () => {
+          window.open(`${this.helloPlanetUrl}/reservation/${spectacleId}`, '_blank');
         };
       } else {
-        btn.textContent = 'Se connecter pour réserver';
-        btn.classList.add('auth-required');
-        btn.classList.remove('reservation-enabled');
-        
-        // Update click handler for non-authenticated users
-        btn.onclick = (e) => {
-          e.preventDefault();
-          this.redirectToAuth();
+        button.textContent = 'Se connecter pour réserver';
+        button.onclick = () => {
+          // Add return URL to redirect back after login
+          const returnUrl = encodeURIComponent(window.location.href);
+          window.open(`${this.helloPlanetUrl}/auth?return_url=${returnUrl}`, '_blank');
         };
       }
     });
