@@ -236,7 +236,10 @@ class AuthManager {
         button.onclick = () => {
           // Add return URL to redirect back after login
           const returnUrl = encodeURIComponent(window.location.href);
-          window.open(`${this.helloPlanetUrl}/auth?return_url=${returnUrl}`, '_blank');
+          const authUrl = `${this.helloPlanetUrl}/auth?return_url=${returnUrl}`;
+          console.log('EDJS - Redirecting to:', authUrl);
+          console.log('EDJS - Return URL:', window.location.href);
+          window.open(authUrl, '_blank');
         };
       }
     });
