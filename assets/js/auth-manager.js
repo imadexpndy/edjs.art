@@ -13,7 +13,9 @@ class AuthManager {
     console.log('EDJS - AuthManager init() called');
     
     // Try simple auth check first
+    console.log('EDJS - Checking if SimpleAuth is available:', !!window.SimpleAuth);
     if (window.SimpleAuth) {
+      console.log('EDJS - Creating SimpleAuth instance');
       const simpleAuth = new window.SimpleAuth();
       const authStatus = await simpleAuth.init();
       

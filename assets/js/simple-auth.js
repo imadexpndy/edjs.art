@@ -1,4 +1,6 @@
 // Simple authentication checker for EDJS using Hello Planet API
+console.log('EDJS - simple-auth.js script loaded');
+
 class SimpleAuth {
   constructor() {
     this.helloPlanetUrl = 'https://app.edjs.art';
