@@ -409,11 +409,30 @@ class AuthManager {
 }
 
 // Initialize auth manager when DOM is loaded
+console.log('EDJS - auth-manager.js script loaded');
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('EDJS - Initializing AuthManager');
-  window.authManager = new AuthManager();
-  window.authManager.init();
+  console.log('EDJS - DOM loaded, initializing AuthManager');
+  try {
+    window.authManager = new AuthManager();
+    window.authManager.init();
+  } catch (error) {
+    console.error('EDJS - Error initializing AuthManager:', error);
+  }
 });
+
+// Also try immediate initialization if DOM is already loaded
+if (document.readyState === 'loading') {
+  console.log('EDJS - DOM still loading, waiting for DOMContentLoaded');
+} else {
+  console.log('EDJS - DOM already loaded, initializing immediately');
+  try {
+    window.authManager = new AuthManager();
+    window.authManager.init();
+  } catch (error) {
+    console.error('EDJS - Error in immediate initialization:', error);
+  }
+}
 
 // Close dropdown when clicking outside
 document.addEventListener('click', (e) => {
