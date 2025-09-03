@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - Le Petit Prince | EDJS</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #BDCF00;
+            --secondary-color: #9BB800;
+            --text-dark: #2c3e50;
+            --text-light: #666;
+            --background-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        .reservation-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .spectacle-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .spectacle-poster {
+            width: 150px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .spectacle-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .spectacle-details h2 {
+            color: var(--text-dark);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-family: 'Amatic SC', cursive;
+        }
+
+        .spectacle-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--background-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .meta-item i {
+            color: var(--primary-color);
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .step-indicator {
+            display: flex;
+            background: var(--background-light);
+            padding: 0;
+        }
+
+        .step {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            background: #e9ecef;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .step.completed {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .step-content {
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(189, 207, 0, 0.1);
+        }
+
+        .option-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .option-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(189, 207, 0, 0.15);
+        }
+
+        .option-card.selected {
+            border-color: var(--primary-color);
+            background: rgba(189, 207, 0, 0.05);
+        }
+
+        .option-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .option-card h4 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .option-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: var(--background-light);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(189, 207, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .city-option {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .city-option:hover,
+        .city-option.selected {
+            border-color: var(--primary-color);
+            background: rgba(189, 207, 0, 0.05);
+        }
+
+        .number-input {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .number-control {
+            display: flex;
+            align-items: center;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .number-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .number-display {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .spectacle-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .spectacle-meta {
+                justify-content: center;
+            }
+
+            .step-indicator {
+                flex-direction: column;
+            }
+
+            .option-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reservation-container">
+        <div class="form-header">
+            <h1 style="color: var(--text-dark); font-size: 3rem; font-weight: 800; margin-bottom: 10px;">Réservation Spectacle</h1>
+            <p style="color: var(--text-light); font-size: 1.2rem;">Complétez votre réservation en quelques étapes simples</p>
+        </div>
+
+        <div class="spectacle-info">
+            <div class="spectacle-poster">
+                <img src="assets/img/affiche LPP VF .jpeg" alt="Le Petit Prince">
+            </div>
+            <div class="spectacle-details">
+                <h2>Le Petit Prince</h2>
+                <div class="spectacle-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>50 minutes</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-child"></i>
+                        <span>7 ans et +</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-users"></i>
+                        <span>3 comédiens</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Octobre 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="step-indicator">
+                <div class="step active" data-step="1">
+                    <i class="fas fa-user-friends"></i>
+                    <div>Type de réservation</div>
+                </div>
+                <div class="step" data-step="2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>Localisation</div>
+                </div>
+                <div class="step" data-step="3">
+                    <i class="fas fa-child"></i>
+                    <div>Participants</div>
+                </div>
+                <div class="step" data-step="4">
+                    <i class="fas fa-envelope"></i>
+                    <div>Contact</div>
+                </div>
+            </div>
+
+            <form id="reservationForm">
+                <!-- Step 1: User Type -->
+                <div class="step-content" id="step1">
+                    <h3 style="color: var(--text-dark); margin-bottom: 30px; text-align: center;">Quel type d'organisation êtes-vous ?</h3>
+                    <div class="option-cards">
+                        <div class="option-card" data-value="school">
+                            <i class="fas fa-school"></i>
+                            <h4>École</h4>
+                            <p>Établissement scolaire public ou privé</p>
+                        </div>
+                        <div class="option-card" data-value="individual">
+                            <i class="fas fa-user"></i>
+                            <h4>Particulier</h4>
+                            <p>Famille ou groupe d'amis</p>
+                        </div>
+                        <div class="option-card" data-value="association">
+                            <i class="fas fa-users"></i>
+                            <h4>Association</h4>
+                            <p>Organisation à but non lucratif</p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="userType" id="userType">
+                </div>
+
+                <!-- Step 2: Location -->
+                <div class="step-content hidden" id="step2">
+                    <h3 style="color: var(--text-dark); margin-bottom: 30px; text-align: center;">Dans quelle ville souhaitez-vous assister au spectacle ?</h3>
+                    <div class="city-grid">
+                        <div class="city-option" data-value="casablanca">
+                            <h4>Casablanca</h4>
+                        </div>
+                        <div class="city-option" data-value="rabat">
+                            <h4>Rabat</h4>
+                        </div>
+                    </div>
+                    <input type="hidden" name="city" id="city">
+                </div>
+
+                <!-- Step 3: Participants -->
+                <div class="step-content hidden" id="step3">
+                    <h3 style="color: var(--text-dark); margin-bottom: 30px; text-align: center;">Combien d'enfants assisteront au spectacle ?</h3>
+                    <div class="form-group">
+                        <label class="form-label">Nombre d'enfants</label>
+                        <input type="number" class="form-control" name="childrenNumber" id="childrenNumber" min="1" max="500" value="1" required placeholder="Ex: 25, 150, 200...">
+                        <small style="color: var(--text-light); font-size: 14px; margin-top: 5px; display: block;">Entrez le nombre total d'enfants qui assisteront au spectacle</small>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 40px;">
+                        <label class="form-label">Âge moyen des enfants</label>
+                        <select class="form-control" name="averageAge" required>
+                            <option value="">Sélectionnez l'âge moyen</option>
+                            <option value="3-5">3-5 ans</option>
+                            <option value="6-8">6-8 ans</option>
+                            <option value="9-11">9-11 ans</option>
+                            <option value="12-14">12-14 ans</option>
+                            <option value="15+">15 ans et plus</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 4: Contact -->
+                <div class="step-content hidden" id="step4">
+                    <h3 style="color: var(--text-dark); margin-bottom: 30px; text-align: center;">Informations de contact</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Nom complet *</label>
+                                <input type="text" class="form-control" name="fullName" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Téléphone *</label>
+                                <input type="tel" class="form-control" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Nom de l'organisation</label>
+                                <input type="text" class="form-control" name="organization">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message ou demandes spéciales</label>
+                        <textarea class="form-control" name="message" rows="4" placeholder="Décrivez vos besoins spécifiques ou posez vos questions..."></textarea>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    Précédent
+                </button>
+                <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">
+                    Suivant
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateStepIndicator() {
+            document.querySelectorAll('.step').forEach((step, index) => {
+                const stepNumber = index + 1;
+                step.classList.remove('active', 'completed');
+                
+                if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                } else if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            
+            // Update buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.style.display = step === 1 ? 'none' : 'flex';
+            
+            if (step === totalSteps) {
+                nextBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer la réservation';
+                nextBtn.onclick = submitForm;
+            } else {
+                nextBtn.innerHTML = 'Suivant <i class="fas fa-arrow-right"></i>';
+                nextBtn.onclick = nextStep;
+            }
+        }
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                    updateStepIndicator();
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateStepIndicator();
+            }
+        }
+
+        function validateCurrentStep() {
+            switch (currentStep) {
+                case 1:
+                    const userType = document.getElementById('userType').value;
+                    if (!userType) {
+                        alert('Veuillez sélectionner le type d\'organisation');
+                        return false;
+                    }
+                    break;
+                case 2:
+                    const city = document.getElementById('city').value;
+                    if (!city) {
+                        alert('Veuillez sélectionner une ville');
+                        return false;
+                    }
+                    break;
+                case 3:
+                    const averageAge = document.querySelector('select[name="averageAge"]').value;
+                    if (!averageAge) {
+                        alert('Veuillez sélectionner l\'âge moyen des enfants');
+                        return false;
+                    }
+                    break;
+                case 4:
+                    const requiredFields = ['fullName', 'email', 'phone'];
+                    for (let field of requiredFields) {
+                        const input = document.querySelector(`input[name="${field}"]`);
+                        if (!input.value.trim()) {
+                            alert(`Veuillez remplir le champ ${field === 'fullName' ? 'nom complet' : field === 'email' ? 'email' : 'téléphone'}`);
+                            input.focus();
+                            return false;
+                        }
+                    }
+                    break;
+            }
+            return true;
+        }
+
+        // Number input validation
+        document.getElementById('childrenNumber').addEventListener('input', function() {
+            const value = parseInt(this.value);
+            if (value < 1) this.value = 1;
+            if (value > 500) this.value = 500;
+        });
+
+        function submitForm() {
+            if (validateCurrentStep()) {
+                const formData = new FormData(document.getElementById('reservationForm'));
+                
+                // Create email content
+                let emailContent = `Nouvelle réservation pour Le Petit Prince\n\n`;
+                emailContent += `Type d'organisation: ${formData.get('userType')}\n`;
+                emailContent += `Ville: ${formData.get('city')}\n`;
+                emailContent += `Nombre d'enfants: ${formData.get('childrenNumber')}\n`;
+                emailContent += `Âge moyen: ${formData.get('averageAge')}\n`;
+                emailContent += `Nom: ${formData.get('fullName')}\n`;
+                emailContent += `Email: ${formData.get('email')}\n`;
+                emailContent += `Téléphone: ${formData.get('phone')}\n`;
+                emailContent += `Organisation: ${formData.get('organization') || 'Non spécifiée'}\n`;
+                emailContent += `Message: ${formData.get('message') || 'Aucun message'}\n`;
+                
+                // Create mailto link
+                const subject = encodeURIComponent('Réservation Le Petit Prince - ' + formData.get('fullName'));
+                const body = encodeURIComponent(emailContent);
+                const mailtoLink = `mailto:imad@expndy.com?subject=${subject}&body=${body}`;
+                
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                alert('Votre demande de réservation a été préparée. Votre client email va s\'ouvrir pour envoyer la réservation.');
+            }
+        }
+
+        // Event listeners for option cards
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('userType').value = this.dataset.value;
+            });
+        });
+
+        // Event listeners for city options
+        document.querySelectorAll('.city-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.city-option').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('city').value = this.dataset.value;
+            });
+        });
+
+        // Initialize
+        showStep(1);
+        updateStepIndicator();
+    </script>
+</body>
+</html>
