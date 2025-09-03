@@ -17,47 +17,70 @@ class AuthManager {
 
   async checkAuthStatus() {
     try {
-      // Use JSONP for cross-domain request
+      // Use iframe approach for better cross-domain session access
       const callbackName = 'authCallback_' + Date.now();
       
       return new Promise((resolve, reject) => {
         const timeout = setTimeout(() => {
           delete window[callbackName];
-          if (script && script.parentNode) {
-            document.head.removeChild(script);
+          if (iframe && iframe.parentNode) {
+            document.body.removeChild(iframe);
           }
           console.warn('Auth check timeout - assuming not authenticated');
           this.handleAuthResponse({ isAuthenticated: false, user: null });
           resolve({ isAuthenticated: false, user: null });
-        }, 10000); // 10 second timeout
+        }, 15000); // 15 second timeout
 
-        // Create callback function
+        // Listen for postMessage responses
+        const messageHandler = (event) => {
+          if (event.origin !== this.helloPlanetUrl.replace(/:\d+$/, '').replace(/^https?:\/\//, 'https://')) return;
+          
+          if (event.data.type === 'AUTH_STATUS_RESPONSE' || event.data.type === 'JSONP_CALLBACK') {
+            if (event.data.callback === callbackName) {
+              clearTimeout(timeout);
+              window.removeEventListener('message', messageHandler);
+              if (iframe && iframe.parentNode) {
+                document.body.removeChild(iframe);
+              }
+              delete window[callbackName];
+              this.handleAuthResponse(event.data.data);
+              resolve(event.data.data);
+            }
+          }
+        };
+
+        window.addEventListener('message', messageHandler);
+
+        // Create callback function for traditional JSONP
         window[callbackName] = (data) => {
           clearTimeout(timeout);
+          window.removeEventListener('message', messageHandler);
           this.handleAuthResponse(data);
           // Cleanup
           delete window[callbackName];
-          if (script && script.parentNode) {
-            document.head.removeChild(script);
+          if (iframe && iframe.parentNode) {
+            document.body.removeChild(iframe);
           }
           resolve(data);
         };
 
-        // Create script tag for JSONP
-        const script = document.createElement('script');
-        script.src = `${this.helloPlanetUrl}/api/auth/status?callback=${callbackName}`;
-        script.onerror = () => {
+        // Create hidden iframe to load the auth status page
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = `${this.helloPlanetUrl}/api/auth/status?callback=${callbackName}`;
+        iframe.onerror = () => {
           clearTimeout(timeout);
+          window.removeEventListener('message', messageHandler);
           delete window[callbackName];
-          if (script && script.parentNode) {
-            document.head.removeChild(script);
+          if (iframe && iframe.parentNode) {
+            document.body.removeChild(iframe);
           }
           console.warn('Auth check failed - assuming not authenticated');
           this.handleAuthResponse({ isAuthenticated: false, user: null });
           resolve({ isAuthenticated: false, user: null });
         };
         
-        document.head.appendChild(script);
+        document.body.appendChild(iframe);
       });
     } catch (error) {
       console.error('Auth check failed:', error);
