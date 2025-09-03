@@ -10,6 +10,7 @@ class AuthManager {
   }
 
   init() {
+    console.log('EDJS - AuthManager init() called');
     // Check for URL parameter first
     this.checkUrlParameter();
     this.checkAuthStatus();
@@ -17,6 +18,10 @@ class AuthManager {
     this.checkInterval = setInterval(() => {
       this.checkAuthStatus();
     }, 30000);
+    
+    // Initialize reservation buttons
+    this.updateReservationButtons();
+    console.log('EDJS - AuthManager initialization complete');
   }
 
   checkUrlParameter() {
@@ -223,8 +228,11 @@ class AuthManager {
 
   updateReservationButtons() {
     const reserveButtons = document.querySelectorAll('.reserve-btn');
+    console.log('EDJS - Found reservation buttons:', reserveButtons.length);
+    
     reserveButtons.forEach(button => {
       const spectacleId = button.getAttribute('data-spectacle-id');
+      console.log('EDJS - Setting up button for spectacle:', spectacleId);
       
       if (this.isAuthenticated) {
         button.textContent = 'Réserver maintenant';
@@ -402,7 +410,9 @@ class AuthManager {
 
 // Initialize auth manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('EDJS - Initializing AuthManager');
   window.authManager = new AuthManager();
+  window.authManager.init();
 });
 
 // Close dropdown when clicking outside
