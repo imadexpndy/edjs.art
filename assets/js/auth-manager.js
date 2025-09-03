@@ -30,7 +30,14 @@ class AuthManager {
     const userEmail = urlParams.get('user_email');
     const userName = urlParams.get('user_name');
     
+    console.log('EDJS - Checking URL parameters:');
+    console.log('EDJS - Current URL:', window.location.href);
+    console.log('EDJS - logged_in:', loggedIn);
+    console.log('EDJS - user_email:', userEmail);
+    console.log('EDJS - user_name:', userName);
+    
     if (loggedIn === 'true') {
+      console.log('EDJS - User logged in via Hello Planet, updating auth state');
       // User just logged in via Hello Planet
       const userData = {
         isAuthenticated: true,
@@ -51,11 +58,13 @@ class AuthManager {
       // Store login state in sessionStorage for persistence
       sessionStorage.setItem('edjs_auth_status', JSON.stringify(userData));
     } else {
+      console.log('EDJS - No login parameters, checking sessionStorage');
       // Check sessionStorage for existing login state
       const storedAuth = sessionStorage.getItem('edjs_auth_status');
       if (storedAuth) {
         try {
           const authData = JSON.parse(storedAuth);
+          console.log('EDJS - Found stored auth data:', authData);
           // Check if stored auth is recent (within 24 hours)
           const authTime = new Date(authData.timestamp);
           const now = new Date();
