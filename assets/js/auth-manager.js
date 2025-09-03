@@ -21,12 +21,25 @@ class AuthManager {
       const callbackName = 'authCallback_' + Date.now();
       
       return new Promise((resolve, reject) => {
+        const timeout = setTimeout(() => {
+          delete window[callbackName];
+          if (script && script.parentNode) {
+            document.head.removeChild(script);
+          }
+          console.warn('Auth check timeout - assuming not authenticated');
+          this.handleAuthResponse({ isAuthenticated: false, user: null });
+          resolve({ isAuthenticated: false, user: null });
+        }, 10000); // 10 second timeout
+
         // Create callback function
         window[callbackName] = (data) => {
+          clearTimeout(timeout);
           this.handleAuthResponse(data);
           // Cleanup
           delete window[callbackName];
-          document.head.removeChild(script);
+          if (script && script.parentNode) {
+            document.head.removeChild(script);
+          }
           resolve(data);
         };
 
@@ -34,9 +47,14 @@ class AuthManager {
         const script = document.createElement('script');
         script.src = `${this.helloPlanetUrl}/api/auth/status?callback=${callbackName}`;
         script.onerror = () => {
+          clearTimeout(timeout);
           delete window[callbackName];
-          document.head.removeChild(script);
-          reject(new Error('Failed to check auth status'));
+          if (script && script.parentNode) {
+            document.head.removeChild(script);
+          }
+          console.warn('Auth check failed - assuming not authenticated');
+          this.handleAuthResponse({ isAuthenticated: false, user: null });
+          resolve({ isAuthenticated: false, user: null });
         };
         
         document.head.appendChild(script);
