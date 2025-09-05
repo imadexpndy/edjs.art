@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Test</title>
+</head>
+<body>
+    <h1>Video Test Page</h1>
+    <video width="800" height="450" controls>
+        <source src="assets/trailer-tara.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <script>
+        const video = document.querySelector('video');
+        video.addEventListener('error', function(e) {
+            console.error('Video error:', e);
+            console.error('Video error code:', video.error ? video.error.code : 'unknown');
+        });
+        
+        video.addEventListener('loadstart', function() {
+            console.log('Video load started');
+        });
+        
+        video.addEventListener('loadedmetadata', function() {
+            console.log('Video metadata loaded');
+        });
+    </script>
+</body>
+</html>
