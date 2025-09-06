@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Initialize header functionality
       initializeHeader();
+      
+      // Initialize auth manager after header is loaded
+      if (window.authManager) {
+        setTimeout(() => {
+          window.authManager.updateHeaderUI();
+        }, 100);
+      }
     })
     .catch(error => {
       console.error('Error loading header template:', error);

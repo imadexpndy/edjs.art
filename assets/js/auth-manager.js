@@ -12,32 +12,35 @@ class AuthManager {
   async init() {
     console.log('EDJS - AuthManager init() called');
     
-    // Try simple auth check first
-    console.log('EDJS - Checking if SimpleAuth is available:', !!window.SimpleAuth);
-    if (window.SimpleAuth) {
-      console.log('EDJS - Creating SimpleAuth instance');
-      const simpleAuth = new window.SimpleAuth();
-      const authStatus = await simpleAuth.init();
-      
-      if (authStatus.isAuthenticated) {
-        console.log('EDJS - User authenticated via SimpleAuth');
-        this.handleAuthResponse({
-          isAuthenticated: true,
-          user: authStatus.user
+    // Wait for header to be loaded
+    setTimeout(() => {
+      // Try simple auth check first
+      console.log('EDJS - Checking if SimpleAuth is available:', !!window.SimpleAuth);
+      if (window.SimpleAuth) {
+        console.log('EDJS - Creating SimpleAuth instance');
+        const simpleAuth = new window.SimpleAuth();
+        simpleAuth.init().then(authStatus => {
+          if (authStatus.isAuthenticated) {
+            console.log('EDJS - User authenticated via SimpleAuth');
+            this.handleAuthResponse({
+              isAuthenticated: true,
+              user: authStatus.user
+            });
+          } else {
+            console.log('EDJS - User not authenticated, checking URL parameters');
+            this.checkUrlParameter();
+          }
         });
       } else {
-        console.log('EDJS - User not authenticated, checking URL parameters');
+        console.log('EDJS - SimpleAuth not available, checking URL parameters');
         this.checkUrlParameter();
       }
-    } else {
-      console.log('EDJS - SimpleAuth not available, checking URL parameters');
-      this.checkUrlParameter();
-    }
-    
-    // Update UI
-    this.updateHeaderUI();
-    this.updateReservationButtons();
-    console.log('EDJS - AuthManager initialization complete');
+      
+      // Update UI
+      this.updateHeaderUI();
+      this.updateReservationButtons();
+      console.log('EDJS - AuthManager initialization complete');
+    }, 500); // Wait 500ms for header to load
   }
 
   checkUrlParameter() {
@@ -97,6 +100,11 @@ class AuthManager {
         }
       }
     }
+    
+    // Force UI update after checking authentication
+    setTimeout(() => {
+      this.updateHeaderUI();
+    }, 100);
   }
 
   async checkAuthStatus() {
@@ -165,9 +173,13 @@ class AuthManager {
     const loginButtons = document.querySelectorAll('.auth-login-btn, .auth-register-btn');
     const userDropdown = document.getElementById('user-dropdown');
 
+    console.log('EDJS - updateHeaderUI called, isAuthenticated:', this.isAuthenticated);
+    console.log('EDJS - Found login buttons:', loginButtons.length);
+
     if (this.isAuthenticated) {
       // Hide login/register buttons
       loginButtons.forEach(btn => {
+        console.log('EDJS - Hiding button:', btn);
         btn.style.display = 'none';
       });
 
@@ -192,8 +204,11 @@ class AuthManager {
   }
 
   createUserDropdown() {
-    const headerActions = document.querySelector('.header-actions, .navbar-nav');
-    if (!headerActions) return;
+    const headerActions = document.querySelector('.header-actions, .navbar-nav, .nav-menu, .auth-section');
+    if (!headerActions) {
+      console.log('EDJS - No header container found for dropdown');
+      return;
+    }
 
     const dropdownHTML = `
       <div id="user-dropdown" class="user-dropdown" style="display: block;">
@@ -202,14 +217,18 @@ class AuthManager {
           <i class="fas fa-chevron-down dropdown-arrow"></i>
         </div>
         <div class="dropdown-menu" id="user-dropdown-menu">
+          <a href="${this.helloPlanetUrl}/spectacles" class="dropdown-item">
+            <i class="fas fa-theater-masks"></i> Spectacles
+          </a>
+          <a href="${this.helloPlanetUrl}/my-reservations" class="dropdown-item">
+            <i class="fas fa-ticket-alt"></i> Réservations
+          </a>
           <a href="${this.helloPlanetUrl}/profile" class="dropdown-item">
             <i class="fas fa-user"></i> Profil
           </a>
-          <a href="${this.helloPlanetUrl}/dashboard" class="dropdown-item">
-            <i class="fas fa-tachometer-alt"></i> Tableau de bord
-          </a>
-          <a href="${this.helloPlanetUrl}/settings" class="dropdown-item">
-            <i class="fas fa-cog"></i> Paramètres
+          <div class="dropdown-divider"></div>
+          <a href="${this.helloPlanetUrl}/help" class="dropdown-item">
+            <i class="fas fa-question-circle"></i> Aide et support
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" onclick="authManager.logout()" class="dropdown-item logout">
@@ -434,6 +453,26 @@ class AuthManager {
   }
 }
 
+// Test function to simulate logged in state
+window.testAuthState = function() {
+  console.log('EDJS - Testing authentication state');
+  if (window.authManager) {
+    const testUserData = {
+      isAuthenticated: true,
+      user: {
+        email: 'test@example.com',
+        full_name: 'Test User',
+        role: 'user'
+      },
+      timestamp: new Date().toISOString()
+    };
+    
+    sessionStorage.setItem('edjs_auth_status', JSON.stringify(testUserData));
+    window.authManager.handleAuthResponse(testUserData);
+    console.log('EDJS - Test auth state set, updating UI');
+  }
+};
+
 // Initialize auth manager when DOM is loaded
 console.log('EDJS - auth-manager.js script loaded');
 
@@ -442,6 +481,16 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     window.authManager = new AuthManager();
     window.authManager.init();
+    
+    // Add test button to page for debugging
+    setTimeout(() => {
+      const testButton = document.createElement('button');
+      testButton.innerHTML = 'Test Auth State';
+      testButton.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 9999; background: red; color: white; padding: 10px; border: none; cursor: pointer;';
+      testButton.onclick = window.testAuthState;
+      document.body.appendChild(testButton);
+    }, 1000);
+    
   } catch (error) {
     console.error('EDJS - Error initializing AuthManager:', error);
   }

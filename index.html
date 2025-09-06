@@ -1983,92 +1983,17 @@
           <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.25s">
             <div class="vs-about--image">
               <div class="vs-about--image__figure2 wow animate__fadeInUp wow-animated" data-wow-delay="0.35s" style="width: 100%; max-width: 900px; height: auto; border-radius: 15px; overflow: hidden; margin-left: -180px; visibility: visible; animation-delay: 0.35s; animation-name: fadeInUp;">
-                <div style="position:relative;border-radius: 15px; overflow: hidden;">
-                  <video 
-                    id="trailerVideo" 
-                    width="100%" 
-                    height="auto" 
-                    style="border-radius: 15px; display: block; background: #f0f0f0;" 
-                    muted 
-                    loop 
-                    preload="metadata"
-                    controls
-                    poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDgwMCA0NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIiBmaWxsPSIjZjBmMGYwIi8+Cjx0ZXh0IHg9IjQwMCIgeT0iMjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UcmFpbGVyIFRBUkE8L3RleHQ+Cjwvc3ZnPg=="
-                  >
-                    <source src="assets/trailer-tara.mp4" type="video/mp4">
-                    Votre navigateur ne supporte pas la lecture de vidéos.
-                  </video>
-                  <div 
-                    id="playButton" 
-                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-                           background: rgba(189, 207, 0, 0.9); border-radius: 50%; 
-                           width: 80px; height: 80px; display: flex; align-items: center; 
-                           justify-content: center; cursor: pointer; transition: all 0.3s ease;
-                           box-shadow: 0 4px 15px rgba(0,0,0,0.3);"
-                    onclick="playVideo()"
-                  >
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden;">
+                  <iframe 
+                    id="js_video_iframe" 
+                    src="https://jumpshare.com/embed/HOiImd3DLzLYzzYR1h5Q" 
+                    frameborder="0" 
+                    webkitallowfullscreen 
+                    mozallowfullscreen 
+                    allowfullscreen 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"
+                  ></iframe>
                 </div>
-                <script>
-                  let videoPlayed = false;
-                  
-                  function playVideo() {
-                    const video = document.getElementById('trailerVideo');
-                    const playButton = document.getElementById('playButton');
-                    
-                    if (!videoPlayed) {
-                      video.play();
-                      playButton.style.display = 'none';
-                      videoPlayed = true;
-                    }
-                  }
-                  
-                  // Create video thumbnail on first frame
-                  function createThumbnail() {
-                    const video = document.getElementById('trailerVideo');
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    
-                    video.addEventListener('loadeddata', function() {
-                      canvas.width = video.videoWidth;
-                      canvas.height = video.videoHeight;
-                      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                      
-                      // Set the canvas as poster
-                      const dataURL = canvas.toDataURL('image/jpeg', 0.8);
-                      video.poster = dataURL;
-                    });
-                  }
-                  
-                  // Intersection Observer for lazy loading and autoplay
-                  const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                      if (entry.isIntersecting && !videoPlayed) {
-                        const video = entry.target;
-                        // Load the video source when it comes into view
-                        if (video.readyState === 0) {
-                          video.load();
-                          createThumbnail();
-                        }
-                        // Auto-play after a short delay when in viewport
-                        setTimeout(() => {
-                          if (!videoPlayed) {
-                            playVideo();
-                          }
-                        }, 1500);
-                      }
-                    });
-                  }, { threshold: 0.3 });
-                  
-                  // Start observing the video
-                  document.addEventListener('DOMContentLoaded', function() {
-                    const video = document.getElementById('trailerVideo');
-                    observer.observe(video);
-                  });
-                </script>
               </div>
               <div class="vs-about--image__ele3 wow animate__zoomIn" data-wow-delay="0.55s" style="background-color: #BDCF00;"></div>
               <div class="vs-about--yoe">
