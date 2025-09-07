@@ -6,13 +6,8 @@
   <meta name="description" content="Découvrez nos spectacles - Redirection vers notre nouvelle plateforme">
   <link rel="icon" href="assets/img/L'École des jeunes spectateurs%20favicon_1@4x.png" type="image/png">
   <script>
-    // Detect environment and redirect to Hello Planet spectacles page
-    const helloPlanetUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-      ? 'http://localhost:5173' 
-      : 'https://app.edjs.art';
-    
-    // Immediate redirect
-    window.location.replace(helloPlanetUrl + '/spectacles');
+    // Always redirect to app.edjs.art/spectacles
+    window.location.replace('https://app.edjs.art/spectacles');
   </script>
 </head>
 <body>
