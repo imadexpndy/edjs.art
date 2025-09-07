@@ -36,6 +36,9 @@ class AuthManager {
         this.checkUrlParameter();
       }
       
+      // Setup dropdown functionality
+      this.setupDropdownFunctionality();
+      
       // Update UI
       this.updateHeaderUI();
       this.updateReservationButtons();
@@ -508,6 +511,54 @@ if (document.readyState === 'loading') {
     console.error('EDJS - Error in immediate initialization:', error);
   }
 }
+
+// Setup dropdown functionality globally
+function setupDropdownFunctionality() {
+    // User dropdown functionality
+    const userDropdownBtn = document.getElementById('userDropdownBtn');
+    const userDropdownMenu = document.getElementById('userDropdownMenu');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (userDropdownBtn && userDropdownMenu) {
+      userDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdownMenu.classList.toggle('show');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', () => {
+        userDropdownMenu.classList.remove('show');
+      });
+
+      userDropdownMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+          // Clear authentication state
+          this.isAuthenticated = false;
+          this.user = null;
+          
+          // Update UI to show logged out state
+          this.updateHeaderUI();
+          
+          // Redirect to Hello Planet logout
+          window.location.href = `${this.helloPlanetUrl}/auth?logout=true`;
+        } catch (error) {
+          console.error('EDJS - Logout error:', error);
+          // Fallback: just redirect to main site
+          window.location.href = '/';
+        }
+      });
+    }
+}
+
+// Call setup function when DOM is ready
+document.addEventListener('DOMContentLoaded', setupDropdownFunctionality);
 
 // Close dropdown when clicking outside
 document.addEventListener('click', (e) => {

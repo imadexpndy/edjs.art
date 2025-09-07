@@ -24,6 +24,11 @@
     justify-content: space-between;
   }
 
+  .nav-menu {
+    margin-left: auto;
+    margin-right: 40px;
+  }
+
   .logo-section {
     display: flex;
     align-items: center;
@@ -33,6 +38,8 @@
   .logo-section img {
     height: 80px;
     width: auto;
+    max-width: none;
+    object-fit: contain;
     transition: transform 0.3s ease;
   }
 
@@ -77,6 +84,91 @@
     display: flex;
     gap: 15px;
     align-items: center;
+  }
+
+  /* User Dropdown Styles */
+  .user-dropdown {
+    position: relative;
+  }
+
+  .user-dropdown-btn {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+  }
+
+  .user-dropdown-btn:hover {
+    background: #BDCF00;
+    border-color: #BDCF00;
+    color: white;
+  }
+
+  .user-dropdown-btn:hover span {
+    color: white !important;
+  }
+
+  .user-dropdown-btn:hover i {
+    color: white !important;
+  }
+
+  .user-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    min-width: 200px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .user-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  .dropdown-item i {
+    margin-right: 8px;
+    width: 16px;
+  }
+
+  .dropdown-divider {
+    border: none;
+    border-top: 1px solid #e9ecef;
+    margin: 4px 0;
   }
 
   .auth-btn {
@@ -333,16 +425,40 @@
         <li class="nav-item">
           <a href="partners" class="nav-link">PARTENAIRES</a>
         </li>
-        <li class="nav-item">
-          <a href="https://app.edjs.art/" class="btn btn-primary auth-login-btn">Se connecter</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://app.edjs.art/auth?mode=register" class="btn btn-primary auth-register-btn">S'inscrire</a>
-        </li>
       </nav>
 
       <!-- Auth Section -->
       <div class="auth-section">
+        <!-- User Dropdown (when authenticated) -->
+        <div class="user-dropdown" id="userDropdown" style="display: none;">
+          <button class="user-dropdown-btn" id="userDropdownBtn">
+            <i class="fas fa-user-circle" style="color: #7e8a01; font-size: 24px; margin-right: 8px;"></i>
+            <span style="color: #333; font-weight: 500;" id="userNameDisplay">Bonjour utilisateur</span>
+            <i class="fas fa-chevron-down" style="margin-left: 8px; font-size: 12px; color: #666;"></i>
+          </button>
+          <div class="user-dropdown-menu" id="userDropdownMenu">
+            <a href="https://app.edjs.art/profile" class="dropdown-item">
+              <i class="fas fa-user"></i> Mon profil
+            </a>
+            <a href="https://app.edjs.art/my-reservations" class="dropdown-item">
+              <i class="fas fa-calendar-check"></i> Mes réservations
+            </a>
+            <a href="https://app.edjs.art/support" class="dropdown-item">
+              <i class="fas fa-question-circle"></i> Aide et support
+            </a>
+            <hr class="dropdown-divider">
+            <button class="dropdown-item logout-btn" id="logoutBtn">
+              <i class="fas fa-sign-out-alt"></i> Déconnexion
+            </button>
+          </div>
+        </div>
+        
+        <!-- Auth Buttons (when not authenticated) -->
+        <div class="auth-buttons" id="authButtons">
+          <a href="https://app.edjs.art/" class="btn btn-primary auth-login-btn">Se connecter</a>
+          <a href="https://app.edjs.art/auth?mode=register" class="btn btn-primary auth-register-btn">S'inscrire</a>
+        </div>
+        
         <!-- Mobile Menu Toggle -->
         <button class="mobile-toggle" id="mobileMenuToggle">
           <i class="fas fa-bars"></i>
