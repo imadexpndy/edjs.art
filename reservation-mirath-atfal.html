@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Réservation Mirath Atfal - L'École du Jeune Spectateur</title>
+  <meta name="author" content="L'École des jeunes spectateurs">
+  <meta name="description" content="Réservez vos places pour Mirath Atfal - Spectacle célébrant l'héritage culturel marocain">
+  <meta name="robots" content="INDEX,FOLLOW">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/4x/edjs favicon_1@4x.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/auth-styles.css">
+
+  <style>
+    .reservation-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 100px 0 50px;
+      color: white;
+      text-align: center;
+    }
+
+    .reservation-hero h1 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .reservation-content {
+      padding: 50px 0;
+      background: #f8f9fa;
+    }
+
+    .reservation-card {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .spectacle-info {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #e9ecef;
+    }
+
+    .spectacle-poster {
+      width: 150px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .spectacle-details h2 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .info-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .info-badge {
+      background: #BDCF00;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .reservation-form {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-control {
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      padding: 12px 15px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #BDCF00;
+      box-shadow: 0 0 0 0.2rem rgba(189, 207, 0, 0.25);
+    }
+
+    .btn-reservation {
+      background: #BDCF00;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .btn-reservation:hover {
+      background: #8B9A00;
+      transform: translateY(-2px);
+    }
+
+    .contact-info {
+      background: #2c3e50;
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .contact-info h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .spectacle-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .reservation-hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="reservation-hero">
+    <div class="container">
+      <h1>Réservation Mirath Atfal</h1>
+      <p class="lead">Réservez vos places pour ce spectacle exceptionnel</p>
+    </div>
+  </section>
+
+  <!-- Reservation Content -->
+  <section class="reservation-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Spectacle Info -->
+          <div class="reservation-card">
+            <div class="spectacle-info">
+              <img src="assets/img/Affiche Mirath Atfal portrait FR.jpg" alt="Mirath Atfal" class="spectacle-poster">
+              <div class="spectacle-details">
+                <h2>Mirath Atfal</h2>
+                <p class="mb-3">Un voyage à travers l'héritage culturel marocain</p>
+                <div class="info-badges">
+                  <span class="info-badge">
+                    <i class="fas fa-clock"></i> 55 min
+                  </span>
+                  <span class="info-badge">
+                    <i class="fas fa-users"></i> 5 comédiens
+                  </span>
+                  <span class="info-badge">
+                    <i class="fas fa-child"></i> 8 ans et +
+                  </span>
+                  <span class="info-badge">
+                    <i class="fas fa-heart"></i> Culturel
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reservation Form -->
+            <form class="reservation-form" action="mailto:inscription@edjs.ma" method="post" enctype="text/plain">
+              <h3 style="font-family: 'Amatic SC', cursive; font-size: 2.2rem; color: #2c3e50; margin-bottom: 30px; text-align: center;">
+                Formulaire de Réservation
+              </h3>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="nom">Nom complet *</label>
+                    <input type="text" class="form-control" id="nom" name="nom" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="telephone">Téléphone *</label>
+                    <input type="tel" class="form-control" id="telephone" name="telephone" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="ville">Ville *</label>
+                    <select class="form-control" id="ville" name="ville" required>
+                      <option value="">Sélectionnez votre ville</option>
+                      <option value="Rabat">Rabat</option>
+                      <option value="Casablanca">Casablanca</option>
+                      <option value="Salé">Salé</option>
+                      <option value="Témara">Témara</option>
+                      <option value="Mohammedia">Mohammedia</option>
+                      <option value="Autre">Autre</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="type-reservation">Type de réservation *</label>
+                <select class="form-control" id="type-reservation" name="type-reservation" required>
+                  <option value="">Sélectionnez le type</option>
+                  <option value="Particulier">Particulier</option>
+                  <option value="École Privée">École Privée</option>
+                  <option value="École Publique">École Publique</option>
+                  <option value="Association">Association</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="nombre-places">Nombre de places souhaitées *</label>
+                <input type="number" class="form-control" id="nombre-places" name="nombre-places" min="1" max="50" required>
+              </div>
+
+              <div class="form-group">
+                <label for="seance-preferee">Séance préférée</label>
+                <select class="form-control" id="seance-preferee" name="seance-preferee">
+                  <option value="">Sélectionnez une séance</option>
+                  <option value="8 novembre 2025 - 15h00 - Rabat">8 novembre 2025 - 15h00 - Rabat</option>
+                  <option value="10 novembre 2025 - 09h30 - Rabat">10 novembre 2025 - 09h30 - Rabat</option>
+                  <option value="10 novembre 2025 - 14h30 - Rabat">10 novembre 2025 - 14h30 - Rabat</option>
+                  <option value="13 novembre 2025 - 09h30 - Casablanca">13 novembre 2025 - 09h30 - Casablanca</option>
+                  <option value="14 novembre 2025 - 09h30 - Casablanca">14 novembre 2025 - 09h30 - Casablanca</option>
+                  <option value="15 novembre 2025 - 15h00 - Casablanca">15 novembre 2025 - 15h00 - Casablanca</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message ou demandes particulières</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Vos questions ou demandes spéciales..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-reservation">
+                <i class="fas fa-paper-plane"></i>
+                Envoyer la demande de réservation
+              </button>
+
+              <p class="text-muted text-center mt-3" style="font-size: 0.9rem;">
+                * Champs obligatoires. Vous recevrez une confirmation par email dans les 24h.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="contact-info">
+            <h3>Informations de Contact</h3>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>inscription@edjs.ma</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+212 537 XXX XXX</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Rabat & Casablanca</span>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.3); margin: 25px 0;">
+            <p style="font-size: 0.9rem; opacity: 0.9;">
+              Notre équipe vous contactera dans les plus brefs délais pour confirmer votre réservation et vous communiquer les modalités de paiement.
+            </p>
+          </div>
+
+          <!-- Tarifs Info -->
+          <div class="contact-info mt-4" style="background: #BDCF00;">
+            <h3>Informations Tarifs</h3>
+            <div class="contact-item">
+              <i class="fas fa-users"></i>
+              <span>Particuliers : Sur devis</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-graduation-cap"></i>
+              <span>Écoles : Tarif préférentiel</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-heart"></i>
+              <span>Associations : Tarif solidaire</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Load header and footer
+    $(document).ready(function() {
+      $('#header-placeholder').load('standard-header.html');
+      $('#footer-placeholder').load('standard-footer.html');
+    });
+
+    // Form submission handling
+    document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Collect form data
+      const formData = new FormData(this);
+      const data = {};
+      for (let [key, value] of formData.entries()) {
+        data[key] = value;
+      }
+      
+      // Create email body
+      const emailBody = `
+Nouvelle demande de réservation pour Mirath Atfal
+
+Informations du demandeur:
+- Nom: ${data.nom}
+- Email: ${data.email}
+- Téléphone: ${data.telephone}
+- Ville: ${data.ville}
+
+Détails de la réservation:
+- Type: ${data['type-reservation']}
+- Nombre de places: ${data['nombre-places']}
+- Séance préférée: ${data['seance-preferee'] || 'Non spécifiée'}
+
+Message:
+${data.message || 'Aucun message'}
+
+---
+Demande envoyée depuis le site EDJS
+      `.trim();
+      
+      // Create mailto link
+      const subject = encodeURIComponent('Réservation Mirath Atfal - ' + data.nom);
+      const body = encodeURIComponent(emailBody);
+      const mailtoLink = `mailto:inscription@edjs.ma?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
+      alert('Votre demande de réservation va être envoyée par email. Merci !');
+    });
+  </script>
+
+</body>
+</html>

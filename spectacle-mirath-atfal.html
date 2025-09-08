@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Mirath Atfal - L'École du Jeune Spectateur</title>
+  <meta name="author" content="L'École des jeunes spectateurs">
+  <meta name="description" content="Mirath Atfal - Un spectacle célébrant l'héritage culturel marocain à travers les contes et traditions ancestrales.">
+  <meta name="keywords" content="mirath atfal, héritage, culture marocaine, contes, traditions, enfants, théâtre, L'École des jeunes spectateurs">
+  <meta name="robots" content="INDEX,FOLLOW">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- L'École des jeunes spectateurs Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/4x/edjs favicon_1@4x.png">
+  <link rel="shortcut icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  <link rel="icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/4x/edjs favicon_1@4x.png">
+  <meta name="msapplication-TileColor" content="#BDCF00">
+  <meta name="msapplication-TileImage" content="assets/img/4x/edjs favicon_1@4x.png">
+  <meta name="theme-color" content="#BDCF00">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+  <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+    :root {
+      --primary-color: #BDCF00;
+      --secondary-color: #8B9A00;
+      --text-dark: #2c3e50;
+      --text-light: #7f8c8d;
+      --bg-light: #f8f9fa;
+      --border-color: #e9ecef;
+    }
+
+    .spectacle-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .info-pills {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .info-pill {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 0.6rem 1.2rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-color);
+      border-color: var(--secondary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--text-dark);
+    }
+
+    .hero-character {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      opacity: 0.8;
+    }
+
+    .hero-character img {
+      max-height: 400px;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+    }
+
+    .content-section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .sidebar-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-card h3 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: var(--bg-light);
+      border-radius: 0.5rem;
+    }
+
+    .info-item i {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    .showtime-item {
+      background: var(--bg-light);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .showtime-date {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .showtime-time {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .showtime-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .showtime-btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-character {
+        display: none;
+      }
+      
+      .info-pills {
+        justify-content: center;
+      }
+      
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-inner">
+      <img src="assets/img/4x/edjs favicon_1@4x.png" alt="L'École des jeunes spectateurs">
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- User Type Selector -->
+  <div id="user-type-selector" style="background: rgba(189, 207, 0, 0.05); border-bottom: 1px solid rgba(189, 207, 0, 0.1); padding: 12px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 20px;">
+      <span style="font-weight: 600; color: #333; font-size: 16px;">Voir les informations pour :</span>
+      <div style="display: flex; gap: 10px;">
+        <button class="user-type-btn" data-type="particulier" style="background: #28a745; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-user"></i> Particulier
+        </button>
+        <button class="user-type-btn" data-type="scolaire-privee" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-graduation-cap"></i> École Privée
+        </button>
+        <button class="user-type-btn" data-type="scolaire-publique" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-school"></i> École Publique
+        </button>
+        <button class="user-type-btn" data-type="association" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-users"></i> Association
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="spectacle-hero">
+    <div class="hero-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="hero-badge">
+              <i class="fas fa-heart me-2"></i>
+              Spectacle Culturel
+            </div>
+            <h1 class="hero-title">Mirath Atfal</h1>
+            <p class="hero-subtitle">Un voyage à travers l'héritage culturel marocain</p>
+            <div class="info-pills">
+              <span class="info-pill">
+                <i class="fas fa-clock"></i>55 min
+              </span>
+              <span class="info-pill">
+                <i class="fas fa-users"></i>5 comédiens
+              </span>
+              <span class="info-pill" id="age-level-pill">
+                <i class="fas fa-child"></i><span id="age-level-text">8 ans et +</span>
+              </span>
+              <span class="info-pill">
+                <i class="fas fa-star"></i>Culturel
+              </span>
+            </div>
+            <div class="hero-buttons">
+              <a href="reservation-mirath-atfal.html" class="btn-primary">
+                <i class="fas fa-ticket-alt"></i>
+                Réserver Maintenant
+              </a>
+              <a href="#synopsis" class="btn-secondary">
+                <i class="fas fa-info-circle"></i>
+                En savoir plus
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-character">
+      <img src="assets/img/spectacles elements/mirath-character.png" alt="Mirath Atfal Character">
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="container content-section">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- Synopsis -->
+        <section id="synopsis" class="mb-5">
+          <h2 class="section-title">Synopsis</h2>
+          <div class="content-card">
+            <p class="lead">
+              "Mirath Atfal" est un spectacle qui célèbre la richesse de l'héritage culturel marocain à travers les contes, les traditions et les valeurs ancestrales transmises de génération en génération.
+            </p>
+            <p>
+              Ce voyage théâtral emmène les spectateurs dans un univers où se mêlent légendes berbères, contes populaires et sagesse traditionnelle. Les personnages, porteurs de mémoire collective, nous racontent l'histoire d'un patrimoine vivant qui continue d'inspirer et d'enrichir notre identité culturelle.
+            </p>
+            <p>
+              À travers des récits captivants et des performances authentiques, "Mirath Atfal" invite petits et grands à redécouvrir les trésors de notre culture marocaine et à comprendre l'importance de préserver cet héritage précieux pour les générations futures.
+            </p>
+          </div>
+        </section>
+
+        <!-- Thèmes Abordés -->
+        <section id="themes" class="mb-5">
+          <h2 class="section-title">Thèmes Abordés</h2>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="theme-card">
+                <div class="theme-icon">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                <h4>Patrimoine Culturel</h4>
+                <p>Découverte des traditions et coutumes marocaines ancestrales.</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="theme-card">
+                <div class="theme-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <h4>Transmission</h4>
+                <p>L'importance de transmettre notre héritage aux nouvelles générations.</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="theme-card">
+                <div class="theme-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <h4>Identité</h4>
+                <p>Construction de l'identité culturelle et du sentiment d'appartenance.</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="theme-card">
+                <div class="theme-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <h4>Valeurs</h4>
+                <p>Les valeurs universelles portées par la culture marocaine.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <!-- Informations Pratiques -->
+        <div class="sidebar-card">
+          <h3>Informations Pratiques</h3>
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>Durée : 55 minutes</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-users"></i>
+            <span>5 comédiens sur scène</span>
+          </div>
+          <div class="info-item" id="sidebar-age-level">
+            <i class="fas fa-child"></i>
+            <span id="sidebar-age-level-text">Âge recommandé : 8 ans et +</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-language"></i>
+            <span>Langue : Arabe et Français</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-heart"></i>
+            <span>Genre : Culturel</span>
+          </div>
+        </div>
+
+        <!-- Séances Disponibles -->
+        <div class="sidebar-card">
+          <h3>Séances Disponibles</h3>
+          <!-- Sessions will be dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.magnific-popup.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth-manager.js"></script>
+
+  <script>
+    // Load header and footer
+    $(document).ready(function() {
+      $('#header-placeholder').load('standard-header.html');
+      $('#footer-placeholder').load('standard-footer.html');
+    });
+
+    // Handle reservation button click
+    window.handleReservation = function() {
+      window.location.href = 'reservation-mirath-atfal.html';
+    };
+
+    // User Type Selector Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const userTypeButtons = document.querySelectorAll('.user-type-btn');
+      const ageLevelPill = document.getElementById('age-level-pill');
+      const ageLevelText = document.getElementById('age-level-text');
+      
+      let currentUserType = 'particulier';
+      
+      function updateContentForUserType(userType) {
+        currentUserType = userType;
+        
+        userTypeButtons.forEach(btn => {
+          if (btn.dataset.type === userType) {
+            btn.style.background = '#28a745';
+            btn.style.color = 'white';
+            btn.style.border = 'none';
+          } else {
+            btn.style.background = 'transparent';
+            btn.style.color = '#666';
+            btn.style.border = '1px solid #ccc';
+          }
+        });
+        
+        // Update age/study level display in hero section
+        if (ageLevelPill && ageLevelText) {
+          if (userType === 'scolaire-privee') {
+            ageLevelText.innerHTML = 'CM1, CM2, Collège';
+            ageLevelPill.querySelector('i').className = 'fas fa-graduation-cap';
+          } else if (userType === 'scolaire-publique') {
+            ageLevelText.innerHTML = 'CM1, CM2, Collège';
+            ageLevelPill.querySelector('i').className = 'fas fa-school';
+          } else if (userType === 'association') {
+            ageLevelText.innerHTML = '8 ans et +';
+            ageLevelPill.querySelector('i').className = 'fas fa-users';
+          } else {
+            ageLevelText.innerHTML = '8 ans et +';
+            ageLevelPill.querySelector('i').className = 'fas fa-child';
+          }
+        }
+        
+        // Update sidebar age display
+        const sidebarAgeLevel = document.getElementById('sidebar-age-level-text');
+        const sidebarAgeLevelIcon = document.querySelector('#sidebar-age-level i');
+        if (sidebarAgeLevel && sidebarAgeLevelIcon) {
+          if (userType === 'scolaire-privee') {
+            sidebarAgeLevel.innerHTML = 'Niveau recommandé : CM1, CM2, Collège';
+            sidebarAgeLevelIcon.className = 'fas fa-graduation-cap';
+          } else if (userType === 'scolaire-publique') {
+            sidebarAgeLevel.innerHTML = 'Niveau recommandé : CM1, CM2, Collège';
+            sidebarAgeLevelIcon.className = 'fas fa-school';
+          } else if (userType === 'association') {
+            sidebarAgeLevel.innerHTML = 'Âge recommandé : 8 ans et +';
+            sidebarAgeLevelIcon.className = 'fas fa-users';
+          } else {
+            sidebarAgeLevel.innerHTML = 'Âge recommandé : 8 ans et +';
+            sidebarAgeLevelIcon.className = 'fas fa-child';
+          }
+        }
+        
+        updateSessionsForUserType(userType);
+      }
+      
+      function updateSessionsForUserType(userType) {
+        const sessionsContainer = document.querySelector('.sidebar-card h3');
+        if (!sessionsContainer || !sessionsContainer.innerHTML.includes('Séances Disponibles')) {
+          return;
+        }
+        
+        const sidebarCard = sessionsContainer.closest('.sidebar-card');
+        if (!sidebarCard) return;
+        
+        const existingSessions = sidebarCard.querySelectorAll('.showtime-item');
+        existingSessions.forEach(item => item.remove());
+        
+        // Session data for Mirath Atfal
+        const sessions = [
+          { date: '2025-11-08', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public' },
+          { date: '2025-11-10', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee' },
+          { date: '2025-11-10', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee' },
+          { date: '2025-11-11', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'association' },
+          { date: '2025-11-13', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-publique' },
+          { date: '2025-11-13', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'association' },
+          { date: '2025-11-14', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee' },
+          { date: '2025-11-14', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee' },
+          { date: '2025-11-15', time: '15:00', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'tout-public' }
+        ];
+        
+        let filteredSessions = [];
+        if (userType === 'scolaire-privee') {
+          filteredSessions = sessions.filter(s => s.audienceType === 'scolaire-privee');
+        } else if (userType === 'scolaire-publique') {
+          filteredSessions = sessions.filter(s => s.audienceType === 'scolaire-publique');
+        } else if (userType === 'association') {
+          filteredSessions = sessions.filter(s => s.audienceType === 'association');
+        } else {
+          filteredSessions = sessions.filter(s => s.audienceType === 'tout-public');
+        }
+        
+        filteredSessions.forEach(session => {
+          const sessionDiv = document.createElement('div');
+          sessionDiv.className = 'showtime-item';
+          sessionDiv.style.cssText = 'background: var(--bg-light); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid var(--primary-color);';
+          
+          const date = new Date(session.date);
+          const formattedDate = date.toLocaleDateString('fr-FR', { 
+            day: 'numeric', 
+            month: 'long', 
+            year: 'numeric' 
+          });
+          
+          const city = session.location.includes('RABAT') ? 'Rabat' : 'Casablanca';
+          
+          sessionDiv.innerHTML = `
+            <div class="showtime-date" style="font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; font-family: 'Raleway', sans-serif;">${formattedDate}</div>
+            <div class="showtime-time" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 0.75rem; font-family: 'Raleway', sans-serif;">${city} - ${session.time}</div>
+            <button class="showtime-btn" onclick="window.handleReservation()" style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: all 0.3s ease; font-family: 'Raleway', sans-serif; cursor: pointer;">
+              <i class="fas fa-ticket-alt"></i>
+              Réserver
+            </button>
+          `;
+          
+          sidebarCard.appendChild(sessionDiv);
+        });
+      }
+      
+      userTypeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const userType = this.dataset.type;
+          updateContentForUserType(userType);
+        });
+      });
+      
+      updateContentForUserType('particulier');
+    });
+  </script>
+
+</body>
+</html>
