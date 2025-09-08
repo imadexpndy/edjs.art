@@ -254,18 +254,78 @@
     cursor: pointer;
   }
 
+  .desktop-only {
+    display: block;
+  }
+
+  /* Mobile Styles */
   @media (max-width: 768px) {
     .nav-menu {
       display: none;
     }
+    
+    .desktop-only {
+      display: none !important;
+    }
+    
     .mobile-toggle {
-      display: block;
+      display: block !important;
     }
     .header-container {
-      padding: 10px 20px;
+      padding: 10px 15px;
+      gap: 10px;
     }
     .logo-section img {
-      height: 60px;
+      height: 50px;
+    }
+    .auth-section {
+      gap: 8px;
+    }
+    .auth-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+    .user-dropdown-btn {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .header-container {
+      padding: 12px 25px;
+      gap: 20px;
+    }
+    .logo-section img {
+      height: 70px;
+    }
+    .nav-menu {
+      gap: 25px;
+    }
+    .nav-link {
+      font-size: 22px;
+      padding: 10px 15px;
+    }
+    .auth-btn {
+      padding: 12px 25px;
+      font-size: 16px;
+    }
+  }
+
+  /* Small Mobile Styles */
+  @media (max-width: 480px) {
+    .header-container {
+      padding: 8px 10px;
+    }
+    .logo-section img {
+      height: 40px;
+    }
+    .auth-section .auth-btn {
+      display: none;
+    }
+    .mobile-toggle {
+      font-size: 20px;
     }
   }
 </style>
@@ -453,10 +513,10 @@
           </div>
         </div>
         
-        <!-- Auth Buttons (when not authenticated) -->
-        <div class="auth-buttons" id="authButtons">
+        <!-- Auth Buttons (when not authenticated) - Hidden on mobile -->
+        <div class="auth-buttons desktop-only" id="authButtons">
           <a href="https://app.edjs.art/" class="btn btn-primary auth-login-btn">Se connecter</a>
-          <a href="https://app.edjs.art/auth?mode=register" class="btn btn-primary auth-register-btn">S'inscrire</a>
+          <a href="https://app.edjs.art/auth?mode=register" class="btn btn-outline-primary auth-register-btn">S'inscrire</a>
         </div>
         
         <!-- Mobile Menu Toggle -->
@@ -507,12 +567,21 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 300px;
+      width: 85%;
+      max-width: 350px;
       height: 100%;
       background: white;
-      padding: 30px;
+      padding: 20px;
       transform: translateX(100%);
       transition: transform 0.3s ease;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 480px) {
+      .mobile-menu-content {
+        width: 90%;
+        padding: 15px;
+      }
     }
 
     .mobile-menu-overlay.active .mobile-menu-content {

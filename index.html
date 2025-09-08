@@ -44,6 +44,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Theme Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="assets/css/responsive.css">
   <style>
     /* Header Menu Hover Color Fix */
     .vs-header .main-menu ul li a svg path {
@@ -2037,15 +2039,9 @@
         <div class="row align-items-center">
           <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.25s">
             <div class="vs-about--image">
-              <div class="vs-about--image__figure2 wow animate__fadeInUp wow-animated" data-wow-delay="0.35s" style="width: 120%; max-width: 1100px; height: auto; border-radius: 15px; overflow: hidden; margin-left: -250px; visibility: visible; animation-delay: 0.35s; animation-name: fadeInUp;">
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden;">
-                  <iframe 
-                    style="position: absolute; top: -60px; left: -100px; width: 120%; height: 120%; border-radius: 15px; transform: scale(1.3);"
-                    src="https://www.youtube.com/embed/tZEYiQX4ijs?autoplay=1&mute=1&loop=1&playlist=tZEYiQX4ijs&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&fs=0&disablekb=1"
-                    title="Vidéo de Présentation - École des jeunes spectateurs"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
+              <div class="vs-about--image__figure2 wow animate__fadeInUp wow-animated video-container-responsive" data-wow-delay="0.35s" style="width: 120%; max-width: 1100px; height: auto; border-radius: 15px; overflow: hidden; margin-left: -250px; visibility: visible; animation-delay: 0.35s; animation-name: fadeInUp;">
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden;">
+                  <iframe style="position: absolute; top: -60px; left: -100px; width: 120%; height: 120%; border-radius: 15px; transform: scale(1.3);" src="https://www.youtube.com/embed/tZEYiQX4ijs?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=tZEYiQX4ijs&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;fs=0&amp;disablekb=1" title="Vidéo de Présentation - École des jeunes spectateurs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
                   </iframe>
                 </div>
               </div>
@@ -2109,7 +2105,7 @@
           </div>
           
           <div class="col-12">
-            <div class="mission-blocks" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;">
+            <div class="mission-blocks mission-blocks-responsive" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px;">
                 <!-- Block 1 -->
                 <div class="mission-block" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid rgba(189, 207, 0, 0.2); transition: all 0.3s ease; cursor: default; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.08)'">
                   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, #BDCF00, #9BB800);"></div>
@@ -2385,44 +2381,44 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-2 col-md-4 col-6 mb-5">
-            <div class="achievement-card wow animate__fadeInUp" data-wow-delay="0.1s">
+        <div class="row justify-content-center" style="margin-top: 80px;">
+          <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
+            <div class="achievement-card text-center">
               <div class="achievement-card-inner">
                 <div class="achievement-number-new">+10</div>
-                <div class="achievement-label-new">Ans d'existence</div>
+                <div class="achievement-label">ANS D'EXISTENCE</div>
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-5">
-            <div class="achievement-card wow animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
+            <div class="achievement-card text-center">
               <div class="achievement-card-inner">
                 <div class="achievement-number-new">+220k</div>
-                <div class="achievement-label-new">Enfants Bénéficiaires</div>
+                <div class="achievement-label">ENFANTS BÉNÉFICIAIRES</div>
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-5">
-            <div class="achievement-card wow animate__fadeInUp" data-wow-delay="0.3s">
+          <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
+            <div class="achievement-card text-center">
               <div class="achievement-card-inner">
                 <div class="achievement-number-new">100</div>
-                <div class="achievement-label-new">Partenaires et associations</div>
+                <div class="achievement-label">PARTENAIRES ET ASSOCIATIONS</div>
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-5">
-            <div class="achievement-card wow animate__fadeInUp" data-wow-delay="0.4s">
+          <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
+            <div class="achievement-card text-center">
               <div class="achievement-card-inner">
                 <div class="achievement-number-new">100</div>
-                <div class="achievement-label-new">Spectacles</div>
+                <div class="achievement-label">SPECTACLES</div>
               </div>
             </div>
           </div>
-          <div class="col-lg-2 col-md-4 col-6 mb-5">
-            <div class="achievement-card wow animate__fadeInUp" data-wow-delay="0.5s">
+          <div class="col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
+            <div class="achievement-card text-center">
               <div class="achievement-card-inner">
                 <div class="achievement-number-new">300</div>
-                <div class="achievement-label-new">Représentations théâtrales</div>
+                <div class="achievement-label">REPRÉSENTATIONS THÉÂTRALES</div>
               </div>
             </div>
           </div>
@@ -2543,13 +2539,10 @@
                 <div class="vs-class" style="height: 550px; display: flex; flex-direction: column; justify-content: space-between;">
                   <div class="vs-class__figure" style="position: relative; flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px;">
                     <a class="vs-class__figure--link" href="https://app.edjs.art/spectacles" style="flex: 1; height: 100%;">
-                      <img class="vs-class__figure--img" src="assets/img/spectacles/mirat@4x.png" alt="Mirath Atfal" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
+                      <img class="vs-class__figure--img" src="assets/img/spectacles/edjs miraat@4x.png" alt="Mirath Atfal" style="object-fit: contain !important; padding: 10px; background: white; border-radius: 15px; width: 100%; height: 100%;">
                     </a>
                     <div style="position: absolute; top: 20px; right: 20px; background: #BDCF00; color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; min-width: 80px;">
                       NOV<br>2025
-                    </div>
-                    <div style="position: absolute; bottom: 20px; right: 20px;">
-                      <img src="assets/img/spectacles elements/estevanico@4x.png" alt="Mirath Atfal Character" style="width: 120px; height: 160px; object-fit: contain;">
                     </div>
                   </div>
                   <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
@@ -2579,7 +2572,7 @@
                       DÉC<br>2025
                     </div>
                     <div style="position: absolute; bottom: 20px; right: 20px;">
-                      <img src="assets/img/spectacles elements/simple comme bonjour@4x.png" alt="Simple comme bonjour Character" style="width: 120px; height: 160px; object-fit: contain;">
+                      <img src="assets/img/spectacles elements/simple comme bonjour@4x.png" alt="Simple comme bonjour Character" style="width: 80px; height: 100px; object-fit: contain;">
                     </div>
                   </div>
                   <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
@@ -2638,7 +2631,7 @@
                       FÉV<br>2026
                     </div>
                     <div style="position: absolute; bottom: 20px; right: 20px;">
-                      <img src="assets/img/spectacles elements/estevanico@4x.png" alt="Estevanico Character" style="width: 120px; height: 160px; object-fit: contain;">
+                      <img src="assets/img/spectacles elements/estevanico@4x.png" alt="Estevanico Character" style="width: 80px; height: 100px; object-fit: contain;">
                     </div>
                   </div>
                   <div class="vs-class__content" style="padding: 20px 20px 0 20px; flex-shrink: 0;">
@@ -3009,6 +3002,9 @@
   <!-- Authentication Scripts -->
   <script src="assets/js/supabase-config.js"></script>
   <script src="assets/js/spectacles-auth.js"></script>
+  
+  <!-- Mobile Carousel Fix -->
+  <script src="assets/js/mobile-carousel-fix.js"></script>
 </body>
 
 </html>
