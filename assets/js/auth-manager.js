@@ -51,12 +51,16 @@ class AuthManager {
     const loggedIn = urlParams.get('logged_in');
     const userEmail = urlParams.get('user_email');
     const userName = urlParams.get('user_name');
+    const userType = urlParams.get('user_type');
+    const professionalType = urlParams.get('professional_type');
     
     console.log('EDJS - Checking URL parameters:');
     console.log('EDJS - Current URL:', window.location.href);
     console.log('EDJS - logged_in:', loggedIn);
     console.log('EDJS - user_email:', userEmail);
     console.log('EDJS - user_name:', userName);
+    console.log('EDJS - user_type:', userType);
+    console.log('EDJS - professional_type:', professionalType);
     
     if (loggedIn === 'true') {
       console.log('EDJS - User logged in via Hello Planet, updating auth state');
@@ -66,12 +70,22 @@ class AuthManager {
         user: {
           email: userEmail || 'user@example.com',
           full_name: userName || userEmail || 'User',
-          role: 'user'
+          role: 'user',
+          user_type: userType,
+          professional_type: professionalType
         },
         timestamp: new Date().toISOString()
       };
       
       this.handleAuthResponse(userData);
+      
+      // Store user type information in sessionStorage for UI updates
+      if (userType) {
+        sessionStorage.setItem('userType', userType);
+      }
+      if (professionalType) {
+        sessionStorage.setItem('professionalType', professionalType);
+      }
       
       // Clean up URL parameters
       const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
@@ -94,12 +108,23 @@ class AuthManager {
           
           if (hoursDiff < 24) {
             this.handleAuthResponse(authData);
+            // Restore user type information
+            if (authData.user && authData.user.user_type) {
+              sessionStorage.setItem('userType', authData.user.user_type);
+            }
+            if (authData.user && authData.user.professional_type) {
+              sessionStorage.setItem('professionalType', authData.user.professional_type);
+            }
           } else {
             // Clear expired auth
             sessionStorage.removeItem('edjs_auth_status');
+            sessionStorage.removeItem('userType');
+            sessionStorage.removeItem('professionalType');
           }
         } catch (e) {
           sessionStorage.removeItem('edjs_auth_status');
+          sessionStorage.removeItem('userType');
+          sessionStorage.removeItem('professionalType');
         }
       }
     }
@@ -107,6 +132,9 @@ class AuthManager {
     // Force UI update after checking authentication
     setTimeout(() => {
       this.updateHeaderUI();
+      this.updateAgeLevelDisplay();
+      this.updateSessionsDisplay();
+      this.addUserTypeIndicator();
     }, 100);
   }
 
@@ -327,6 +355,235 @@ class AuthManager {
     window.open(authUrl, '_blank');
   }
 
+  updateAgeLevelDisplay() {
+    const ageLevelPill = document.getElementById('age-level-pill');
+    const ageLevelText = document.getElementById('age-level-text');
+    
+    console.log('EDJS - updateAgeLevelDisplay called');
+    console.log('EDJS - ageLevelPill found:', !!ageLevelPill);
+    console.log('EDJS - ageLevelText found:', !!ageLevelText);
+    
+    if (!ageLevelPill || !ageLevelText) {
+      console.log('EDJS - Age level elements not found on this page');
+      return;
+    }
+    
+    const userType = sessionStorage.getItem('userType');
+    const professionalType = sessionStorage.getItem('professionalType');
+    const authStatus = sessionStorage.getItem('edjs_auth_status');
+    
+    console.log('EDJS - SessionStorage contents:');
+    console.log('EDJS - userType:', userType);
+    console.log('EDJS - professionalType:', professionalType);
+    console.log('EDJS - authStatus:', authStatus);
+    console.log('EDJS - isAuthenticated:', this.isAuthenticated);
+    
+    // Check if user is a private school professional
+    if (userType === 'professional' && professionalType === 'scolaire-privee') {
+      // Show study levels for private schools
+      ageLevelText.innerHTML = 'CM1, CM2, Collège';
+      ageLevelPill.querySelector('i').className = 'fas fa-graduation-cap';
+      console.log('EDJS - Updated to study levels for private school');
+    } else if (userType === 'professional' && professionalType === 'scolaire-publique') {
+      // Show study levels for public schools
+      ageLevelText.innerHTML = 'CM1, CM2, Collège';
+      ageLevelPill.querySelector('i').className = 'fas fa-school';
+      console.log('EDJS - Updated to study levels for public school');
+    } else if (userType === 'professional' && professionalType === 'association') {
+      // Show age range for associations
+      ageLevelText.innerHTML = '7 ans et +';
+      ageLevelPill.querySelector('i').className = 'fas fa-users';
+      console.log('EDJS - Updated to age range for association');
+    } else {
+      // Default to age for particuliers or non-authenticated users
+      const originalText = ageLevelText.innerHTML;
+      console.log('EDJS - Using default age display, original text was:', originalText);
+      // Keep the original age text from the HTML
+    }
+  }
+
+  updateSessionsDisplay() {
+    const sessionsContainer = document.querySelector('.sidebar-card h3');
+    if (!sessionsContainer || !sessionsContainer.innerHTML.includes('Séances Disponibles')) {
+      console.log('EDJS - Sessions container not found on this page');
+      return;
+    }
+
+    const spectacleId = this.getSpectacleIdFromPage();
+    const userType = sessionStorage.getItem('userType');
+    const professionalType = sessionStorage.getItem('professionalType');
+    
+    console.log('EDJS - Updating sessions for spectacle:', spectacleId, 'userType:', userType, 'professionalType:', professionalType);
+    
+    // Get sessions data based on user type
+    const sessions = this.getSessionsForUserType(spectacleId, userType, professionalType);
+    
+    // Update the sessions display
+    const sidebarCard = sessionsContainer.closest('.sidebar-card');
+    if (sidebarCard) {
+      // Clear existing sessions
+      const existingSessions = sidebarCard.querySelectorAll('.showtime-item');
+      existingSessions.forEach(item => item.remove());
+      
+      // Add new sessions
+      sessions.forEach(session => {
+        const sessionElement = this.createSessionElement(session);
+        sidebarCard.appendChild(sessionElement);
+      });
+    }
+  }
+
+  getSessionsForUserType(spectacleId, userType, professionalType) {
+    // Session data from Hello Planet app
+    const SESSIONS = [
+      // LE PETIT PRINCE
+      { id: 'lpp-1', date: '2025-10-04', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-2', date: '2025-10-06', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-3', date: '2025-10-06', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-4', date: '2025-10-07', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'association', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-5', date: '2025-10-09', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-publique', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-6', date: '2025-10-09', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'association', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-7', date: '2025-10-10', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-8', date: '2025-10-10', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee', spectacleId: 'le-petit-prince', month: 'octobre' },
+      { id: 'lpp-9', date: '2025-10-11', time: '15:00', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'tout-public', spectacleId: 'le-petit-prince', month: 'octobre' },
+      
+      // TARA SUR LA LUNE
+      { id: 'tsl-1', date: '2025-10-13', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-2', date: '2025-10-14', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-publique', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-3', date: '2025-10-14', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'association', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-4', date: '2025-10-18', time: '15:00', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'tout-public', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-5', date: '2025-10-09', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-6', date: '2025-10-09', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-publique', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-7', date: '2025-10-10', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'association', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+      { id: 'tsl-8', date: '2025-10-11', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public', spectacleId: 'tara-sur-la-lune', month: 'octobre' },
+
+      // CHARLOTTE
+      { id: 'ch-1', date: '2025-11-05', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public', spectacleId: 'charlotte', month: 'novembre' },
+      { id: 'ch-2', date: '2025-11-07', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'charlotte', month: 'novembre' },
+      { id: 'ch-3', date: '2025-11-07', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-publique', spectacleId: 'charlotte', month: 'novembre' },
+      { id: 'ch-4', date: '2025-11-08', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'association', spectacleId: 'charlotte', month: 'novembre' },
+      { id: 'ch-5', date: '2025-11-09', time: '15:00', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'tout-public', spectacleId: 'charlotte', month: 'novembre' },
+
+      // ESTEVANICO
+      { id: 'est-1', date: '2025-11-12', time: '15:00', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'tout-public', spectacleId: 'estevanico', month: 'novembre' },
+      { id: 'est-2', date: '2025-11-14', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'estevanico', month: 'novembre' },
+      { id: 'est-3', date: '2025-11-14', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-publique', spectacleId: 'estevanico', month: 'novembre' },
+      { id: 'est-4', date: '2025-11-15', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'association', spectacleId: 'estevanico', month: 'novembre' },
+
+      // ALICE CHEZ LES MERVEILLES
+      { id: 'alice-1', date: '2025-11-19', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public', spectacleId: 'alice-chez-les-merveilles', month: 'novembre' },
+      { id: 'alice-2', date: '2025-11-21', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee', spectacleId: 'alice-chez-les-merveilles', month: 'novembre' },
+      { id: 'alice-3', date: '2025-11-21', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-publique', spectacleId: 'alice-chez-les-merveilles', month: 'novembre' },
+      { id: 'alice-4', date: '2025-11-22', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'association', spectacleId: 'alice-chez-les-merveilles', month: 'novembre' }
+    ];
+
+    let spectacleSessions = SESSIONS.filter(s => s.spectacleId === spectacleId);
+    
+    // Determine effective user type
+    let effectiveUserType = 'particulier';
+    if (userType === 'professional' && professionalType) {
+      effectiveUserType = professionalType;
+    }
+    
+    // Filter sessions based on user type
+    if (effectiveUserType === 'scolaire-privee') {
+      return spectacleSessions.filter(s => s.audienceType === 'scolaire-privee');
+    } else if (effectiveUserType === 'scolaire-publique') {
+      return spectacleSessions.filter(s => s.audienceType === 'scolaire-publique');
+    } else if (effectiveUserType === 'association') {
+      return spectacleSessions.filter(s => s.audienceType === 'association');
+    } else {
+      // Particuliers see public sessions
+      return spectacleSessions.filter(s => s.audienceType === 'tout-public');
+    }
+  }
+
+  createSessionElement(session) {
+    const sessionDiv = document.createElement('div');
+    sessionDiv.className = 'showtime-item';
+    sessionDiv.style.cssText = 'background: var(--bg-light); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid var(--primary-color);';
+    
+    const date = new Date(session.date);
+    const formattedDate = date.toLocaleDateString('fr-FR', { 
+      day: 'numeric', 
+      month: 'long', 
+      year: 'numeric' 
+    });
+    
+    const city = session.location.includes('RABAT') ? 'Rabat' : 'Casablanca';
+    
+    sessionDiv.innerHTML = `
+      <div class="showtime-date" style="font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; font-family: 'Raleway', sans-serif;">${formattedDate}</div>
+      <div class="showtime-time" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 0.75rem; font-family: 'Raleway', sans-serif;">${city} - ${session.time}</div>
+      <button class="showtime-btn" onclick="window.handleReservation()" style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: all 0.3s ease; font-family: 'Raleway', sans-serif; cursor: pointer;">
+        <i class="fas fa-ticket-alt"></i>
+        Réserver
+      </button>
+    `;
+    
+    return sessionDiv;
+  }
+
+  addUserTypeIndicator() {
+    const userType = sessionStorage.getItem('userType');
+    const professionalType = sessionStorage.getItem('professionalType');
+    
+    if (!userType || userType !== 'professional' || !professionalType) {
+      return; // Only show for professional users
+    }
+    
+    // Check if indicator already exists
+    if (document.getElementById('user-type-indicator')) {
+      return;
+    }
+    
+    const heroSection = document.querySelector('.spectacle-hero, .hero-section');
+    if (!heroSection) {
+      return;
+    }
+    
+    let userTypeLabel = '';
+    let icon = '';
+    
+    switch (professionalType) {
+      case 'scolaire-privee':
+        userTypeLabel = 'École Privée';
+        icon = 'fas fa-graduation-cap';
+        break;
+      case 'scolaire-publique':
+        userTypeLabel = 'École Publique';
+        icon = 'fas fa-school';
+        break;
+      case 'association':
+        userTypeLabel = 'Association';
+        icon = 'fas fa-users';
+        break;
+    }
+    
+    const indicator = document.createElement('div');
+    indicator.id = 'user-type-indicator';
+    indicator.style.cssText = 'background: rgba(189, 207, 0, 0.05); border-bottom: 1px solid rgba(189, 207, 0, 0.1); padding: 12px 0;';
+    
+    indicator.innerHTML = `
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <i class="${icon}" style="color: #BDCF00; font-size: 18px;"></i>
+          <div>
+            <span style="font-weight: 600; color: #333; font-size: 16px;">${userTypeLabel}</span>
+            <span style="color: #666; margin-left: 8px; font-size: 14px;">• Rabat - Casablanca</span>
+          </div>
+        </div>
+        <button onclick="authManager.logout()" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+          <i class="fas fa-arrow-left"></i>
+          Changer de profil
+        </button>
+      </div>
+    `;
+    
+    // Insert before hero section
+    heroSection.parentNode.insertBefore(indicator, heroSection);
+  }
+
   addDropdownStyles() {
     if (document.getElementById('auth-dropdown-styles')) return;
 
@@ -465,14 +722,61 @@ window.testAuthState = function() {
       user: {
         email: 'test@example.com',
         full_name: 'Test User',
-        role: 'user'
+        role: 'user',
+        user_type: 'professional',
+        professional_type: 'scolaire-privee'
       },
       timestamp: new Date().toISOString()
     };
     
+    // Set user type in sessionStorage
+    sessionStorage.setItem('userType', 'professional');
+    sessionStorage.setItem('professionalType', 'scolaire-privee');
     sessionStorage.setItem('edjs_auth_status', JSON.stringify(testUserData));
+    
     window.authManager.handleAuthResponse(testUserData);
-    console.log('EDJS - Test auth state set, updating UI');
+    window.authManager.updateAgeLevelDisplay();
+    window.authManager.updateSessionsDisplay();
+    window.authManager.addUserTypeIndicator();
+    console.log('EDJS - Test private school auth state set, updating UI');
+  }
+};
+
+// Test function for public school
+window.testPublicSchool = function() {
+  console.log('EDJS - Testing public school authentication state');
+  if (window.authManager) {
+    const testUserData = {
+      isAuthenticated: true,
+      user: {
+        email: 'test@example.com',
+        full_name: 'Test User',
+        role: 'user',
+        user_type: 'professional',
+        professional_type: 'scolaire-publique'
+      },
+      timestamp: new Date().toISOString()
+    };
+    
+    sessionStorage.setItem('userType', 'professional');
+    sessionStorage.setItem('professionalType', 'scolaire-publique');
+    sessionStorage.setItem('edjs_auth_status', JSON.stringify(testUserData));
+    
+    window.authManager.handleAuthResponse(testUserData);
+    window.authManager.updateAgeLevelDisplay();
+    window.authManager.updateSessionsDisplay();
+    window.authManager.addUserTypeIndicator();
+    console.log('EDJS - Test public school auth state set, updating UI');
+  }
+};
+
+// Function to force update displays
+window.forceUpdateDisplays = function() {
+  console.log('EDJS - Force updating all displays');
+  if (window.authManager) {
+    window.authManager.updateAgeLevelDisplay();
+    window.authManager.updateSessionsDisplay();
+    window.authManager.addUserTypeIndicator();
   }
 };
 
@@ -485,13 +789,39 @@ document.addEventListener('DOMContentLoaded', () => {
     window.authManager = new AuthManager();
     window.authManager.init();
     
-    // Add test button to page for debugging
+    // Add test buttons to page for debugging
     setTimeout(() => {
-      const testButton = document.createElement('button');
-      testButton.innerHTML = 'Test Auth State';
-      testButton.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 9999; background: red; color: white; padding: 10px; border: none; cursor: pointer;';
-      testButton.onclick = window.testAuthState;
-      document.body.appendChild(testButton);
+      const buttonContainer = document.createElement('div');
+      buttonContainer.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 5px;';
+      
+      const testPrivateButton = document.createElement('button');
+      testPrivateButton.innerHTML = 'Test École Privée';
+      testPrivateButton.style.cssText = 'background: #28a745; color: white; padding: 8px 12px; border: none; cursor: pointer; font-size: 12px; border-radius: 4px;';
+      testPrivateButton.onclick = window.testAuthState;
+      
+      const testPublicButton = document.createElement('button');
+      testPublicButton.innerHTML = 'Test École Publique';
+      testPublicButton.style.cssText = 'background: #007bff; color: white; padding: 8px 12px; border: none; cursor: pointer; font-size: 12px; border-radius: 4px;';
+      testPublicButton.onclick = window.testPublicSchool;
+      
+      const forceUpdateButton = document.createElement('button');
+      forceUpdateButton.innerHTML = 'Force Update';
+      forceUpdateButton.style.cssText = 'background: #ffc107; color: black; padding: 8px 12px; border: none; cursor: pointer; font-size: 12px; border-radius: 4px;';
+      forceUpdateButton.onclick = window.forceUpdateDisplays;
+      
+      const clearButton = document.createElement('button');
+      clearButton.innerHTML = 'Clear Auth';
+      clearButton.style.cssText = 'background: #dc3545; color: white; padding: 8px 12px; border: none; cursor: pointer; font-size: 12px; border-radius: 4px;';
+      clearButton.onclick = () => {
+        sessionStorage.clear();
+        location.reload();
+      };
+      
+      buttonContainer.appendChild(testPrivateButton);
+      buttonContainer.appendChild(testPublicButton);
+      buttonContainer.appendChild(forceUpdateButton);
+      buttonContainer.appendChild(clearButton);
+      document.body.appendChild(buttonContainer);
     }, 1000);
     
   } catch (error) {

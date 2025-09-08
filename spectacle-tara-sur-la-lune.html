@@ -1419,9 +1419,54 @@
 
       // Scroll Down Button
       const scrollBtn = document.querySelector('.scroll-down-btn');
+      const ageLevelPill = document.getElementById('age-level-pill');
+      const ageLevelText = document.getElementById('age-level-text');
+      let userType = 'particulier';
+
+      document.querySelectorAll('.user-type-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          userType = this.getAttribute('data-type');
+        });
+      });
+
       if (scrollBtn) {
         scrollBtn.addEventListener('click', function() {
           const nextSection = document.querySelector('.spectacle-hero').nextElementSibling;
+          if (ageLevelPill && ageLevelText) {
+            if (userType === 'scolaire-privee') {
+              ageLevelText.innerHTML = 'CM1, CM2, Collège';
+              ageLevelPill.querySelector('i').className = 'fas fa-graduation-cap';
+            } else if (userType === 'scolaire-publique') {
+              ageLevelText.innerHTML = 'CM1, CM2, Collège';
+              ageLevelPill.querySelector('i').className = 'fas fa-school';
+            } else if (userType === 'association') {
+              ageLevelText.innerHTML = '5 ans et +';
+              ageLevelPill.querySelector('i').className = 'fas fa-users';
+            } else {
+              ageLevelText.innerHTML = '5 ans et +';
+              ageLevelPill.querySelector('i').className = 'fas fa-child';
+            }
+          }
+        
+          // Update sidebar age display
+          const sidebarAgeLevel = document.getElementById('sidebar-age-level-text');
+          const sidebarAgeLevelIcon = document.querySelector('#sidebar-age-level i');
+          if (sidebarAgeLevel && sidebarAgeLevelIcon) {
+            if (userType === 'scolaire-privee') {
+              sidebarAgeLevel.innerHTML = 'Niveau recommandé : CM1, CM2, Collège';
+              sidebarAgeLevelIcon.className = 'fas fa-graduation-cap';
+            } else if (userType === 'scolaire-publique') {
+              sidebarAgeLevel.innerHTML = 'Niveau recommandé : CM1, CM2, Collège';
+              sidebarAgeLevelIcon.className = 'fas fa-school';
+            } else if (userType === 'association') {
+              sidebarAgeLevel.innerHTML = 'Âge recommandé : 5 ans et +';
+              sidebarAgeLevelIcon.className = 'fas fa-users';
+            } else {
+              sidebarAgeLevel.innerHTML = 'Âge recommandé : 5 ans et +';
+              sidebarAgeLevelIcon.className = 'fas fa-child';
+            }
+          }
+
           if (nextSection) {
             nextSection.scrollIntoView({
               behavior: 'smooth',
@@ -1454,6 +1499,27 @@
     });
   </script>
 
+  <!-- User Type Selector -->
+  <div id="user-type-selector" style="background: rgba(189, 207, 0, 0.05); border-bottom: 1px solid rgba(189, 207, 0, 0.1); padding: 12px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 20px;">
+      <span style="font-weight: 600; color: #333; font-size: 16px;">Voir les informations pour :</span>
+      <div style="display: flex; gap: 10px;">
+        <button class="user-type-btn" data-type="particulier" style="background: #28a745; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-user"></i> Particulier
+        </button>
+        <button class="user-type-btn" data-type="scolaire-privee" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-graduation-cap"></i> École Privée
+        </button>
+        <button class="user-type-btn" data-type="scolaire-publique" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-school"></i> École Publique
+        </button>
+        <button class="user-type-btn" data-type="association" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-users"></i> Association
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <section class="spectacle-hero">
     
@@ -1470,8 +1536,8 @@
               <span class="info-pill">
                 <i class="fas fa-clock"></i>45 min
               </span>
-              <span class="info-pill">
-                <i class="fas fa-child"></i>5 ans et +
+              <span class="info-pill" id="age-level-pill">
+                <i class="fas fa-child"></i><span id="age-level-text">5 ans et +</span>
               </span>
               <span class="info-pill">
                 <i class="fas fa-users"></i>3 comédiens
@@ -1697,7 +1763,7 @@
             </div>
             <div class="info-item">
               <i class="fas fa-language"></i>
-              <span>Langue : Français</span>
+              <span>Langue : Darija</span>
             </div>
             <div class="info-item">
               <i class="fas fa-users"></i>
