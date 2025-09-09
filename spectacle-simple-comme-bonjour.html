@@ -264,7 +264,9 @@
 
   <style>
     :root {
-      --primary-color: #BDCF00;
+      --primary-color: #FF6B6B;
+      --secondary-color: #4ECDC4;
+      --accent-color: #FFE66D;
       --text-dark: #2c3e50;
       --text-light: #6c757d;
       --bg-light: #f8f9fa;
@@ -408,7 +410,7 @@
     }
 
     .tv-frame {
-      background: linear-gradient(145deg, #BDCF00, #D4E157);
+      background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
       border-radius: 20px;
       padding: 30px 25px 40px 25px;
       box-shadow: 
@@ -781,15 +783,16 @@
     }
 
     .btn-primary {
-      background: white;
-      color: #BDCF00;
+      background: var(--accent-color);
+      color: var(--text-dark);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      color: #BDCF00;
+      color: var(--text-dark);
+      background: var(--accent-color);
     }
 
     .btn-secondary {
@@ -1701,15 +1704,29 @@
   <!-- Hero Section -->
   <section class="spectacle-hero">
     
-    <div class="hero-container">
-        <div class="hero-left" style="color: black !important;">
-          <div class="hero-content" style="margin-left: 40px;">
+    <div class="vintage-tv-container">
+      <div class="tv-frame">
+        <div class="tv-screen">
+          <video class="tv-video" autoplay muted loop>
+            <source src="assets/videos/simple-comme-bonjour-trailer.mp4" type="video/mp4">
+          </video>
+          <div class="play-button-overlay">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
             <div class="hero-badge">
               <i class="fas fa-smile me-2"></i>
               Spectacle Éducatif
             </div>
             <h1 class="hero-title">Simple Comme Bonjour</h1>
-            <p class="hero-subtitle">Apprendre le vivre ensemble</p>
+            <p class="hero-subtitle">Apprendre le vivre ensemble avec politesse et respect</p>
             <div class="info-pills">
               <span class="info-pill" style="font-size: 1rem; padding: 0.6rem 1.2rem;">
                 <i class="fas fa-clock"></i>35 min
@@ -1729,22 +1746,25 @@
                 <i class="fas fa-ticket-alt"></i>
                 Réserver Maintenant
               </a>
-              <button class="btn-secondary">
-                <i class="fas fa-play"></i>
-                Voir la Bande-annonce
-              </button>
+              <a href="#synopsis" class="btn-secondary">
+                <i class="fas fa-info-circle"></i>
+                En savoir plus
+              </a>
             </div>
           </div>
         </div>
-        
-        <!-- Character in Center -->
-        <div class="hero-character">
-          <img src="assets/img/spectacles elements/simple-bonjour@4x.png" alt="Simple Comme Bonjour Character">
-        </div>
-        
-        <div class="hero-right">
-          <div class="hero-slider">
-            <div class="slider-container">
+      </div>
+    </div>
+
+    <div class="hero-character">
+      <img src="assets/img/spectacles elements/simple-bonjour@4x.png" alt="Simple Comme Bonjour Character">
+    </div>
+    
+    <div class="hero-right">
+      <div class="hero-slider">
+        <div class="slider-container">
+          <div class="slide">
+            <img src="assets/img/spectacles/simple-bonjour.png" alt="Simple Comme Bonjour - Photo 1">
               <div class="slide">
                 <img src="assets/img/spectacles/simple-bonjour.png" alt="Simple Comme Bonjour - Photo 1">
               </div>
@@ -1930,9 +1950,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="review-author">Sarah M. - Parent</div>
+                  <div class="review-author">Aicha B. - Parent</div>
                 </div>
-                <p class="review-text">"Magique ! Ma fille de 7 ans a été transportée dans l'univers du Petit Prince. Les messages de Saint-Exupéry touchent vraiment."</p>
+                <p class="review-text">"Parfait pour apprendre la politesse ! Mon fils de 4 ans dit maintenant 'bonjour' et 'merci' naturellement après avoir vu ce spectacle."</p>
               </div>
               <div class="review-item">
                 <div class="review-header">
@@ -1943,9 +1963,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="review-author">Ahmed K. - Enseignant</div>
+                  <div class="review-author">Youssef M. - Enseignant</div>
                 </div>
-                <p class="review-text">"Une adaptation respectueuse et poétique. Parfait pour initier les enfants à la littérature française classique."</p>
+                <p class="review-text">"Un excellent outil pédagogique ! Les enfants apprennent les règles de politesse en s'amusant. Très interactif et éducatif."</p>
               </div>
               <div class="review-item">
                 <div class="review-header">
@@ -1956,9 +1976,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="review-author">Fatima L. - Grand-mère</div>
+                  <div class="review-author">Laila K. - Directrice d'école</div>
                 </div>
-                <p class="review-text">"Un spectacle intemporel qui parle à tous les âges. J'ai redécouvert l'histoire avec mes petits-enfants !"</p>
+                <p class="review-text">"Simple comme bonjour, mais tellement efficace ! Les valeurs du vivre ensemble sont transmises avec humour et bienveillance."</p>
               </div>
             </div>
           </div>
@@ -2006,23 +2026,47 @@
           <div class="sidebar-card">
             <h3 style="font-size: 1.4rem; font-weight: 700;"><i class="fas fa-calendar-alt"></i> Séances Disponibles</h3>
             <div class="showtime-item">
-              <div class="showtime-date">04 au 07 octobre 2025</div>
+              <div class="showtime-date">4, 6 et 7 décembre 2025</div>
               <div class="showtime-location">
                 <i class="fas fa-map-marker-alt"></i>
-                Rabat
+                Rabat - Théâtre Bahnini
               </div>
-              <a href="https://app.edjs.art/" class="showtime-btn">
+              <div class="showtime-details" style="font-size: 0.9rem; color: #666; margin: 8px 0;">
+                <div>• Sam 4 déc - 15h00 (Tout public)</div>
+                <div>• Lun 6 déc - 9h30 & 14h30 (Écoles privées)</div>
+                <div>• Mar 7 déc - 14h30 (Écoles publiques & Associations)</div>
+              </div>
+              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="simple-comme-bonjour">
                 <i class="fas fa-ticket-alt"></i>
                 Réserver
               </a>
             </div>
             <div class="showtime-item">
-              <div class="showtime-date">09 au 11 octobre 2025</div>
+              <div class="showtime-date">9, 10 et 11 décembre 2025</div>
               <div class="showtime-location">
                 <i class="fas fa-map-marker-alt"></i>
-                Casablanca
+                Casablanca - Complexe El Hassani
               </div>
-              <a href="https://app.edjs.art/" class="showtime-btn">
+              <div class="showtime-details" style="font-size: 0.9rem; color: #666; margin: 8px 0;">
+                <div>• Mer 9 déc - 9h30 (Écoles publiques) & 14h30 (Associations)</div>
+                <div>• Jeu 10 déc - 9h30 & 14h30 (Écoles privées)</div>
+                <div>• Ven 11 déc - 15h00 (Tout public)</div>
+              </div>
+              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="simple-comme-bonjour">
+                <i class="fas fa-ticket-alt"></i>
+                Réserver
+              </a>
+            </div>
+            <div class="showtime-item">
+              <div class="showtime-date">13 décembre 2025</div>
+              <div class="showtime-location">
+                <i class="fas fa-map-marker-alt"></i>
+                Rabat - Théâtre Bahnini
+              </div>
+              <div class="showtime-details" style="font-size: 0.9rem; color: #666; margin: 8px 0;">
+                <div>• Dim 13 déc - 15h00 (Tout public)</div>
+              </div>
+              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="simple-comme-bonjour">
                 <i class="fas fa-ticket-alt"></i>
                 Réserver
               </a>
@@ -2092,7 +2136,7 @@
   </div>
 
   <!-- Footer -->
-  <div class="vs-footer bg-title">
+  <div class="vs-footer" style="background: #000;">
     <div class="vs-footer__top z-index-common space-extra-top space-extra-bottom">
       <div class="container">
         <div class="row gy-4 gx-xxl-5">
@@ -2100,7 +2144,7 @@
             <div class="vs-footer__widget">
               <div class="vs-footer__logo text-center text-md-start mb-25">
                 <a href="/" class="vs-logo">
-                  <img src="assets/img/Asset 2@4x.png" alt="L'École des jeunes spectateurs" style="height: 120px; width: auto; max-width: none !important;">
+                  <img src="assets/img/Asset 2@4x.png" alt="L'École des jeunes spectateurs" style="height: 80px; width: auto; max-width: none !important;">
                 </a>
               </div>
               <p class="vs-footer__desc text-center text-md-start" style="color: white;">

@@ -434,9 +434,9 @@ class AuthManager {
   }
 
   getSessionsForUserType(spectacleId, userType, professionalType) {
-    // Session data from Hello Planet app
+    // Complete session data based on provided schedule
     const SESSIONS = [
-      // LE PETIT PRINCE
+      // LE PETIT PRINCE - OCTOBRE
       { id: 'lpp-1', date: '2025-10-04', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public', spectacleId: 'le-petit-prince', month: 'octobre' },
       { id: 'lpp-2', date: '2025-10-06', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'le-petit-prince', month: 'octobre' },
       { id: 'lpp-3', date: '2025-10-06', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee', spectacleId: 'le-petit-prince', month: 'octobre' },
