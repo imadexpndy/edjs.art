@@ -273,16 +273,15 @@
     }
 
     .achievement-card-inner {
-      background: rgba(255, 255, 255, 0.9);
+      background: white;
       border-radius: 20px;
-      padding: 30px 20px;
-      text-align: center;
+      padding: 40px 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       width: 100%;
-      max-width: 180px;
+      max-width: 200px;
       border: 2px solid transparent;
-      height: 140px;
+      height: 160px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1275,7 +1274,54 @@
         position: relative !important;
       }
       
-      .vs-about--image__figure1 {
+      /* Mobile Video Container Fixes */
+      .video-container-responsive {
+        width: 100% !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+      }
+      
+      .video-wrapper {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+      }
+      
+      /* Remove spacing between sections on mobile */
+      .vs-about--section {
+        margin-top: 0 !important;
+        padding-top: 40px !important;
+      }
+      
+      /* Spectacle Cards Mobile Fixes */
+      .vs-class {
+        height: auto !important;
+        min-height: 400px !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+      }
+      
+      .vs-class__figure {
+        height: 200px !important;
+        padding: 15px !important;
+      }
+      
+      .vs-class__figure--img {
+        height: 100% !important;
+        width: auto !important;
+        max-width: 100% !important;
+      }
+      
+      .vs-class__content {
+        padding: 15px !important;
+      }
+      
+      .vs-class__bottom {
+        padding: 10px 15px 15px !important;
+      }
+    }
+    
+    .vs-about--image__figure1 {
         position: relative !important;
         display: inline-block !important;
         margin: 0 auto 20px !important;
@@ -1564,6 +1610,25 @@
   .vs-about--image__figure1 {
     width: 150px !important;
     height: 170px !important;
+  }
+  
+  /* Extra Small Mobile Video Fixes */
+  .video-container-responsive {
+    width: 100% !important;
+    max-width: 95% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+  
+  .video-wrapper {
+    max-width: 100% !important;
+  }
+  
+  /* Remove extra spacing on very small screens */
+  .vs-about--section {
+    margin-top: 0 !important;
+    padding-top: 30px !important;
+  }
   }
   
   .vs-about--image__figure2 {
@@ -1979,15 +2044,15 @@
     <!-- Hero End -->
     
     <!-- About Section -->
-    <section class="vs-about--section space space-extra-bottom z-index-common parallax-wrap overflow-hidden" style="background-color: #ffffff !important; background-image: none !important;">
+    <section class="vs-about--section space-top space-extra-bottom z-index-common parallax-wrap overflow-hidden" style="background-color: #ffffff !important; background-image: none !important; margin-top: 0 !important; padding-top: 60px !important;">
       <img src="assets/img/icon edjs-36.png" alt="L'École des jeunes spectateurs Rocket" class="rocket-floating" data-wow-delay="0.35s" style="width: 120px !important; height: 120px !important; max-width: 120px !important; max-height: 120px !important; z-index: 9999 !important; position: fixed !important; right: 8% !important; top: 50% !important; animation: rocketFloat 3s ease-in-out infinite !important; transform: translateY(-50%) !important;">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.25s">
             <div class="vs-about--image">
-              <div class="vs-about--image__figure2 wow animate__fadeInUp wow-animated video-container-responsive" data-wow-delay="0.35s" style="width: 120%; max-width: 1100px; height: auto; border-radius: 15px; overflow: hidden; margin-left: -250px; visibility: visible; animation-delay: 0.35s; animation-name: fadeInUp;">
-                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden;">
-                  <iframe style="position: absolute; top: -60px; left: -100px; width: 120%; height: 120%; border-radius: 15px; transform: scale(1.3);" src="https://www.youtube.com/embed/tZEYiQX4ijs?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=tZEYiQX4ijs&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;fs=0&amp;disablekb=1" title="Vidéo de Présentation - École des jeunes spectateurs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+              <div class="vs-about--image__figure2 wow animate__fadeInUp wow-animated video-container-responsive" data-wow-delay="0.35s" style="width: 100%; max-width: 500px; height: auto; border-radius: 15px; overflow: hidden; margin: 0 auto; visibility: visible; animation-delay: 0.35s; animation-name: fadeInUp;">
+                <div class="video-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden; margin: 0 auto;">
+                  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;" src="https://www.youtube.com/embed/tZEYiQX4ijs?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=tZEYiQX4ijs&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;cc_load_policy=0&amp;fs=0&amp;disablekb=1" title="Vidéo de Présentation - École des jeunes spectateurs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
                   </iframe>
                 </div>
               </div>
@@ -2004,7 +2069,7 @@
             <div class="vs-about--right">
               <div class="vs-title title-anime animation-style2">
                 <div class="title-anime__wrap">
-                  <span class="vs-title__sub">Notre Mission</span>
+                  <span class="vs-title__sub">NOTRE MISSION</span>
                   <h2 class="vs-title__main">
                     Former un public éclairé et passionné par les arts vivants.
                   </h2>
@@ -2051,7 +2116,7 @@
                 <i class="fas fa-theater-masks" style="font-size: 60px; color: #BDCF00;"></i>
               </div>
               <h4 style="color: #333; margin-bottom: 15px;">Excellence Artistique</h4>
-              <p style="color: #666; line-height: 1.6; margin: 0;">
+              <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">
                 Nous concoctons minutieusement chaque spectacle pour vous garantir une expérience culturelle et artistique régulière, enrichissante et de qualité.
               </p>
             </div>
@@ -2063,7 +2128,7 @@
                 <i class="fas fa-heart" style="font-size: 60px; color: #BDCF00;"></i>
               </div>
               <h4 style="color: #333; margin-bottom: 15px;">Inclusion Sociale</h4>
-              <p style="color: #666; line-height: 1.6; margin: 0;">
+              <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">
                 Nous veillons à assurer un large accès aux arts vivants et à la culture pour tous les enfants quel que soit leurs milieux
               </p>
             </div>
@@ -2075,7 +2140,7 @@
                 <i class="fas fa-lightbulb" style="font-size: 60px; color: #BDCF00;"></i>
               </div>
               <h4 style="color: #333; margin-bottom: 15px; white-space: nowrap;">Innovation Pédagogique</h4>
-              <p style="color: #666; line-height: 1.6; margin: 0;">
+              <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">
                 Nous créons des ponts entre art et éducation, développant l'esprit critique et la sensibilité artistique des enfants.
               </p>
             </div>
@@ -2112,7 +2177,7 @@
                   <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
                     <i class="fas fa-users" style="color: white; font-size: 20px;"></i>
                   </div>
-                  <p style="color: #666; line-height: 1.6; margin: 0;">Sensibiliser les enfants au rôle et aux droits d'un spectateur</p>
+                  <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">Sensibiliser les enfants au rôle et aux droits d'un spectateur</p>
                 </div>
                 
                 <!-- Block 2 - Interactive -->
@@ -2121,7 +2186,7 @@
                   <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
                     <i class="fas fa-theater-masks" style="color: white; font-size: 20px;"></i>
                   </div>
-                  <p style="color: #666; line-height: 1.6; margin: 0;">Créer, produire et diffuser des pièces de théâtre originales</p>
+                  <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">Créer, produire et diffuser des pièces de théâtre originales</p>
                   <div class="hover-button" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: #BDCF00; color: #333; padding: 12px 20px; border-radius: 25px; font-size: 13px; font-weight: 700; white-space: nowrap; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; box-shadow: 0 8px 25px rgba(189, 207, 0, 0.4); border: none; cursor: pointer;">
                     DÉCOUVREZ NOS CRÉATIONS
                   </div>
@@ -2133,7 +2198,7 @@
                   <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
                     <i class="fas fa-star" style="color: white; font-size: 20px;"></i>
                   </div>
-                  <p style="color: #666; line-height: 1.6; margin: 0;">Offrir une qualité artistique exigeante et adaptée aux jeunes publics</p>
+                  <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">Offrir une qualité artistique exigeante et adaptée aux jeunes publics</p>
                 </div>
                 
                 <!-- Block 4 -->
@@ -2142,7 +2207,7 @@
                   <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
                     <i class="fas fa-cogs" style="color: white; font-size: 20px;"></i>
                   </div>
-                  <p style="color: #666; line-height: 1.6; margin: 0;">Garantir un déploiement fluide et accessible du programme</p>
+                  <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">Garantir un déploiement fluide et accessible du programme</p>
                 </div>
                 
                 <!-- Block 5 -->
@@ -2151,7 +2216,7 @@
                   <div class="block-icon" style="width: 50px; height: 50px; background: linear-gradient(135deg, #BDCF00, #9BB800); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 6px 15px rgba(189, 207, 0, 0.3);">
                     <i class="fas fa-heart" style="color: white; font-size: 20px;"></i>
                   </div>
-                  <p style="color: #666; line-height: 1.6; margin: 0;">Transmettre des valeurs éducatives, citoyennes et artistiques</p>
+                  <p style="color: #666; line-height: 1.6; margin: 0; font-size: 16px;">Transmettre des valeurs éducatives, citoyennes et artistiques</p>
                 </div>
               </div>
             </div>
@@ -2235,7 +2300,7 @@
                     <a class="vs-service__heading--link" href="service-details" style="text-decoration: none; color: inherit;">
                       <h3 class="vs-service__heading" style="margin-bottom: 10px; font-size: 24px; font-weight: 800; color: #333;">Écoles Publiques</h3>
                     </a>
-                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 12px;">Programme accessibles à vos élèves après validation de dossier avec dispositif pédagogique complet.</p>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 15px;">Programme accessibles à vos élèves après validation de dossier avec dispositif pédagogique complet.</p>
                     <div style="margin-top: auto; display: flex; align-items: center; justify-content: flex-start;"><a href="https://app.edjs.art/" class="btn" style="background: #BDCF00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 12px; transition: all 0.3s ease;">Inscrivez-vous</a></div>
                   </div>
                 </div>
@@ -2258,7 +2323,7 @@
                     <a class="vs-service__heading--link" href="service-details" style="text-decoration: none; color: inherit;">
                       <h3 class="vs-service__heading" style="margin-bottom: 10px; font-size: 24px; font-weight: 800; color: #333;">Écoles Privées</h3>
                     </a>
-                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 12px;">Tarifs préférentiels pour écoles et groupes avec outils pédagogiques adaptés et personnalisés.</p>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 15px;">Tarifs préférentiels pour écoles et groupes avec outils pédagogiques adaptés et personnalisés.</p>
                     <div style="margin-top: auto; display: flex; align-items: center; justify-content: flex-start;"><a href="https://app.edjs.art/" class="btn" style="background: #BDCF00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 12px; transition: all 0.3s ease;">Inscrivez-vous</a></div>
                   </div>
                 </div>
@@ -2304,7 +2369,7 @@
                     <a class="vs-service__heading--link" href="families" style="text-decoration: none; color: inherit;">
                       <h3 class="vs-service__heading" style="margin-bottom: 10px; font-size: 24px; font-weight: 800; color: #333;">Familles</h3>
                     </a>
-                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 12px;">Réservation en ligne simple avec billets QR instantanés et paiement sécurisé par carte.</p>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 15px;">Réservation en ligne simple avec billets QR instantanés et paiement sécurisé par carte.</p>
                     <div style="margin-top: auto; display: flex; align-items: center; justify-content: flex-start;"><a href="https://app.edjs.art/" class="btn" style="background: #BDCF00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 12px; transition: all 0.3s ease;">Inscrivez-vous</a></div>
                   </div>
                 </div>
@@ -2327,7 +2392,7 @@
                     <a class="vs-service__heading--link" href="partners.html" style="text-decoration: none; color: inherit;">
                       <h3 class="vs-service__heading" style="margin-bottom: 10px; font-size: 24px; font-weight: 800; color: #333;">Partenaires</h3>
                     </a>
-                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 12px;">Collaboration avec institutions culturelles et éducatives pour élargir l'accès à la culture théâtrale.</p>
+                    <p class="vs-service__text" style="color: #666; line-height: 1.4; margin-bottom: 10px; font-size: 15px;">Collaboration avec institutions culturelles et éducatives pour élargir l'accès à la culture théâtrale.</p>
                     <div style="margin-top: auto; display: flex; align-items: center; justify-content: flex-start;"><a href="https://app.edjs.art/" class="btn" style="background: #BDCF00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 12px; transition: all 0.3s ease;">Inscrivez-vous</a></div>
                   </div>
                 </div>
@@ -3041,6 +3106,40 @@
   <!-- Responsive Cards CSS -->
   <style>
     @media (max-width: 768px) {
+      /* Spectacle Cards Mobile Fixes */
+      .vs-class {
+        height: auto !important;
+        min-height: 450px !important;
+        max-width: 320px !important;
+        margin: 0 auto 20px !important;
+      }
+      
+      .vs-class__figure {
+        height: 220px !important;
+        padding: 15px !important;
+      }
+      
+      .vs-class__figure--img {
+        height: 100% !important;
+        width: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+      }
+      
+      .vs-class__content {
+        padding: 15px 20px !important;
+      }
+      
+      .vs-class__heading {
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
+      }
+      
+      .vs-class__text {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+      }
+      
       .vs-class__bottom {
         flex-direction: column !important;
         gap: 8px !important;
