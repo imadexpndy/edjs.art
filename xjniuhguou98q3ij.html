@@ -7,8 +7,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>L'ecole du Jeune Spectateur</title>
   <meta name="author" content="L'École des jeunes spectateurs">
-  <meta name="description" content="Un spectacle joyeux et interactif qui apprend aux enfants les valeurs de politesse, de respect et de vivre ensemble à travers des situations du quotidien.">
-  <meta name="keywords" content="simple comme bonjour, politesse, respect, vivre ensemble, éducation, valeurs, enfants, théâtre, L'École des jeunes spectateurs">
+  <meta name="description" content="L'adaptation théâtrale du chef-d'œuvre de Saint-Exupéry. Un voyage poétique et philosophique à travers les étoiles et les rencontres extraordinaires.">
+  <meta name="keywords" content="le petit prince, saint-exupéry, voyage, étoiles, poésie, philosophie, enfants, théâtre, L'École des jeunes spectateurs">
   <meta name="robots" content="INDEX,FOLLOW">
 
   <!-- Mobile Specific Metas -->
@@ -264,9 +264,7 @@
 
   <style>
     :root {
-      --primary-color: #FF6B6B;
-      --secondary-color: #4ECDC4;
-      --accent-color: #FFE66D;
+      --primary-color: #BDCF00;
       --text-dark: #2c3e50;
       --text-light: #6c757d;
       --bg-light: #f8f9fa;
@@ -410,7 +408,7 @@
     }
 
     .tv-frame {
-      background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(145deg, #BDCF00, #D4E157);
       border-radius: 20px;
       padding: 30px 25px 40px 25px;
       box-shadow: 
@@ -783,16 +781,15 @@
     }
 
     .btn-primary {
-      background: var(--accent-color);
-      color: var(--text-dark);
+      background: white;
+      color: #BDCF00;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      color: var(--text-dark);
-      background: var(--accent-color);
+      color: #BDCF00;
     }
 
     .btn-secondary {
@@ -1699,7 +1696,173 @@
         setTimeout(() => successMsg.remove(), 3000);
       });
     });
+
+    // User Type Selector Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const userTypeButtons = document.querySelectorAll('.user-type-btn');
+      const ageLevelPill = document.getElementById('age-level-pill');
+      const ageLevelText = document.getElementById('age-level-text');
+      
+      // Set default user type
+      let currentUserType = 'particulier';
+      
+      // Update content based on user type
+      function updateContentForUserType(userType) {
+        currentUserType = userType;
+        
+        // Update button styles
+        userTypeButtons.forEach(btn => {
+          if (btn.dataset.type === userType) {
+            btn.style.background = '#28a745';
+            btn.style.color = 'white';
+            btn.style.border = 'none';
+          } else {
+            btn.style.background = 'transparent';
+            btn.style.color = '#666';
+            btn.style.border = '1px solid #ccc';
+          }
+        });
+        
+        // Update age/study level display in hero section
+        if (ageLevelPill && ageLevelText) {
+          if (userType === 'scolaire-privee') {
+            ageLevelText.innerHTML = 'CM1, CM2, Collège';
+            ageLevelPill.querySelector('i').className = 'fas fa-graduation-cap';
+          } else if (userType === 'scolaire-publique') {
+            ageLevelText.innerHTML = 'CM1, CM2, Collège';
+            ageLevelPill.querySelector('i').className = 'fas fa-school';
+          } else if (userType === 'association') {
+            ageLevelText.innerHTML = '7 ans et +';
+            ageLevelPill.querySelector('i').className = 'fas fa-users';
+          } else {
+            ageLevelText.innerHTML = '7 ans et +';
+            ageLevelPill.querySelector('i').className = 'fas fa-child';
+          }
+        }
+        
+        // Update sidebar age display
+        const sidebarAgeLevel = document.getElementById('sidebar-age-level-text');
+        const sidebarAgeLevelIcon = document.querySelector('#sidebar-age-level i');
+        if (sidebarAgeLevel && sidebarAgeLevelIcon) {
+          if (userType === 'scolaire-privee') {
+            sidebarAgeLevel.innerHTML = 'Niveau recommandé : CM1, CM2, Collège';
+            sidebarAgeLevelIcon.className = 'fas fa-graduation-cap';
+          } else if (userType === 'scolaire-publique') {
+            sidebarAgeLevel.innerHTML = 'Niveau recommandé : CM1, CM2, Collège';
+            sidebarAgeLevelIcon.className = 'fas fa-school';
+          } else if (userType === 'association') {
+            sidebarAgeLevel.innerHTML = 'Âge recommandé : 7 ans et +';
+            sidebarAgeLevelIcon.className = 'fas fa-users';
+          } else {
+            sidebarAgeLevel.innerHTML = 'Âge recommandé : 7 ans et +';
+            sidebarAgeLevelIcon.className = 'fas fa-child';
+          }
+        }
+        
+        // Update sessions display
+        updateSessionsForUserType(userType);
+      }
+      
+      // Update sessions based on user type
+      function updateSessionsForUserType(userType) {
+        const sessionsContainer = document.querySelector('.sidebar-card h3');
+        if (!sessionsContainer || !sessionsContainer.innerHTML.includes('Séances Disponibles')) {
+          return;
+        }
+        
+        const sidebarCard = sessionsContainer.closest('.sidebar-card');
+        if (!sidebarCard) return;
+        
+        // Clear existing sessions
+        const existingSessions = sidebarCard.querySelectorAll('.showtime-item');
+        existingSessions.forEach(item => item.remove());
+        
+        // Session data for Le Petit Prince
+        const sessions = [
+          { date: '2025-10-04', time: '15:00', location: 'RABAT THEATRE BAHNINI', audienceType: 'tout-public' },
+          { date: '2025-10-06', time: '09:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee' },
+          { date: '2025-10-06', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'scolaire-privee' },
+          { date: '2025-10-07', time: '14:30', location: 'RABAT THEATRE BAHNINI', audienceType: 'association' },
+          { date: '2025-10-09', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-publique' },
+          { date: '2025-10-09', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'association' },
+          { date: '2025-10-10', time: '09:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee' },
+          { date: '2025-10-10', time: '14:30', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'scolaire-privee' },
+          { date: '2025-10-11', time: '15:00', location: 'CASABLANCA COMPLEXE EL HASSANI', audienceType: 'tout-public' }
+        ];
+        
+        // Filter sessions based on user type
+        let filteredSessions = [];
+        if (userType === 'scolaire-privee') {
+          filteredSessions = sessions.filter(s => s.audienceType === 'scolaire-privee');
+        } else if (userType === 'scolaire-publique') {
+          filteredSessions = sessions.filter(s => s.audienceType === 'scolaire-publique');
+        } else if (userType === 'association') {
+          filteredSessions = sessions.filter(s => s.audienceType === 'association');
+        } else {
+          filteredSessions = sessions.filter(s => s.audienceType === 'tout-public');
+        }
+        
+        // Add filtered sessions
+        filteredSessions.forEach(session => {
+          const sessionDiv = document.createElement('div');
+          sessionDiv.className = 'showtime-item';
+          sessionDiv.style.cssText = 'background: var(--bg-light); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid var(--primary-color);';
+          
+          const date = new Date(session.date);
+          const formattedDate = date.toLocaleDateString('fr-FR', { 
+            day: 'numeric', 
+            month: 'long', 
+            year: 'numeric' 
+          });
+          
+          const city = session.location.includes('RABAT') ? 'Rabat' : 'Casablanca';
+          
+          sessionDiv.innerHTML = `
+            <div class="showtime-date" style="font-weight: 600; color: var(--text-dark); margin-bottom: 0.25rem; font-family: 'Raleway', sans-serif;">${formattedDate}</div>
+            <div class="showtime-time" style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 0.75rem; font-family: 'Raleway', sans-serif;">${city} - ${session.time}</div>
+            <button class="showtime-btn" onclick="window.handleReservation()" style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: all 0.3s ease; font-family: 'Raleway', sans-serif; cursor: pointer;">
+              <i class="fas fa-ticket-alt"></i>
+              Réserver
+            </button>
+          `;
+          
+          sidebarCard.appendChild(sessionDiv);
+        });
+      }
+      
+      // Add click handlers to user type buttons
+      userTypeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const userType = this.dataset.type;
+          updateContentForUserType(userType);
+        });
+      });
+      
+      // Initialize with default user type
+      updateContentForUserType('particulier');
+    });
   </script>
+
+  <!-- User Type Selector -->
+  <div id="user-type-selector" style="background: rgba(189, 207, 0, 0.05); border-bottom: 1px solid rgba(189, 207, 0, 0.1); padding: 12px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 20px;">
+      <span style="font-weight: 600; color: #333; font-size: 16px;">Voir les informations pour :</span>
+      <div style="display: flex; gap: 10px;">
+        <button class="user-type-btn" data-type="particulier" style="background: #28a745; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-user"></i> Particulier
+        </button>
+        <button class="user-type-btn" data-type="scolaire-privee" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-graduation-cap"></i> École Privée
+        </button>
+        <button class="user-type-btn" data-type="scolaire-publique" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-school"></i> École Publique
+        </button>
+        <button class="user-type-btn" data-type="association" style="background: transparent; border: 1px solid #ccc; color: #666; padding: 8px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;">
+          <i class="fas fa-users"></i> Association
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="spectacle-hero">
@@ -1707,8 +1870,8 @@
     <div class="vintage-tv-container">
       <div class="tv-frame">
         <div class="tv-screen">
-          <video class="tv-video" preload="none">
-            <source src="assets/videos/simple-comme-bonjour-trailer.mp4" type="video/mp4">
+          <video class="tv-video" autoplay muted loop>
+            <source src="assets/videos/le-petit-prince-trailer.mp4" type="video/mp4">
           </video>
           <div class="play-button-overlay">
             <i class="fas fa-play"></i>
@@ -1722,27 +1885,27 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="hero-badge">
-              <i class="fas fa-smile me-2"></i>
-              Spectacle Éducatif
+              <i class="fas fa-star me-2"></i>
+              Spectacle Familial
             </div>
-            <h1 class="hero-title">Simple Comme Bonjour</h1>
-            <p class="hero-subtitle">Apprendre le vivre ensemble avec politesse et respect</p>
+            <h1 class="hero-title">Le Petit Prince</h1>
+            <p class="hero-subtitle">Un voyage poétique à travers les étoiles</p>
             <div class="info-pills">
               <span class="info-pill" style="font-size: 1rem; padding: 0.6rem 1.2rem;">
-                <i class="fas fa-clock"></i>35 min
+                <i class="fas fa-clock"></i>50 min
               </span>
               <span class="info-pill" style="font-size: 1rem; padding: 0.6rem 1.2rem;">
                 <i class="fas fa-users"></i>3 comédiens
               </span>
               <span class="info-pill" id="age-level-pill" style="font-size: 1rem; padding: 0.6rem 1.2rem;">
-                <i class="fas fa-child"></i><span id="age-level-text">3 ans et +</span>
+                <i class="fas fa-child"></i><span id="age-level-text">7 ans et +</span>
               </span>
               <span class="info-pill" style="font-size: 1rem; padding: 0.6rem 1.2rem;">
-                <i class="fas fa-handshake"></i>Civique
+                <i class="fas fa-star"></i>Poétique
               </span>
             </div>
             <div class="hero-buttons">
-              <a href="reservation-simple-comme-bonjour.html" class="btn-primary">
+              <a href="reservation-le-petit-prince.html" class="btn-primary">
                 <i class="fas fa-ticket-alt"></i>
                 Réserver Maintenant
               </a>
@@ -1757,29 +1920,29 @@
     </div>
 
     <div class="hero-character">
-      <img src="assets/img/spectacles elements/simple-bonjour@4x.png" alt="Simple Comme Bonjour Character">
+      <img src="assets/img/spectacles elements/petit prince@4x.png" alt="Le Petit Prince Character">
     </div>
     
     <div class="hero-right">
       <div class="hero-slider">
         <div class="slider-container">
           <div class="slide">
-            <img src="assets/img/spectacles/simple-bonjour.png" alt="Simple Comme Bonjour - Photo 1">
+            <img src="assets/img/affiche LPP VF .jpeg" alt="Le Petit Prince - Photo 1">
               <div class="slide">
-                <img src="assets/img/spectacles/simple-bonjour.png" alt="Simple Comme Bonjour - Photo 1">
+                <img src="assets/img/affiche LPP VF .jpeg" alt="Le Petit Prince - Photo 1">
               </div>
               <div class="slide">
-                <img src="assets/img/spectacle-posters/simple-bonjour-poster.jpg" alt="Simple Comme Bonjour - Photo 2">
+                <img src="assets/img/spectacle-posters/petit-prince-poster.jpg" alt="Le Petit Prince - Photo 2">
               </div>
               <div class="slide">
-                <img src="assets/img/spectacle-posters/simple-bonjour-poster-new.jpg" alt="Simple Comme Bonjour - Photo 3">
+                <img src="assets/img/spectacle-posters/petit-prince-poster-new.jpg" alt="Le Petit Prince - Photo 3">
               </div>
               <div class="slide active">
                 <div class="vintage-tv-container">
                   <div class="tv-frame">
                     <div class="tv-screen">
-                      <video class="tv-video" poster="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_007.jpg" preload="none">
-                        <source src="assets/video/simple-bonjour-trailer.mp4" type="video/mp4">
+                      <video class="tv-video" poster="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_032.jpg">
+                        <source src="assets/video/petit-prince-trailer.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>
                       <div class="play-button-overlay">
@@ -1827,10 +1990,10 @@
               Histoire & Synopsis
             </h2>
             <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
-              Découvrez un spectacle interactif qui enseigne aux plus petits les bases de la politesse et du savoir-vivre à travers des situations amusantes du quotidien : dire bonjour, merci, s'il vous plaît...
+              Suivez le Petit Prince dans son voyage extraordinaire de planète en planète, à la rencontre de personnages étonnants : le roi, le vaniteux, l'allumeur de réverbères...
             </p>
             <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 2rem;">
-              Un spectacle éducatif et joyeux qui transmet les valeurs essentielles du vivre ensemble. Les enfants apprennent en s'amusant et participent activement à cette leçon de civisme adaptée à leur âge.
+              Cette adaptation fidèle du chef-d'œuvre de Saint-Exupéry nous rappelle l'importance de l'amitié, de l'amour et de garder son âme d'enfant. Un spectacle poétique qui touche le cœur de toute la famille.
             </p>
             
             <!-- PDF Pedagogical Guide -->
@@ -1842,13 +2005,14 @@
               <div class="pdf-viewer-container">
                 <div class="pdf-placeholder">
                   <i class="fas fa-file-pdf" style="font-size: 3rem; color: #e74c3c; margin-bottom: 1rem;"></i>
-                  <embed src="assets/dossiers-pedagogiques/simple-bonjour-dossier-pedagogique.pdf" type="application/pdf" width="100%" height="400px" style="border-radius: 10px; border: 2px solid var(--primary-color);">
-                  <p style="text-align: center; margin-top: 1rem;">
-                    <a href="assets/dossiers-pedagogiques/simple-bonjour-dossier-pedagogique.pdf" target="_blank" class="btn-primary" style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">
-                      <i class="fas fa-download"></i>
-                      Télécharger le PDF
-                    </a>
-                  </p>
+                  <p>Livret pédagogique disponible</p>
+                  <p style="font-size: 0.9rem; color: var(--text-light);">Le lien PDF sera ajouté prochainement</p>
+                </div>
+                <div class="pdf-actions">
+                  <button class="btn-pdf-download" disabled>
+                    <i class="fas fa-download"></i>
+                    Télécharger le PDF
+                  </button>
                   <button class="btn-pdf-view" disabled>
                     <i class="fas fa-eye"></i>
                     Visualiser
@@ -1866,37 +2030,37 @@
             </h2>
             <div class="gallery-grid">
               <div class="gallery-item">
-                <img src="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_007.jpg" alt="Simple Comme Bonjour - Photo 1" class="gallery-img">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_007.jpg" alt="Le Petit Prince - Photo 1" class="gallery-img">
                 <div class="gallery-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_013.jpg" alt="Simple Comme Bonjour - Photo 2" class="gallery-img">
+                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_015.jpg" alt="Le Petit Prince - Photo 2" class="gallery-img">
                 <div class="gallery-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_017.jpg" alt="Simple Comme Bonjour - Photo 3" class="gallery-img">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_035.jpg" alt="Le Petit Prince - Photo 3" class="gallery-img">
                 <div class="gallery-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_032.jpg" alt="Simple Comme Bonjour - Photo 4" class="gallery-img">
+                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_025.jpg" alt="Le Petit Prince - Photo 4" class="gallery-img">
                 <div class="gallery-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_038.jpg" alt="Simple Comme Bonjour - Photo 5" class="gallery-img">
+                <img src="assets/img/gallery/Photo LPP/Le_Petit_Prince_Web_074.jpg" alt="Le Petit Prince - Photo 5" class="gallery-img">
                 <div class="gallery-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="assets/img/gallery/Simple-Bonjour/Simple_Bonjour_Web_044.jpg" alt="Simple Comme Bonjour - Photo 6" class="gallery-img">
+                <img src="assets/img/gallery/Photo LPP2/Le_Petit_Prince_Web_040.jpg" alt="Le Petit Prince - Photo 6" class="gallery-img">
                 <div class="gallery-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
@@ -1950,9 +2114,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="review-author">Aicha B. - Parent</div>
+                  <div class="review-author">Sarah M. - Parent</div>
                 </div>
-                <p class="review-text">"Parfait pour apprendre la politesse ! Mon fils de 4 ans dit maintenant 'bonjour' et 'merci' naturellement après avoir vu ce spectacle."</p>
+                <p class="review-text">"Magique ! Ma fille de 7 ans a été transportée dans l'univers du Petit Prince. Les messages de Saint-Exupéry touchent vraiment."</p>
               </div>
               <div class="review-item">
                 <div class="review-header">
@@ -1963,9 +2127,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="review-author">Youssef M. - Enseignant</div>
+                  <div class="review-author">Ahmed K. - Enseignant</div>
                 </div>
-                <p class="review-text">"Un excellent outil pédagogique ! Les enfants apprennent les règles de politesse en s'amusant. Très interactif et éducatif."</p>
+                <p class="review-text">"Une adaptation respectueuse et poétique. Parfait pour initier les enfants à la littérature française classique."</p>
               </div>
               <div class="review-item">
                 <div class="review-header">
@@ -1976,9 +2140,9 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="review-author">Laila K. - Directrice d'école</div>
+                  <div class="review-author">Fatima L. - Grand-mère</div>
                 </div>
-                <p class="review-text">"Simple comme bonjour, mais tellement efficace ! Les valeurs du vivre ensemble sont transmises avec humour et bienveillance."</p>
+                <p class="review-text">"Un spectacle intemporel qui parle à tous les âges. J'ai redécouvert l'histoire avec mes petits-enfants !"</p>
               </div>
             </div>
           </div>
@@ -2026,47 +2190,33 @@
           <div class="sidebar-card">
             <h3 style="font-size: 1.4rem; font-weight: 700;"><i class="fas fa-calendar-alt"></i> Séances Disponibles</h3>
             <div class="showtime-item">
-              <div class="showtime-date">4, 6 et 7 décembre 2025</div>
+              <div class="showtime-date">4, 6 et 7 octobre 2025</div>
               <div class="showtime-location">
                 <i class="fas fa-map-marker-alt"></i>
                 Rabat - Théâtre Bahnini
               </div>
               <div class="showtime-details" style="font-size: 0.9rem; color: #666; margin: 8px 0;">
-                <div>• Sam 4 déc - 15h00 (Tout public)</div>
-                <div>• Lun 6 déc - 9h30 & 14h30 (Écoles privées)</div>
-                <div>• Mar 7 déc - 14h30 (Écoles publiques & Associations)</div>
+                <div>• Sam 4 oct - 15h00 (Tout public)</div>
+                <div>• Lun 6 oct - 9h30 & 14h30 (Écoles privées)</div>
+                <div>• Mar 7 oct - 14h30 (Écoles publiques & Associations)</div>
               </div>
-              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="simple-comme-bonjour">
+              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="le-petit-prince">
                 <i class="fas fa-ticket-alt"></i>
                 Réserver
               </a>
             </div>
             <div class="showtime-item">
-              <div class="showtime-date">9, 10 et 11 décembre 2025</div>
+              <div class="showtime-date">9, 10 et 11 octobre 2025</div>
               <div class="showtime-location">
                 <i class="fas fa-map-marker-alt"></i>
                 Casablanca - Complexe El Hassani
               </div>
               <div class="showtime-details" style="font-size: 0.9rem; color: #666; margin: 8px 0;">
-                <div>• Mer 9 déc - 9h30 (Écoles publiques) & 14h30 (Associations)</div>
-                <div>• Jeu 10 déc - 9h30 & 14h30 (Écoles privées)</div>
-                <div>• Ven 11 déc - 15h00 (Tout public)</div>
+                <div>• Mer 9 oct - 9h30 (Écoles publiques) & 14h30 (Associations)</div>
+                <div>• Jeu 10 oct - 9h30 & 14h30 (Écoles privées)</div>
+                <div>• Ven 11 oct - 15h00 (Tout public)</div>
               </div>
-              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="simple-comme-bonjour">
-                <i class="fas fa-ticket-alt"></i>
-                Réserver
-              </a>
-            </div>
-            <div class="showtime-item">
-              <div class="showtime-date">13 décembre 2025</div>
-              <div class="showtime-location">
-                <i class="fas fa-map-marker-alt"></i>
-                Rabat - Théâtre Bahnini
-              </div>
-              <div class="showtime-details" style="font-size: 0.9rem; color: #666; margin: 8px 0;">
-                <div>• Dim 13 déc - 15h00 (Tout public)</div>
-              </div>
-              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="simple-comme-bonjour">
+              <a href="https://app.edjs.art/" class="showtime-btn reserve-btn" data-spectacle-id="le-petit-prince">
                 <i class="fas fa-ticket-alt"></i>
                 Réserver
               </a>
@@ -2078,19 +2228,19 @@
             <h3 style="font-size: 1.4rem; font-weight: 700;"><i class="fas fa-info-circle"></i> Informations Spectacle</h3>
             <div class="info-item" style="font-size: 1.1rem; font-weight: 600;">
               <i class="fas fa-clock"></i>
-              <span>Durée : 35 minutes</span>
+              <span>Durée : 50 minutes</span>
             </div>
-            <div class="info-item">
-              <i class="fas fa-users"></i>
-              <span>Nombre de comédiens : 3</span>
-            </div>
-            <div class="info-item">
+            <div class="info-item" style="font-size: 1.1rem; font-weight: 600;">
               <i class="fas fa-child"></i>
-              <span>Âge recommandé : 3 ans et +</span>
+              <span>Âge : 7 ans et +</span>
             </div>
-            <div class="info-item">
-              <i class="fas fa-smile"></i>
-              <span>Genre : Éducatif</span>
+            <div class="info-item" style="font-size: 1.1rem; font-weight: 600;">
+              <i class="fas fa-language"></i>
+              <span>Langue : Français</span>
+            </div>
+            <div class="info-item" style="font-size: 1.1rem; font-weight: 600;">
+              <i class="fas fa-users"></i>
+              <span>Genre : Poétique</span>
             </div>
             <div class="info-item" style="font-size: 1.1rem; font-weight: 600;">
               <i class="fas fa-theater-masks"></i>
@@ -2128,7 +2278,7 @@
   <!-- Sticky Reservation Button -->
   <div id="stickyReservation" style="position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); z-index: 50; opacity: 1; visibility: visible; transition: 0.3s;">
     <div style="background: white; border-radius: 2rem; padding: 0.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 2px solid var(--primary-color);">
-      <a href="https://alexpriier-cloud-hel-3u3k.bolt.host/" class="reservation-btn" style="animation: pulse 2s infinite; box-shadow: 0 2px 8px rgba(189, 207, 0, 0.3); padding: 0.5rem 1rem; font-size: 0.9rem;">
+      <a href="https://app.edjs.art/" class="reservation-btn reserve-btn" data-spectacle-id="le-petit-prince" style="animation: pulse 2s infinite; box-shadow: 0 2px 8px rgba(189, 207, 0, 0.3); padding: 0.5rem 1rem; font-size: 0.9rem;">
         <i class="fas fa-ticket-alt"></i>
         Réserver
       </a>
@@ -2296,7 +2446,10 @@
 
 
   <!-- Authentication Scripts -->
-  <script src="assets/js/supabase-config.js"></script>
-  <script src="assets/js/spectacles-auth.js"></script>
+  <script src="assets/js/simple-auth.js"></script>
+  <script src="assets/js/auth-manager.js"></script>
+  
+  <!-- Spectacle Sync Scripts -->
+  <script src="assets/js/spectacle-sync.js"></script>
 </body>
 </html>
