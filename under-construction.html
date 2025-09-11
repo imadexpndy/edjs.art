@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Site en Maintenance - L'École du Jeune Spectateur</title>
+  <meta name="author" content="L'École des jeunes spectateurs">
+  <meta name="description" content="Site temporairement en maintenance. Nous reviendrons bientôt avec de nouvelles fonctionnalités.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/4x/edjs favicon_1@4x.png">
+  <link rel="shortcut icon" href="assets/img/4x/edjs favicon_1@4x.png" type="image/png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    /* Simple Background */
+    .bg-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .bg-animation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    }
+    
+    /* Main Container - Horizontal Layout */
+    .construction-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: white;
+      max-width: 1200px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 60px 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+    }
+    
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+    
+    .main-content {
+      text-align: left;
+    }
+    
+    .side-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    
+    /* Logo */
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 30px;
+    }
+    
+    /* Construction Icon */
+    .construction-icon {
+      font-size: 80px;
+      color: #BDCF00;
+      margin-bottom: 30px;
+      text-align: center;
+      width: 100%;
+    }
+    
+    /* Typography */
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #BDCF00, #D4E157);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Amatic SC', cursive;
+    }
+    
+    .subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 40px;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    
+    /* Countdown */
+    .countdown-container {
+      margin: 50px 0;
+    }
+    
+    .countdown-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+    
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px 15px;
+      min-width: 100px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .countdown-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #BDCF00;
+      display: block;
+      line-height: 1;
+    }
+    
+    .countdown-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
+    
+    /* Progress Bar */
+    .progress-container {
+      margin: 40px 0;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #BDCF00, #D4E157);
+      border-radius: 10px;
+      width: 0%;
+      transition: width 1s ease;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(189, 207, 0, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(189, 207, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(189, 207, 0, 0); }
+    }
+    
+    .progress-text {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Contact Info */
+    .contact-info {
+      margin-top: 40px;
+      padding-top: 30px;
+      text-align: center;
+    }
+    
+    .contact-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #BDCF00;
+      font-family: 'Amatic SC', cursive;
+    }
+    
+    .contact-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.9rem;
+    }
+    
+    .contact-link:hover {
+      background: rgba(189, 207, 0, 0.2);
+      transform: translateY(-2px);
+      color: white;
+      border-color: #BDCF00;
+    }
+    
+    .contact-link i {
+      font-size: 1.1rem;
+      color: #BDCF00;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .construction-container {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+      
+      .main-title {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .countdown {
+        gap: 15px;
+      }
+      
+      .countdown-item {
+        min-width: 80px;
+        padding: 15px 10px;
+      }
+      
+      .countdown-number {
+        font-size: 2rem;
+      }
+      
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .main-title {
+        font-size: 2rem;
+      }
+      
+      .construction-icon {
+        font-size: 60px;
+      }
+      
+      .countdown-item {
+        min-width: 70px;
+        padding: 12px 8px;
+      }
+      
+      .countdown-number {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-animation">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <div class="construction-container">
+    <img src="assets/img/edjs-logo-green.png" alt="L'École du Jeune Spectateur" class="logo">
+    
+    <div class="construction-icon">
+      <i class="fas fa-tools"></i>
+    </div>
+    
+    <div class="content-wrapper">
+      <div class="main-content">
+        <h1 class="main-title">Site en Maintenance</h1>
+        
+        <p class="subtitle">
+          Nous travaillons actuellement sur de nouvelles fonctionnalités passionnantes pour améliorer votre expérience théâtrale. Notre site sera bientôt de retour avec une interface modernisée et de nouveaux services.
+        </p>
+        
+      </div>
+      
+      <div class="side-content">
+        <div class="contact-info">
+          <h3 class="contact-title">Restez en contact</h3>
+          <div class="contact-links">
+            <a href="mailto:contact@edjs.ma" class="contact-link">
+              <i class="fas fa-envelope"></i>
+              contact@edjs.ma
+            </a>
+            <a href="tel:+212661898407" class="contact-link">
+              <i class="fas fa-phone"></i>
+              (+212) 661898407
+            </a>
+            <a href="#" class="contact-link">
+              <i class="fab fa-facebook"></i>
+              Facebook
+            </a>
+            <a href="#" class="contact-link">
+              <i class="fab fa-instagram"></i>
+              Instagram
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Set the target date: 48 hours from now
+    const targetDate = new Date(Date.now() + (48 * 60 * 60 * 1000)).getTime();
+    const maintenanceEndDate = new Date(Date.now() + (48 * 60 * 60 * 1000)).getTime();
+    
+    function updateCountdown() {
+      const startDate = new Date().getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      // Check if maintenance should be over
+      const target_date = new Date(now + (48 * 60 * 60 * 1000));
+      const current_date = new Date();
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // If countdown is finished
+      if (distance < 0) {
+        // Redirect to main site after countdown ends
+        window.location.href = 'index.html';
+      }
+    }
+    
+    // Update countdown every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    
+    // Add some interactive effects
+    document.addEventListener('mousemove', (e) => {
+      const shapes = document.querySelectorAll('.shape');
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      
+      shapes.forEach((shape, index) => {
+        const speed = (index + 1) * 0.5;
+        shape.style.transform = `translate(${x * speed * 10}px, ${y * speed * 10}px)`;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,27 +1,65 @@
 RewriteEngine On
 
+# Check if maintenance is over (after Oct 13, 2025 10:00 AM)
+# Note: This is a time-based condition that should be removed after maintenance
+RewriteCond %{TIME} <20251013100000
+RewriteCond %{REQUEST_URI} !^/assets/
+RewriteCond %{REQUEST_URI} !^/under-construction\.html$
+
+# Redirect all other requests to under construction page during maintenance
+RewriteRule ^(.*)$ /under-construction.html [R=302,L]
+
+# Set proper headers for maintenance mode
+<IfModule mod_headers.c>
+    # Only set maintenance headers during maintenance period
+    Header always set Retry-After "Sun, 13 Oct 2025 10:00:00 GMT"
+    Header always set Cache-Control "no-cache, no-store, must-revalidate"
+    Header always set Pragma "no-cache"
+    Header always set Expires "0"
+</IfModule>
+
+# Return 503 Service Unavailable status for SEO during maintenance
+<Files "under-construction.html">
+    Header always set HTTP/1.1 503 Service Unavailable
+</Files>
+
+# Normal site rules (will be active after maintenance ends)
 # Remove .html extension from URLs
+RewriteCond %{TIME} >=20251013100000
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-# Redirect .html URLs to clean URLs (except for direct file access)
+# Redirect .html URLs to clean URLs (after maintenance)
+RewriteCond %{TIME} >=20251013100000
 RewriteCond %{THE_REQUEST} \s/+([^.]+)\.html[\s?] [NC]
 RewriteRule ^ /%1? [NC,L,R=301]
 
 # Handle specific pages
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^partners/?$ partners.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacles/?$ spectacles.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-alice-chez-les-merveilles/?$ spectacle-alice-chez-les-merveilles.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-antigone/?$ spectacle-antigone.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-casse-noisette/?$ spectacle-casse-noisette.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-charlotte/?$ spectacle-charlotte.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-estevanico/?$ spectacle-estevanico.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-le-petit-prince/?$ spectacle-le-petit-prince.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-leau-la/?$ spectacle-leau-la.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-lenfant-de-larbre/?$ spectacle-lenfant-de-larbre.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-simple-comme-bonjour/?$ spectacle-simple-comme-bonjour.html [NC,L]
+RewriteCond %{TIME} >=20251013100000
 RewriteRule ^spectacle-tara-sur-la-lune/?$ spectacle-tara-sur-la-lune.html [NC,L]
 
 # Force HTTPS (optional, for production)
